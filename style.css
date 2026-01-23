@@ -114,143 +114,6 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     .footer-wrap { flex-direction: row; justify-content: space-between; max-width: 1300px; margin: 0 auto; }
 }
 /* KALENDER MIT ANSTEHENDEN EVENTS*/
-.flip-container {
-    perspective: 1000px;
-    width: 350px;
-    margin: 20px auto;
-}
-
-.calendar-card {
-    width: 100%;
-    min-height: 400px;
-    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform-style: preserve-3d;
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border-radius: 12px;
-}
-
-.calendar-card.is-flipped {
-    transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-}
-
-.card-back {
-    transform: rotateY(180deg);
-    background: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-/* Kalender-Grid Styling */
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-}
-
-.weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #666;
-}
-
-.day {
-    padding: 10px 0;
-    text-align: center;
-    cursor: default;
-}
-
-.has-event {
-    background: #e63946; /* Vereinsfarbe? */
-    color: white;
-    border-radius: 50%;
-    cursor: pointer;
-    font-weight: bold;
-}
-/*KALENDER STYLE*/
-.calendar-container {
-    perspective: 1000px;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.calendar-card {
-    position: relative;
-    width: 100%;
-    min-height: 450px;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.calendar-card.flipped { transform: rotateY(180deg); }
-
-.card-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    background: #fff;
-    border: 2px solid #333;
-    padding: 15px;
-    box-sizing: border-box;
-}
-
-.back { transform: rotateY(180deg); background: #f0f0f0; }
-
-.cal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.weekdays-row, .days-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-}
-
-.weekdays-row div { font-weight: bold; padding-bottom: 10px; }
-
-.day-cell {
-    padding: 10px 0;
-    border: 1px solid #eee;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: default;
-}
-
-/* Hier passiert die Magie für die Events */
-.has-event {
-    background-color: #ff4757 !important;
-    color: white !important;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-}
-/*KALENDER STYLING MODERN*/
-/* ============================================================
-   MODERNER EVENT-KALENDER (UPGRADED)
-   ============================================================ */
-
 .calendar-section {
     display: flex;
     justify-content: center;
@@ -259,8 +122,9 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
 
 .calendar-container {
     perspective: 1500px;
-    width: 100%;
+    width: 95%; /* Mobile First */
     max-width: 400px;
+    margin: 0 auto;
 }
 
 .calendar-card {
@@ -271,7 +135,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     transform-style: preserve-3d;
 }
 
-/* Flip-Klasse für JS */
+/* Flip-Klasse für JavaScript */
 .calendar-card.is-flipped {
     transform: rotateY(180deg);
 }
@@ -281,7 +145,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 30px; /* Passend zu deinen Hero-Images */
+    border-radius: 30px; /* Passend zu deinen Hero-Bildern */
     padding: 30px;
     box-sizing: border-box;
     background: var(--white);
@@ -302,6 +166,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     font-weight: 900;
     letter-spacing: -0.5px;
     text-transform: uppercase;
+    margin: 0;
 }
 
 .cal-header button {
@@ -346,7 +211,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     transition: 0.3s;
 }
 
-/* GRÜNE TERMINE */
+/* GRÜNE TERMINE (Dein Vereins-Grün) */
 .has-event {
     background-color: var(--brand) !important;
     color: white !important;
@@ -358,10 +223,10 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     transform: scale(1.1);
 }
 
-/* RÜCKSEITE */
+/* RÜCKSEITE (Dunkles Design passend zu deinen Buttons) */
 .back {
     transform: rotateY(180deg);
-    background: var(--black); /* Kontrastreiche Rückseite */
+    background: var(--black);
     color: var(--white);
     display: flex;
     flex-direction: column;
@@ -390,7 +255,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     opacity: 0.9;
 }
 
-/* MODERNER ZURÜCK BUTTON */
+/* MODERNER ZURÜCK BUTTON UNTEN */
 .back .modern-btn {
     position: absolute;
     bottom: 30px;
@@ -412,4 +277,61 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     background: var(--brand);
     color: var(--white);
     transform: translateX(-50%) translateY(-3px);
+}
+/* RÜCKSEITE (Helles Design passend zur Vorderseite) */
+.back {
+    transform: rotateY(180deg);
+    background: var(--white); /* Weißer Hintergrund */
+    color: var(--black);      /* Schwarzer Text */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 50px;
+}
+
+#eventTitle {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: var(--brand);
+}
+
+#eventDate {
+    font-weight: 700;
+    opacity: 0.6;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+/* MODERNER ZURÜCK BUTTON */
+.back .modern-btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--brand); /* Grüner Button auf weißem Grund */
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 100px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.back .modern-btn:hover {
+    background: var(--black);
+    transform: translateX(-50%) translateY(-3px);
+}
+
+/* FIX: Scroll Margin für Anker-Links */
+.section {
+    padding: 80px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    scroll-margin-top: var(--header-h);
 }
