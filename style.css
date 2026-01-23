@@ -335,3 +335,15 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     margin: 0 auto;
     scroll-margin-top: var(--header-h);
 }
+/* =========================================
+   FIX FÜR MOBILES FLACKERN (Z-FIGHTING)
+   ========================================= */
+/* Sobald die Karte die Klasse .is-flipped hat (also sich dreht),
+   werden die grünen Markierungen auf der Vorderseite sofort unsichtbar gemacht. */
+.calendar-card.is-flipped .card-front .has-event {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: transparent !important; /* Auch die Zahl verstecken */
+    transition: all 0.05s ease-out; /* Passiert fast sofort */
+    pointer-events: none; /* Verhindert Geister-Klicks während der Drehung */
+}
