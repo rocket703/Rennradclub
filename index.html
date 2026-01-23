@@ -50,8 +50,34 @@
                 <a href="#events" class="btn btn-secondary">Termine</a>
             </div>
         </section>
-
-        <section id="events" class="section reveal">
+<!-- KALENDER MIT ANSTEHENDEN EVENTS-->
+<section id="termine">
+    <div class="calendar-container">
+        <div class="calendar-card" id="calendarCard">
+            <div class="card-face front">
+                <div class="cal-header">
+                    <button id="prevBtn">&lt;</button>
+                    <h2 id="monthDisplay">Wird geladen...</h2>
+                    <button id="nextBtn">&gt;</button>
+                </div>
+                <div class="weekdays-row">
+                    <div>Mo</div><div>Di</div><div>Mi</div><div>Do</div><div>Fr</div><div>Sa</div><div>So</div>
+                </div>
+                <div id="calendarGrid" class="days-grid"></div>
+            </div>
+            <div class="card-face back">
+    <div class="event-content">
+        <h3 id="eventTitle">Event Titel</h3>
+        <p class="event-date" id="eventDate"></p>
+        <hr>
+        <p id="eventDesc"></p>
+    </div>
+    <button class="modern-btn" onclick="flipBack()">Zurück zum Kalender</button>
+</div>
+        </div>
+    </div>
+</section>
+        <!--<section id="events" class="section reveal">
             <h2 class="section-title">Nächste Events</h2>
             <div class="events-grid">
                 <div class="event-card">
@@ -85,7 +111,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 
         <section id="about" class="section reveal">
             <h2 class="section-title">Unsere Philosophie</h2>
