@@ -106,3 +106,12 @@ document.getElementById('prevBtn').onclick = () => { currentMonth.setMonth(curre
 document.getElementById('nextBtn').onclick = () => { currentMonth.setMonth(currentMonth.getMonth() + 1); render(); };
 
 initCalendar();
+// --- SCROLL-FELGEN LOGIK ---
+window.addEventListener('scroll', () => {
+    const rim = document.getElementById('rim-image');
+    if (rim) {
+        // Die Zahl (2) bestimmt, wie schnell sich die Felge dreht. 
+        // Höhere Zahl = langsamere Drehung.
+        rim.style.transform = `rotate(${window.pageYOffset / 2}deg)`;
+    }
+});

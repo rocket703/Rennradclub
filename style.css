@@ -347,3 +347,5 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     transition: all 0.05s ease-out; /* Passiert fast sofort */
     pointer-events: none; /* Verhindert Geister-Klicks während der Drehung */
 }
+#scroll-wheel { position: fixed; bottom: 30px; right: 30px; width: 45px; z-index: 2000; opacity: 0.8; }
+#rim-image { width: 100%; height: auto; }
