@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rennradclub Magdeburg | High Performance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="scroll-wheel" aria-hidden="true">
+        <img src="img/felge.png" alt="Rad" id="rim-image">
+    </div>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#">RAD<span>CLUB</span></a>
+            </div>
+            
+            <button class="menu-trigger" id="menu-trigger" aria-label="Menü">
+                <span></span><span></span>
+            </button>
+
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#about">Philosophie</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero reveal">
+            <div class="hero-layout">
+                <div class="hero-image">
+                    <img src="img/gruppe.jpg" alt="Rennrad Magdeburg">
+                </div>
+                <div class="hero-content">
+                    <div class="reveal-container">
+                        <h1 class="reveal-text"><span>Rennradclub Magdeburg</span></h1>
+                    </div>
+                    <p class="hero-subline">Leidenschaft, Speed und die Elbe im Rücken. Die Community für alle Rennrad-Fans in Sachsen-Anhalt.</p>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Mitglied werden</a>
+                <a href="#events" class="btn btn-secondary">Termine</a>
+            </div>
+        </section>
+
+        <section id="events" class="section reveal">
+            <h2 class="section-title">Nächste Events</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <span class="label">Ride</span>
+                            <h3>Elbe-Classic</h3>
+                            <p class="date">25. Januar 2026</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Details</h3>
+                            <p><strong>🕒 10:00 Uhr</strong></p>
+                            <p><strong>📍 Sternbrücke MD</strong></p>
+                            <p class="desc">70km Grundlagenfahrt entlang der Elbe.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <span class="label">Workshop</span>
+                            <h3>Service-Day</h3>
+                            <p class="date">12. Februar 2026</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Details</h3>
+                            <p><strong>🕒 18:00 Uhr</strong></p>
+                            <p><strong>📍 Club-Garage Süd</strong></p>
+                            <p class="desc">Technik-Check & Pflege.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section reveal">
+            <h2 class="section-title">Unsere Philosophie</h2>
+            <div class="philosophy-content">
+                <h2 class="philosophy-lead">Wir teilen mehr als Kilometer – <br>wir teilen Leidenschaft.</h2>
+                <div class="philosophy-grid">
+                    <div class="phil-text-block">
+                        <p class="accent-p">Magdeburg ist unser Ausgangspunkt. Der Asphalt unser Element.</p>
+                        <p>Wir sind ein junger, dynamischer Verein, entstanden aus der Liebe zur Geschwindigkeit und zum <em>Surren der Kette</em>.</p>
+                        <p>Es geht um Wattzahlen, aber vor allem um ehrliche Gespräche im Windschatten und das gemeinsame Ankommen.</p>
+                    </div>
+                    <div class="phil-text-block">
+                        <p>Ob Einsteiger oder Racer: Wenn du die Leidenschaft teilst, bist du willkommen.</p>
+                        <p>Unser Club lebt von Zusammenhalt. Neue Gesichter sind sofort Teil der Gruppe.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section reveal">
+            <div class="form-container">
+                <h2 class="section-title">Anmeldung</h2>
+                <form class="r3-form" id="registration-form">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <input type="text" id="firstname" required placeholder=" ">
+                            <label for="firstname">Vorname</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="lastname" required placeholder=" ">
+                            <label for="lastname">Nachname</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="email" required placeholder=" ">
+                            <label for="email">E-Mail Adresse</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" id="phone" required placeholder=" ">
+                            <label for="phone">Telefonnummer</label>
+                        </div>
+                    </div>
+                    <div class="input-group full-width">
+                        <textarea id="msg" placeholder=" " rows="4"></textarea>
+                        <label for="msg">Deine Nachricht</label>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary">Absenden</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-wrap">
+            <div class="footer-links">
+                <a href="Impressum/index.html">Impressum</a>
+                <span class="pipe">|</span>
+                <a href="Datenschutz/index.html">Datenschutz</a>
+            </div>
+            <div class="footer-credit">
+                design by <a href="https://r3webdesign.de" target="_blank">r3webdesign.de</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
