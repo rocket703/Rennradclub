@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rennradclub Magdeburg | High Performance</title>
+    <title>Magdeburger Rennradclub e.V. | High Performance</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <!-- Scroll FELGE ANIMIERT -->
     <div id="scroll-wheel" aria-hidden="true">
         <img src="img/felge.png" alt="Rad" id="rim-image">
     </div>
-
+    <!-- HEADER MIT MENÜ/BURGER MENÜ MOBIL -->
     <header class="main-header">
         <div class="header-container">
             <div class="logo">
-                <a href="#">RAD<span>CLUB</span></a>
-            </div>
+    <a href="#">
+        <img src="img/logo.png" alt="Magdeburger Rennradclub e.V." class="header-logo">
+        <span class="logo-text">Magdeburger<br>Rennradclub e.V.</span>
+        </a>
+    </div>
             
             <button class="menu-trigger" id="menu-trigger" aria-label="Menü">
                 <span></span><span></span>
@@ -25,7 +28,7 @@
             <nav class="main-nav" id="main-nav">
                 <ul>
                     <li><a href="#events">Events</a></li>
-                    <li><a href="#about">Philosophie</a></li>
+                   <li><a href="Sponsoren/index.html">Sponsoren</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </nav>
@@ -33,6 +36,7 @@
     </header>
 
     <main>
+        <!-- HERO SEKTION - RECHTS BILD & LINKS H! + KURZER TEXT-->
         <section class="hero reveal">
             <div class="hero-layout">
                 <div class="hero-image">
@@ -40,16 +44,34 @@
                 </div>
                 <div class="hero-content">
                     <div class="reveal-container">
-                        <h1 class="reveal-text"><span>Rennradclub Magdeburg</span></h1>
+                        <h1 class="reveal-text"><span>Magdeburger Rennradclub e.V.</span></h1>
                     </div>
                     <p class="hero-subline">Leidenschaft, Speed und die Elbe im Rücken. Die Community für alle Rennrad-Fans in Sachsen-Anhalt.</p>
                 </div>
             </div>
+<!--CTA BUTTONS UNTER DER HERO SEKTION-->
             <div class="hero-actions">
                 <a href="#contact" class="btn btn-primary">Email schreiben</a>
                 <a href="#events" class="btn btn-secondary">Termine</a>
             </div>
         </section>
+<!-- SPONSOREN BANNER ENDLOS -->
+ <div class="sponsor-banner">
+    <div class="sponsor-track">
+        <div class="sponsor-logo"><span>SPONSOR 1</span></div>
+        <div class="sponsor-logo"><span>SPONSOR 2</span></div>
+        <div class="sponsor-logo"><span>SPONSOR 3</span></div>
+        <div class="sponsor-logo"><span>SPONSOR 4</span></div>
+        <div class="sponsor-logo"><span>SPONSOR 1</span></div>
+        <div class="sponsor-logo"><span>SPONSOR 2</span></div>
+        <div class="sponsor-logo"><span>SPONSOR 3</span></div>
+        <div class="sponsor-logo"><span>SPONSOR 4</span></div>
+        <div class="sponsor-logo"><span>SPONSOR 1</span></div>
+        <div class="sponsor-logo"><span>SPONSOR 2</span></div>
+        <div class="sponsor-logo"><span>SPONSOR 3</span></div>
+        <div class="sponsor-logo"><span>SPONSOR 4</span></div>
+    </div>
+</div>
 <!-- KALENDER MIT ANSTEHENDEN EVENTS-->
 <section id="events" class="section reveal">
         <h2 class="section-title">Termine</h2>
@@ -80,42 +102,7 @@
             </div>
         </div>
     </section>
-        <!--<section id="events" class="section reveal">
-            <h2 class="section-title">Nächste Events</h2>
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <span class="label">Ride</span>
-                            <h3>Elbe-Classic</h3>
-                            <p class="date">25. Januar 2026</p>
-                        </div>
-                        <div class="card-back">
-                            <h3>Details</h3>
-                            <p><strong>🕒 10:00 Uhr</strong></p>
-                            <p><strong>📍 Sternbrücke MD</strong></p>
-                            <p class="desc">70km Grundlagenfahrt entlang der Elbe.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <span class="label">Workshop</span>
-                            <h3>Service-Day</h3>
-                            <p class="date">12. Februar 2026</p>
-                        </div>
-                        <div class="card-back">
-                            <h3>Details</h3>
-                            <p><strong>🕒 18:00 Uhr</strong></p>
-                            <p><strong>📍 Club-Garage Süd</strong></p>
-                            <p class="desc">Technik-Check & Pflege.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>-->
-
+    <!-- ÜBER UNS -->
         <section id="about" class="section reveal">
             <h2 class="section-title">Unsere Philosophie</h2>
             <div class="philosophy-content">
@@ -134,7 +121,7 @@
                 </div>
             </div>
         </section>
-
+        <!-- KONTAKTFOMRULAR -->
         <section id="contact" class="section reveal">
             <div class="form-container">
                 <h2 class="section-title">Kontakt</h2>
@@ -153,9 +140,15 @@
                             <label for="email">E-Mail Adresse</label>
                         </div>
                         <div class="input-group">
-                            <input type="tel" id="phone" required placeholder=" ">
-                            <label for="phone">Telefonnummer</label>
-                        </div>
+    <select id="reason" required>
+        <option value="" disabled selected hidden></option>
+        <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+        <option value="Fragen zur Mitgliedschaft">Fragen zur Mitgliedschaft</option>
+        <option value="Daten ändern">Daten ändern</option>
+        <option value="Sponsor werden">Sponsor werden</option>
+    </select>
+    <label for="reason">Anliegen</label>
+</div>
                     </div>
                     <div class="input-group full-width">
                         <textarea id="msg" placeholder=" " rows="4"></textarea>
@@ -168,7 +161,7 @@
             </div>
         </section>
     </main>
-
+<!-- FOOTER MIT IMPRESSUM/DATENSCHUTZ & R3WEBDESIGN VERLINKUNG-->
     <footer class="main-footer">
         <div class="footer-wrap">
             <div class="footer-links">
@@ -181,7 +174,7 @@
             </div>
         </div>
     </footer>
-
+<!-- JS SCRIPTS -->
     <script src="script.js"></script>
 </body>
 </html>

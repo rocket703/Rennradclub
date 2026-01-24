@@ -1,9 +1,15 @@
 :root {
-    --brand: #2ecc71;
+    /* FARBSCHEMA VARIABLEN */
+    --brand: #780808;
     --black: #121212;
     --white: #ffffff;
     --gray-bg: #f9f9fb;
     --header-h: 80px;
+    /* SPONSOREN BANNER */
+    --sponsor-gap: 80px;      
+    --sponsor-width: 200px;   
+    --sponsor-speed: 20s;
+
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,6 +26,45 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
 .logo a { text-decoration: none; font-weight: 900; color: var(--black); font-size: 1.4rem; letter-spacing: -1px; }
 .logo span { color: var(--brand); }
 
+/* LOGO IMAGE */
+.logo a {
+    display: flex;
+    align-items: center; /* Vertikale Zentrierung */
+    text-decoration: none;
+    gap: 12px; /* Abstand zwischen Bild und Text */
+}
+
+.logo-text {
+    font-size: 0.75rem; /* Schön klein, wie gewünscht */
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--black);
+    text-transform: uppercase; /* Wirkt moderner und cleaner */
+    letter-spacing: 0.5px;
+}
+
+/* Auf ganz kleinen Handys den Text eventuell noch kleiner machen */
+@media (max-width: 400px) {
+    .logo-text {
+        font-size: 0.65rem;
+    }
+}
+.header-logo {
+    /* Höhe im Verhältnis zum 80px Header (lässt oben/unten ca. 15px Platz) */
+    height: 50px; 
+    width: auto; /* Behält das Seitenverhältnis bei */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover .header-logo {
+    transform: scale(1.05); /* Kleiner Interaktions-Effekt beim Hover */
+}
+
+/* ABSTAND NACH RECHTS */
+.header-logo + span {
+    margin-left: 10px;
+}
 /* BURGER NAV (DROP-DOWN) */
 .menu-trigger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; z-index: 2000; }
 .menu-trigger span { width: 22px; height: 2px; background: var(--black); transition: 0.3s; }
@@ -78,6 +123,41 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
 .input-group input, .input-group textarea { width: 100%; padding: 25px 15px 10px; border: none; border-bottom: 2px solid #ddd; background: transparent; font-size: 1rem; outline: none; transition: 0.3s; font-family: inherit; }
 .input-group label { position: absolute; left: 15px; top: 25px; color: #999; transition: 0.3s; pointer-events: none; }
 .input-group input:focus + label, .input-group input:not(:placeholder-shown) + label { top: 0px; font-size: 0.75rem; color: var(--brand); font-weight: 800; }
+/* Styling für das Auswahlfeld */
+.input-group select {
+    width: 100%;
+    padding: 25px 15px 10px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background: transparent;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    font-family: inherit;
+    appearance: none; /* Entfernt den Standard-Pfeil vom Browser */
+    cursor: pointer;
+    color: var(--black);
+}
+
+/* Eigener schicker Pfeil für das Dropdown */
+.input-group:has(select)::after {
+    content: "▼";
+    font-size: 0.7rem;
+    position: absolute;
+    right: 15px;
+    top: 30px;
+    color: #999;
+    pointer-events: none;
+}
+
+/* Floating Label Logik für das Select-Feld */
+.input-group select:focus + label, 
+.input-group select:valid + label {
+    top: 0px;
+    font-size: 0.75rem;
+    color: var(--brand);
+    font-weight: 800;
+}
 
 /* SCROLL FELGE 45PX */
 #scroll-wheel { position: fixed; bottom: 30px; right: 30px; width: 45px; z-index: 2000; opacity: 0.8; }
@@ -349,3 +429,126 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
 }
 #scroll-wheel { position: fixed; bottom: 30px; right: 30px; width: 45px; z-index: 2000; opacity: 0.8; }
 #rim-image { width: 100%; height: auto; }
+/* SPONSOREN BANNER */
+@media (max-width: 768px) {
+    :root {
+        --sponsor-gap: 30px;    /* Viel kleinerer Abstand auf Handy */
+        --sponsor-width: 150px; /* Kleinere Logos auf Handy */
+        --sponsor-speed: 15s;   /* Etwas schneller, da Weg kürzer */
+    }
+}
+
+.sponsor-banner {
+    width: 100%;
+    overflow: hidden;
+    padding: 30px 0;
+    background: transparent;
+    /* Sanfter Fade an den Rändern */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.sponsor-track {
+    display: flex;
+    width: max-content;
+    gap: var(--sponsor-gap);
+    /* GPU-Beschleunigung erzwingen für butterweiche Animation */
+    will-change: transform;
+    animation: scroll var(--sponsor-speed) linear infinite;
+}
+
+.sponsor-logo {
+    flex: 0 0 var(--sponsor-width);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(1); /* Logos dezent in Graustufen */
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.sponsor-logo:hover {
+    filter: grayscale(0); /* Farbe beim Hover */
+    opacity: 1;
+}
+
+.sponsor-logo span {
+    font-weight: 700;
+    color: var(--black);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* DER NAHTLOSE LOOP FIX */
+/* Wir nutzen 3 Sets Logos im HTML. 
+   Die Animation schiebt exakt um die Breite eines Sets (1/3) */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% / 3)); }
+}
+
+/* Stop beim Hover */
+.sponsor-banner:hover .sponsor-track {
+    animation-play-state: paused;
+}
+/* SPONSOREN SEITE STYLING */
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.sponsor-card {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 30px;
+    overflow: hidden;
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-align: left;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+    border-color: var(--brand);
+}
+
+.sponsor-card-image {
+    background: var(--gray-bg);
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.sponsor-card-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(1);
+    transition: 0.3s;
+}
+
+.sponsor-card:hover .sponsor-card-image img {
+    filter: grayscale(0);
+    transform: scale(1.05);
+}
+
+.sponsor-card-content {
+    padding: 30px;
+}
+
+.sponsor-card-content h3 {
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--black);
+}
+
+.sponsor-card-content p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
