@@ -552,3 +552,62 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     color: #666;
     line-height: 1.5;
 }
+/* =========================================
+   404 FEHLERSEITE STYLING
+   ========================================= */
+
+.error-section {
+    /* Zentriert den Inhalt vertikal und horizontal zwischen Header und Footer */
+    min-height: 80vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: calc(var(--header-h) + 60px) 20px 60px;
+}
+
+.error-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.error-code {
+    font-size: clamp(4rem, 10vw, 8rem); /* Riesige, responsive Zahl */
+    font-weight: 900;
+    color: var(--brand); /* In Vereinsfarbe */
+    line-height: 1;
+    margin-bottom: 20px;
+    opacity: 0.2; /* Leicht transparent für coolen Look */
+}
+
+.wheel-spinner-container {
+    margin: 30px auto;
+    width: 150px; /* Größe der Felge */
+    height: 150px;
+}
+
+/* Das Herzstück: Die endlose Animation */
+.infinite-spin-wheel {
+    width: 100%;
+    height: auto;
+    /* Dreht sich in 8 Sekunden einmal komplett, linear (ohne Beschleunigung), unendlich */
+    animation: spinEndless 8s linear infinite;
+}
+
+@keyframes spinEndless {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.error-title {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    font-weight: 900;
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.error-text {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
