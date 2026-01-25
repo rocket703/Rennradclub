@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumente | Magdeburger Radsportclub e.V.</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div id="scroll-wheel" aria-hidden="true">
+        <img src="../img/felge.png" alt="Rad" id="rim-image">
+    </div>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../img/logo.png" alt="Magdeburger Radsportclub e.V." class="header-logo">
+                    <span class="logo-text">Magdeburger<br><span class="logo-kicker">Radsportclub e.V.</span></span>
+                </a>
+            </div>
+            
+            <button class="menu-trigger" id="menu-trigger" aria-label="Menü">
+                <span></span><span></span>
+            </button>
+
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="../index.html#events">Events</a></li>
+                    <li><a href="../Sponsoren/">Partner</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Über uns</a>
+                        <ul class="submenu">
+                            <li><a href="geschichte.html">Vereinsgeschichte</a></li>
+                            <li><a href="dokumente.html">Dokumente</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../index.html#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="margin-top: var(--header-h);">
+        <section class="section reveal active">
+            <h2 class="section-title">Dokumente</h2>
+            <p class="philosophy-lead">Alles Schwarz auf Weiß. Hier findest du unsere offiziellen Unterlagen zum Download.</p>
+            
+            <div class="sponsors-grid">
+                <div class="sponsor-card">
+                    <div class="sponsor-card-content">
+                        <span class="label">PDF • 1.2 MB</span>
+                        <h3>Mitgliedsantrag</h3>
+                        <p>Werde Teil der Community. Einfach ausdrucken, ausfüllen und uns beim nächsten Treff übergeben oder per Mail senden.</p>
+                        <a href="../downloads/mitgliedsantrag.pdf" class="btn btn-primary" style="margin-top: 20px; padding: 12px 25px;">Download</a>
+                    </div>
+                </div>
+
+                <div class="sponsor-card">
+                    <div class="sponsor-card-content">
+                        <span class="label">PDF • 0.8 MB</span>
+                        <h3>Vereinssatzung</h3>
+                        <p>Unsere Regeln auf dem Asphalt und daneben. Die offizielle Satzung des Magdeburger Rennradclub e.V.</p>
+                        <a href="../downloads/satzung.pdf" class="btn btn-secondary" style="margin-top: 20px; padding: 12px 25px;">Ansehen</a>
+                    </div>
+                </div>
+
+                <div class="sponsor-card">
+                    <div class="sponsor-card-content">
+                        <span class="label">PDF • 2.5 MB</span>
+                        <h3>Beitragsordnung</h3>
+                        <p>Transparente Übersicht über Mitgliedsbeiträge und wie wir diese zur Förderung des Sports einsetzen.</p>
+                        <a href="../downloads/beitraege.pdf" class="btn btn-secondary" style="margin-top: 20px; padding: 12px 25px;">Ansehen</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-header" style="position: relative; height: auto; padding: 60px 20px; border-top: 1px solid #eee; background: var(--white);">
+        <div class="footer-wrap" style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1300px; margin: 0 auto;">
+            <div class="footer-links">
+                <a href="../Impressum/" style="text-decoration: none; color: var(--black); font-weight: 800;">Impressum</a>
+                <span style="margin: 0 10px;">|</span>
+                <a href="../Datenschutz/" style="text-decoration: none; color: var(--black); font-weight: 800;">Datenschutz</a>
+            </div>
+            <div class="footer-credit" style="font-size: 0.8rem; color: #999;">
+                design by <a href="https://r3webdesign.de" target="_blank" style="color: var(--black); text-decoration: none; font-weight: 700;">r3webdesign.de</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

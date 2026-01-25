@@ -101,10 +101,150 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     background: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); z-index: 900; padding: 30px 0;
 }
-.main-nav.active { top: var(--header-h); }
-.main-nav ul { list-style: none; display: flex; flex-direction: column; gap: 20px; }
-.main-nav a { text-decoration: none; color: var(--black); font-weight: 800; font-size: 1.2rem; text-transform: uppercase; }
+.main-nav.active { 
+    top: var(--header-h); 
+}
+.main-nav ul { 
+    list-style: none; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+.main-nav a { 
+    text-decoration: none; 
+    color: var(--black); 
+    font-weight: 800; 
+    font-size: 1.2rem; 
+    text-transform: uppercase; 
+}
 
+/* --- BASIS-STYLING (Für alle Geräte) --- */
+.has-submenu { 
+    position: relative; 
+}
+
+/* Submenü-Liste grundsätzlich als Spalte, damit nichts nebeneinander rutscht */
+.submenu {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* --- DESKTOP NAVIGATION (ab 1024px) --- */
+@media (min-width: 1024px) {
+    /* WICHTIG: Das '>' sorgt dafür, dass nur das Hauptmenü nebeneinander steht */
+    .main-nav > ul { 
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        align-items: center;
+    }
+
+   /* 1. Die Liste selbst auf Spalte zwingen */
+    .submenu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        background: var(--white);
+        min-width: 220px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        border-radius: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 1000;
+        border: 1px solid rgba(0,0,0,0.05);
+        padding: 10px 0 !important;
+        gap: 0 !important;
+
+        /* ERZWINGE VERTIKAL */
+        display: flex !important;
+        flex-direction: column !important; 
+        align-items: stretch !important;
+    }
+
+    /* 2. Die Listenpunkte darin auf volle Breite zwingen */
+    .submenu li {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 !important;
+        text-align: left !important;
+    }
+
+    /* 3. Die Links darin kontrollieren */
+    .submenu li a {
+        display: block !important;
+        width: 100% !important;
+        padding: 12px 25px !important;
+        white-space: nowrap; /* Verhindert Zeilenumbruch im Wort */
+    }
+    /* Hover-Logik */
+    .has-submenu:hover .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .submenu li a {
+        padding: 12px 25px !important;
+        font-size: 0.85rem !important;
+        text-transform: none !important;
+        color: var(--black) !important;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    .submenu li a:hover {
+        background: var(--gray-bg);
+        color: var(--brand) !important;
+    }
+}
+
+/* --- MOBILE NAVIGATION (bis 1023px) --- */
+@media (max-width: 1023px) {
+    .main-nav {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100vh;
+        background: var(--white);
+        z-index: 2500;
+        display: flex;
+        flex-direction: column;
+        padding-top: 120px;
+        transition: transform 0.5s ease;
+        transform: translateY(-100%);
+        overflow-y: auto;
+    }
+
+    .main-nav.active { transform: translateY(0); }
+
+    .main-nav ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Das Submenü im mobilen Look */
+    .submenu {
+        background: var(--gray-bg);
+        width: 85%;
+        margin: 10px auto;
+        border-radius: 20px;
+        padding: 10px 0 !important;
+    }
+
+    .submenu li a {
+        font-size: 1rem !important;
+        font-weight: 700 !important;
+        color: #666 !important;
+        padding: 10px 0 !important;
+    }
+}
 /* HERO REVEAL FIX (Kein Abschneiden) */
 .hero { padding: calc(var(--header-h) + 40px) 20px 60px; max-width: 1300px; margin: 0 auto; }
 .hero-layout { display: flex; flex-direction: column; gap: 40px; }
@@ -316,7 +456,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     transition: 0.3s;
 }
 
-/* GRÜNE TERMINE (Dein Vereins-Grün) */
+/* TERMINE */
 .has-event {
     background-color: var(--brand) !important;
     color: white !important;
@@ -328,7 +468,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     transform: scale(1.1);
 }
 
-/* RÜCKSEITE (Dunkles Design passend zu deinen Buttons) */
+/* RÜCKSEITE */
 .back {
     transform: rotateY(180deg);
     background: var(--black);
@@ -360,7 +500,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     opacity: 0.9;
 }
 
-/* MODERNER ZURÜCK BUTTON UNTEN */
+/* ZURÜCK BUTTON */
 .back .modern-btn {
     position: absolute;
     bottom: 30px;
@@ -629,4 +769,91 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     font-size: 1.1rem;
     color: #666;
     margin-bottom: 30px;
+}
+/* TIMELINE STYLING */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 40px 0;
+}
+
+/* Die Mittellinie - Festgenagelt auf 50% */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: #e0e0e0;
+}
+
+.timeline-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: flex-end; /* Standard: Boxen nach rechts */
+    padding-right: 0;
+}
+
+/* Jedes zweite Item (ungerade) nach links schieben */
+.timeline-item:nth-child(odd) {
+    justify-content: flex-start;
+}
+
+/* Die Inhalts-Boxen */
+.timeline-content {
+    width: 45%; /* Lässt 5% Platz zur Mittellinie */
+    background: var(--gray-bg);
+    padding: 30px;
+    border-radius: 25px;
+    position: relative;
+    text-align: left;
+    transition: 0.4s ease;
+}
+
+/* Textausrichtung anpassen, wenn Box links steht */
+.timeline-item:nth-child(odd) .timeline-content {
+    text-align: right;
+}
+
+/* Die Punkte - Mathematisch auf die Linie gezwungen */
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    width: 18px;
+    height: 18px;
+    background: var(--brand);
+    border: 4px solid var(--white);
+    border-radius: 50%;
+    transform: translateX(-50%); /* Zentriert den Punkt auf der 50%-Linie */
+    z-index: 10;
+    box-shadow: 0 0 0 4px rgba(120, 8, 8, 0.1);
+}
+
+/* Datum über der Box */
+.timeline-date {
+    font-weight: 800;
+    color: var(--brand);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Mobile First: Unter 900px alles auf eine Seite */
+@media (max-width: 900px) {
+    .timeline::before { left: 30px; transform: none; }
+    .timeline-item, .timeline-item:nth-child(odd) {
+        justify-content: flex-start;
+        padding-left: 70px;
+    }
+    .timeline-content, .timeline-item:nth-child(odd) .timeline-content {
+        width: 100%;
+        text-align: left;
+    }
+    .timeline-dot { left: 30px; transform: translateX(-50%); }
 }
