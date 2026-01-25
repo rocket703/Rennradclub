@@ -91,8 +91,18 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     margin-left: 10px;
 }
 /* BURGER NAV (DROP-DOWN) */
-.menu-trigger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; z-index: 2000; }
-.menu-trigger span { width: 22px; height: 2px; background: var(--black); transition: 0.3s; }
+.menu-trigger { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 5px; background: none; 
+    border: none; 
+    cursor: pointer; 
+    z-index: 2000; }
+.menu-trigger span { 
+    width: 22px; 
+    height: 2px; 
+    background: var(--black); 
+    transition: 0.3s; }
 .menu-trigger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .menu-trigger.active span:nth-child(2) { transform: translateY(-7px) rotate(-45deg); }
 
