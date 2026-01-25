@@ -239,7 +239,6 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     }
 
     /* Das Submenü im mobilen Look */
-    /* SUBMENÜ MOBIL - WEG MIT DER INSEL, HER MIT DEM LOOK */
     .submenu {
         background: transparent;
         width: auto;
