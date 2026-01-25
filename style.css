@@ -52,7 +52,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 12px; /* Abstand zwischen Bild und Text */
+    gap: 10px; /* Abstand zwischen Bild und Text */
 }
 
 .logo-text {
@@ -65,7 +65,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     letter-spacing: 0.5px;
 }
 
-/* RENNRADCLUB E.V. in TEAMFARBE */
+/* RADSPORTCLUB E.V. in TEAMFARBE */
 .logo-kicker {
     color: var(--brand);
 }
@@ -144,7 +144,6 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
 
 /* --- DESKTOP NAVIGATION (ab 1024px) --- */
 @media (min-width: 1024px) {
-    /* WICHTIG: Das '>' sorgt dafür, dass nur das Hauptmenü nebeneinander steht */
     .main-nav > ul { 
         display: flex;
         flex-direction: row;
@@ -152,7 +151,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
         align-items: center;
     }
 
-   /* 1. Die Liste selbst auf Spalte zwingen */
+   /* Liste auf Spalte zwingen */
     .submenu {
         position: absolute;
         top: 100%;
@@ -176,7 +175,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
         align-items: stretch !important;
     }
 
-    /* 2. Die Listenpunkte darin auf volle Breite zwingen */
+    /* Listenpunkte auf volle Breite zwingen */
     .submenu li {
         display: block !important;
         width: 100% !important;
@@ -184,7 +183,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
         text-align: left !important;
     }
 
-    /* 3. Die Links darin kontrollieren */
+    /* Links kontrollieren */
     .submenu li a {
         display: block !important;
         width: 100% !important;
@@ -240,31 +239,65 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     }
 
     /* Das Submenü im mobilen Look */
+    /* SUBMENÜ MOBIL - WEG MIT DER INSEL, HER MIT DEM LOOK */
     .submenu {
-        background: var(--gray-bg);
-        width: 85%;
-        margin: 10px auto;
-        border-radius: 20px;
-        padding: 10px 0 !important;
+        background: transparent;
+        width: auto;
+        margin: 0;
+        padding: 5px 0 20px 0 !important; /* Etwas Luft nach unten zum nächsten Hauptpunkt */
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .submenu li a {
-        font-size: 1rem !important;
+        font-size: 1.1rem !important;
         font-weight: 700 !important;
-        color: #666 !important;
+        color: var(--brand) !important;
+        text-transform: uppercase;
         padding: 10px 0 !important;
+        opacity: 0.9;
+        letter-spacing: 1px;
     }
 }
 /* HERO REVEAL FIX (Kein Abschneiden) */
-.hero { padding: calc(var(--header-h) + 40px) 20px 60px; max-width: 1300px; margin: 0 auto; }
-.hero-layout { display: flex; flex-direction: column; gap: 40px; }
-.hero-image img { width: 100%; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
-.hero-content { text-align: center; }
+.hero { 
+    padding: calc(var(--header-h) + 40px) 20px 60px; 
+    max-width: 1300px; 
+    margin: 0 auto; }
+.hero-layout { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; }
+.hero-image img { 
+    width: 100%; 
+    border-radius: 30px; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+.hero-content { 
+    text-align: center; 
+}
 
-.reveal-container { overflow: hidden; padding-bottom: 15px; margin-bottom: 10px; }
-.reveal-text { font-size: clamp(2rem, 8vw, 3.8rem); font-weight: 900; line-height: 1.25; letter-spacing: -2px; }
-.reveal-text span { display: inline-block; transform: translateY(110%); opacity: 0; animation: slideUp 1s forwards; }
-@keyframes slideUp { to { transform: translateY(0); opacity: 1; } }
+.reveal-container { 
+    overflow: hidden; 
+    padding-bottom: 15px; 
+    margin-bottom: 10px; 
+}
+.reveal-text { 
+    font-size: clamp(2rem, 8vw, 3.8rem); 
+    font-weight: 900; 
+    line-height: 1.25; 
+    letter-spacing: -2px; 
+}
+.reveal-text span { 
+    display: inline-block; 
+    transform: translateY(110%); 
+    opacity: 0; 
+    animation: slideUp 1s forwards; 
+}
+@keyframes slideUp { to { transform: translateY(0); 
+    opacity: 1; } 
+}
 
 /* BUTTONS ZENTRIERT */
 .hero-actions { display: flex; gap: 15px; justify-content: center; margin-top: 50px; flex-wrap: wrap; }
@@ -292,12 +325,48 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
 .label { color: var(--brand); font-weight: 900; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 10px; }
 
 /* FORM */
-.form-container { background: var(--white); padding: 60px 40px; border-radius: 40px; border: 1px solid #eee; max-width: 900px; margin: 0 auto; box-shadow: 0 40px 80px rgba(0,0,0,0.03); }
-.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-.input-group { position: relative; text-align: left; }
-.input-group input, .input-group textarea { width: 100%; padding: 25px 15px 10px; border: none; border-bottom: 2px solid #ddd; background: transparent; font-size: 1rem; outline: none; transition: 0.3s; font-family: inherit; }
-.input-group label { position: absolute; left: 15px; top: 25px; color: #999; transition: 0.3s; pointer-events: none; }
-.input-group input:focus + label, .input-group input:not(:placeholder-shown) + label { top: 0px; font-size: 0.75rem; color: var(--brand); font-weight: 800; }
+.form-container { 
+    background: var(--white); 
+    padding: 60px 40px; 
+    border-radius: 40px; 
+    border: 1px solid #eee; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    box-shadow: 0 40px 80px rgba(0,0,0,0.03); }
+.form-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px; 
+}
+.input-group { 
+    position: relative; 
+    text-align: left; 
+}
+.input-group input, .input-group textarea { 
+    width: 100%; 
+    padding: 25px 15px 10px; 
+    border: none; 
+    border-bottom: 2px solid #ddd;
+    background: transparent; 
+    font-size: 1rem; 
+    outline: none; 
+    transition: 0.3s; 
+    font-family: inherit; 
+}
+.input-group label { 
+    position: absolute; 
+    left: 15px; 
+    top: 25px; 
+    color: #999; 
+    transition: 0.3s; 
+    pointer-events: none; 
+}
+.input-group input:focus + label, .input-group input:not(:placeholder-shown) + label { 
+    top: 0px; 
+    font-size: 0.75rem; 
+    color: var(--brand); 
+    font-weight: 800; 
+}
 /* Styling für das Auswahlfeld */
 .input-group select {
     width: 100%;
@@ -332,6 +401,23 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     font-size: 0.75rem;
     color: var(--brand);
     font-weight: 800;
+}
+/* Erweitert: Gilt jetzt für Inputs UND Textareas */
+.input-group input:focus + label, 
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label, 
+.input-group textarea:not(:placeholder-shown) + label { 
+    top: 0px; 
+    font-size: 0.75rem; 
+    color: var(--brand); 
+    font-weight: 800; 
+}
+
+/* Speziell für das Freitextfeld: Padding oben lassen, damit Platz für das Label ist */
+.input-group textarea {
+    min-height: 120px;
+    resize: vertical; /* Erlaubt dem User das Feld größer zu ziehen */
+    padding-top: 30px; /* Schafft Platz, damit Text und Label sich nicht beißen */
 }
 
 /* SCROLL FELGE 45PX */
@@ -591,8 +677,6 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     scroll-margin-top: var(--header-h);
 }
 /* FIX FÜR MOBILES FLACKERN  */
-/* Sobald die Karte die Klasse .is-flipped hat (also sich dreht),
-   werden die grünen Markierungen auf der Vorderseite sofort unsichtbar gemacht. */
 .calendar-card.is-flipped .card-front .has-event {
     background-color: transparent !important;
     box-shadow: none !important;
