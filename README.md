@@ -1,4 +1,4 @@
-# Magdeburger Radsportclu e.V. - Webseite 2026
+# Magdeburger Radsportclub e.V. - Webseite 2026
 
 Dies ist die offizielle Webseite des Rennradclubs Magdeburg. 
 Das Projekt wurde mit Fokus auf Speed, Clean-Design und Barrierefreiheit entwickelt.
