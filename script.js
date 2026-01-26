@@ -53,7 +53,7 @@ async function initCalendar() {
     if (!grid) return; 
 
     try {
-        // Pfad-Check: Wenn wir im Unterordner sind, müssen wir '../' davor setzen
+        // Pfad-Check
         const path = window.location.pathname.includes('Sponsoren') ? '../events.json' : 'events.json';
         const resp = await fetch(path);
         if (!resp.ok) throw new Error("Datei nicht gefunden");
@@ -115,7 +115,7 @@ window.flipBack = function() {
     if(card) card.classList.remove('is-flipped');
 };
 
-// Event Listener für Kalender-Navigation (Nur wenn Buttons da sind!)
+// Event Listener für Kalender-Navigation
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
