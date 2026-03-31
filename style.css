@@ -1,6 +1,6 @@
 :root {
     /* FARBSCHEMA VARIABLEN */
-    --brand: #780808;
+    --brand: #0a2e64; /* Dunkles Blau als Vereinsfarbe */
     --black: #121212;
     --white: #ffffff;
     --gray-bg: #f9f9fb;
@@ -76,7 +76,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     }
 }
 .header-logo {
-    height: 80px; 
+    height: 180px; 
     width: auto; 
     display: block;
     transition: transform 0.3s ease;
@@ -301,7 +301,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
 /* BUTTONS ZENTRIERT */
 .hero-actions { display: flex; gap: 15px; justify-content: center; margin-top: 50px; flex-wrap: wrap; }
 .btn { padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; border: 2px solid var(--black); transition: 0.3s; cursor: pointer; display: inline-block; }
-.btn-primary { background: var(--black); color: #fff; }
+.btn-primary { background: var(--brand); color: #fff; }
 .btn-secondary { background: transparent; color: var(--black); }
 .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--brand); }
 
