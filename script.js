@@ -127,3 +127,48 @@ if (nextBtn) {
 }
 
 initCalendar();
+
+// KONTAKTFORMULAR RESPONSE
+const form = document.getElementById('registration-form');
+const result = document.getElementById('result');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+
+  result.innerHTML = "Bitte warten...";
+  result.style.color = "var(--text-color)"; // Nutzt deine CSS Variable
+
+  fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          },
+          body: json
+      })
+      .then(async (response) => {
+          let json = await response.json();
+          if (response.status == 200) {
+              result.innerHTML = "Vielen Dank! Deine Nachricht wurde erfolgreich versendet.";
+              result.style.color = "#28a745"; // Ein schönes Grün
+              form.reset(); // Leert das Formular nach Erfolg
+          } else {
+              console.log(response);
+              result.innerHTML = "Fehler: " + json.message;
+              result.style.color = "#dc3545"; // Ein Fehler-Rot
+          }
+      })
+      .catch(error => {
+          console.log(error);
+          result.innerHTML = "Etwas ist schiefgelaufen. Bitte versuche es später erneut.";
+      })
+      .then(function() {
+          // Nachricht nach 5 Sekunden wieder ausblenden (optional)
+          setTimeout(() => {
+              result.innerHTML = "";
+          }, 5000);
+      });
+});

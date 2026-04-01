@@ -139,44 +139,55 @@
             </div>
         </section>
         <!-- KONTAKTFOMRULAR -->
-        <section id="contact" class="section reveal">
-            <div class="form-container">
-                <h2 class="section-title">Kontakt</h2>
-                <form class="r3-form" id="registration-form">
-                    <div class="form-grid">
-                        <div class="input-group">
-                            <input type="text" id="firstname" required placeholder=" ">
-                            <label for="firstname">Vorname</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="text" id="lastname" required placeholder=" ">
-                            <label for="lastname">Nachname</label>
-                        </div>
-                        <div class="input-group">
-                            <input type="email" id="email" required placeholder=" ">
-                            <label for="email">E-Mail Adresse</label>
-                        </div>
-                        <div class="input-group">
-    <select id="reason" required>
-        <option value="" disabled selected hidden></option>
-        <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
-        <option value="Fragen zur Mitgliedschaft">Fragen zur Mitgliedschaft</option>
-        <option value="Daten ändern">Daten ändern</option>
-        <option value="Sponsor werden">Sponsor werden</option>
-    </select>
-    <label for="reason">Anliegen</label>
-</div>
-                    </div>
-                    <div class="input-group full-width">
-                        <textarea id="msg" placeholder=" " rows="4"></textarea>
-                        <label for="msg">Deine Nachricht</label>
-                    </div>
-                    <div class="form-footer">
-                        <button type="submit" class="btn btn-primary">Absenden</button>
-                    </div>
-                </form>
+       <section id="contact" class="section reveal">
+    <div class="form-container">
+        <h2 class="section-title">Kontakt</h2>
+        <form action="https://api.web3forms.com/submit" method="POST" class="r3-form" id="registration-form">
+            
+            <input type="hidden" name="access_key" value="558e8166-379c-4908-86fd-69e876566cf2">
+            
+            <input type="hidden" name="from_name" value="Radsportclub Magdeburg Website">
+            <input type="hidden" name="subject" value="Neue Kontaktanfrage über radsportclub-magdeburg.de">
+            
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+            <div class="form-grid">
+                <div class="input-group">
+                    <input type="text" name="vorname" id="firstname" required placeholder=" ">
+                    <label for="firstname">Vorname</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="nachname" id="lastname" required placeholder=" ">
+                    <label for="lastname">Nachname</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" id="email" required placeholder=" ">
+                    <label for="email">E-Mail Adresse</label>
+                </div>
+                <div class="input-group">
+                    <select name="anliegen" id="reason" required>
+                        <option value="" disabled selected hidden></option>
+                        <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                        <option value="Fragen zur Mitgliedschaft">Fragen zur Mitgliedschaft</option>
+                        <option value="Daten ändern">Daten ändern</option>
+                        <option value="Sponsor werden">Sponsor werden</option>
+                    </select>
+                    <label for="reason">Anliegen</label>
+                </div>
             </div>
-        </section>
+            
+            <div class="input-group full-width">
+                <textarea name="nachricht" id="msg" placeholder=" " rows="4"></textarea>
+                <label for="msg">Deine Nachricht</label>
+            </div>
+
+            <div class="form-footer">
+    <button type="submit" class="btn btn-primary" id="submit-btn">Absenden</button>
+</div>
+<div id="result" style="margin-top: 20px; font-weight: bold; text-align: center;"></div>
+        </form>
+    </div>
+</section>
     </main>
 <!-- FOOTER MIT IMPRESSUM/DATENSCHUTZ & R3WEBDESIGN VERLINKUNG-->
     <footer class="main-footer">
