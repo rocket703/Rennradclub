@@ -56,7 +56,7 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
 }
 
 .logo-text {
-    font-size: 0.85rem;
+    font-size: 1.0rem;
     font-weight: 700;
     line-height: 1.2;
     color: var(--black);
@@ -75,8 +75,9 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     }
 }
 .header-logo {
-    height: 180px; 
-    width: auto; 
+    height: auto; 
+    width: 200px;
+    align-items: center; 
     display: block;
     transition: transform 0.3s ease;
 }
