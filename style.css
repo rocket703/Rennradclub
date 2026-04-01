@@ -61,7 +61,6 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     line-height: 1.2;
     color: var(--black);
     text-align: left;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
