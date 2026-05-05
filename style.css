@@ -951,14 +951,27 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     .timeline-dot { left: 30px; transform: translateX(-50%); }
 }
 
+.main-header {
+    height: var(--header-h);
+    overflow: hidden; /* ← verhindert dass der Header unsichtbar überlappt */
+    z-index: 1100;
+}
+
+.header-container {
+    height: 100%;
+}
+
 /* SOCIAL MEDIA BAR */
 .social-bar {
-    position: relative;
-    z-index: 1010;
     background: transparent;
     border: none;
     padding: 0 16px;
-    margin-top: var(--header-h);
+    position: relative;
+    z-index: 999;
+}
+
+body {
+    padding-top: var(--header-h);
 }
 
 .social-bar-inner {
