@@ -950,3 +950,66 @@ body { font-family: 'Inter', sans-serif; color: var(--black); background: var(--
     }
     .timeline-dot { left: 30px; transform: translateX(-50%); }
 }
+
+/* SOCIAL MEDIA BAR */
+.social-bar {
+    position: relative;
+    z-index: 1010;
+    background: transparent;
+    border: none;
+    padding: 0 16px;
+    margin-top: var(--header-h);
+}
+
+.social-bar-inner {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 0;
+    flex-wrap: nowrap;
+}
+
+.social-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;        /* ← runde Ecken, aber quadratisch */
+    text-decoration: none;
+    border: none;
+    flex: 0 0 auto;
+    transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s;
+}
+
+.social-pill:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.pill-strava     { background: #FC4C02; }
+.pill-strava:hover { background: #e03e00; }
+
+.pill-komoot     { background: #6ABE2C; }
+.pill-komoot:hover { background: #57a221; }
+
+.pill-instagram  { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.pill-instagram:hover { opacity: 0.85; }
+
+.pill-whatsapp   { background: #25D366; }
+.pill-whatsapp:hover { background: #1ebe59; }
+
+/* Hero-Padding anpassen */
+.hero {
+    padding: 40px 20px 60px;
+}
