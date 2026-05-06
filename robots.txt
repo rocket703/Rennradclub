@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap Link für Google & Co.
+Sitemap: https://radsportclub-magdeburg.de/sitemap.xml

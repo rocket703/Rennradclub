@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Startseite -->
+  <url>
+    <loc>https://radsportclub-magdeburg.de/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- Partner / Sponsoren -->
+  <url>
+    <loc>https://radsportclub-magdeburg.de/Sponsoren/</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Vereinsgeschichte -->
+  <url>
+    <loc>https://radsportclub-magdeburg.de/ueber-uns/geschichte.html</loc>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Dokumente -->
+  <url>
+    <loc>https://radsportclub-magdeburg.de/ueber-uns/dokumente.html</loc>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Impressum -->
+  <url>
+    <loc>https://radsportclub-magdeburg.de/Impressum/</loc>
+    <priority>0.30</priority>
+  </url>
+
+  <!-- Datenschutz -->
+  <url>
+    <loc>https://radsportclub-magdeburg.de/Datenschutz/</loc>
+    <priority>0.30</priority>
+  </url>
+</urlset>
