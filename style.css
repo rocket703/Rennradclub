@@ -305,3 +305,92 @@ body {
 /* --- SCROLL FELGE --- */
 #scroll-wheel { position: fixed; bottom: 30px; right: 30px; width: 45px; z-index: 2000; opacity: 0.8; }
 #rim-image { width: 100%; height: auto; }
+
+/* --- SOCIAL MEDIA BAR (White/Blue Animated Style) --- */
+.social-bar {
+    position: relative;
+    z-index: 1000;
+    background: transparent;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.social-bar-inner {
+    display: flex;
+    gap: 16px; 
+}
+
+/* Der Button im Normalzustand (Weiß + Dein 1px Border) */
+.social-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0; /* Dein zarter Rahmen */
+    text-decoration: none;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    transition: all 0.35s cubic-bezier(0.310, -0.105, 0.430, 1.590);
+}
+
+/* Das unsichtbare, schräge Hintergrund-Element */
+.social-square::before {
+    content: '';
+    width: 150%;
+    height: 150%;
+    position: absolute;
+    top: 100%;
+    left: -120%;
+    transform: rotate(45deg);
+    transition: all 0.35s cubic-bezier(0.310, -0.105, 0.430, 1.590);
+    z-index: 1;
+}
+
+/* Das Icon selbst */
+.social-icon {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    z-index: 2;
+    transform: scale(0.95);
+    transition: all 0.35s cubic-bezier(0.310, -0.105, 0.430, 1.590);
+}
+
+/* --- HOVER EFFEKTE --- */
+.social-square:hover,
+.social-square:focus {
+    border-color: transparent; /* Versteckt den Rand, wenn Farbe einfliegt */
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Eleganter Schatten beim Hover */
+}
+
+.social-square:hover::before,
+.social-square:focus::before {
+    top: -20%;
+    left: -20%;
+}
+
+.social-square:hover .social-icon,
+.social-square:focus .social-icon {
+    color: #fff !important; /* 'currentColor' ändert sich zu Weiß */
+    transform: scale(1.1);
+}
+
+/* --- FARBEN (Zwingend transparent im Ruhezustand!) --- */
+
+.pill-strava { color: #FC4C02; background: transparent !important; }
+.pill-strava::before { background-color: #FC4C02; }
+
+.pill-komoot { color: #6ABE2C; background: transparent !important; }
+.pill-komoot::before { background-color: #6ABE2C; }
+
+.pill-instagram { color: #E1306C; background: transparent !important; }
+.pill-instagram::before { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+
+.pill-whatsapp { color: #25D366; background: transparent !important; }
+.pill-whatsapp::before { background-color: #25D366; }
