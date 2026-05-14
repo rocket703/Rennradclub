@@ -1,12 +1,33 @@
 [
   {
-    "datum": "2026-03-31",
-    "titel": "Vereinsgründung",
-    "info": "Treffpunkt Geheim"
+    "datum": "2026-05-16",
+    "titel": "Long Ride",
+    "description": "Eine anspruchsvolle Frühjahrstour mit Ausklang in der Milchkuluturanstalt",
+    "time": "10:00 Uhr",
+    "location": "Sternbrücke",
+    "kilometer": "ca. 165",
+    "tempo": "27 - 29"
   },
   {
-    "datum": "2026-04-07",
-    "titel": "Easy Groupride 60 Km",
-    "info": "Treffpunkt Sternbrücke 18:00 Uhr"
+    "startDatum": "2026-05-10",
+    "endDatum": "2026-08-30",
+    "frequency": "weekly",
+    "titel": "Gravelride #2",
+    "description": "Gravel-Tour mit gemischtem Untergrund und Gruppendynamik.",
+    "time": "10:00 Uhr",
+    "location": "Sternbrücke",
+    "kilometer": "ca. 50",
+    "tempo": "23 - 25"
+  },
+  {
+    "startDatum": "2026-05-05",
+    "endDatum": "2026-08-30",
+    "frequency": "weekly",
+    "titel": "Wöchentlicher Socialride",
+    "description": "Gemütlicher Feierabendride für alle Levels.",
+    "time": "18:00 Uhr",
+    "location": "Sternbrücke",
+    "kilometer": "ca. 55",
+    "tempo": "27 - 29"
   }
 ]

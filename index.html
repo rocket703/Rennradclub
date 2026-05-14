@@ -129,6 +129,9 @@
 <section id="events" class="section reveal">
         <h2 class="section-title">Termine</h2>
         <div class="calendar-section">
+            <aside class="upcoming-events">
+                <div id="upcomingList" class="upcoming-events-list"></div>
+            </aside>
             <div class="calendar-container">
                 <div class="calendar-card" id="calendarCard">
                     <div class="card-face front">
@@ -143,12 +146,11 @@
                         <div id="calendarGrid" class="days-grid"></div>
                     </div>
                     <div class="card-face back">
-                        <div class="event-content">
+                        <div class="detail-top">
                             <h3 id="eventTitle"></h3>
-                            <p class="event-date" id="eventDate"></p>
-                            <hr>
-                            <p id="eventDesc"></p>
+                            <p class="detail-description" id="eventDesc"></p>
                         </div>
+                        <div class="event-footer" id="eventFooter"></div>
                         <button class="modern-btn" onclick="flipBack()">Zurück</button>
                     </div>
                 </div>

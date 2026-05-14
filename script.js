@@ -1,5 +1,3 @@
-// --- ALLGEMEINE SEITEN-LOGIK (Reveal & Menu) ---
-
 // Reveal on Scroll: Macht Sektionen sichtbar
 const revealElements = () => {
     const reveals = document.querySelectorAll('.reveal');
@@ -46,23 +44,84 @@ window.addEventListener('scroll', () => {
 
 let currentMonth = new Date();
 let allEvents = [];
+let eventOccurrences = [];
 
 async function initCalendar() {
-    // Wir prüfen, ob wir überhaupt auf einer Seite mit Kalender sind
     const grid = document.getElementById('calendarGrid');
-    if (!grid) return; 
+    if (!grid) return;
 
     try {
-        // Pfad-Check
         const path = window.location.pathname.includes('Sponsoren') ? '../events.json' : 'events.json';
         const resp = await fetch(path);
-        if (!resp.ok) throw new Error("Datei nicht gefunden");
+        if (!resp.ok) throw new Error('Datei nicht gefunden');
         allEvents = await resp.json();
-        render();
     } catch (err) {
-        console.warn("Kalender-Daten konnten nicht geladen werden (evtl. falsche Seite?)");
-        render(); 
+        console.warn('Kalender-Daten konnten nicht geladen werden (evtl. falsche Seite?)');
+        allEvents = [];
     }
+
+    eventOccurrences = buildOccurrences(allEvents);
+    render();
+    renderUpcomingEvents();
+}
+
+function buildOccurrences(events) {
+    const occurrences = [];
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const maxHorizon = new Date(today);
+    maxHorizon.setMonth(maxHorizon.getMonth() + 12);
+
+    for (const ev of events) {
+        if (ev.datum) {
+            occurrences.push({ ...ev, datum: ev.datum });
+            continue;
+        }
+
+        if (!ev.startDatum) continue;
+
+        const start = parseDate(ev.startDatum);
+        if (!start) continue;
+
+        const end = ev.endDatum ? parseDate(ev.endDatum) : new Date(start);
+        if (!end) continue;
+        if (end < start) continue;
+
+        const frequency = (ev.frequency || ev.freq || '').toString().toLowerCase();
+
+        if (frequency === 'weekly' || frequency === 'wöchentlich') {
+            const occurrence = new Date(start);
+            const titleMatch = ev.titel ? ev.titel.match(/^(.*?)(?:#\s*(\d+))\s*$/i) : null;
+            const titleBase = titleMatch ? titleMatch[1].trim() : ev.titel;
+            let counter = titleMatch ? parseInt(titleMatch[2], 10) : null;
+
+            while (occurrence <= end && occurrence <= maxHorizon) {
+                const occurrenceTitle = counter !== null ? `${titleBase} #${counter}` : ev.titel;
+                occurrences.push({ ...ev, titel: occurrenceTitle, datum: formatDate(occurrence) });
+                if (counter !== null) counter += 1;
+                occurrence.setDate(occurrence.getDate() + 7);
+            }
+        } else {
+            occurrences.push({ ...ev, datum: formatDate(start) });
+        }
+    }
+
+    return occurrences.sort((a, b) => new Date(a.datum) - new Date(b.datum));
+}
+
+function parseDate(value) {
+    const parsed = new Date(value);
+    return isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function formatDate(date) {
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+}
+
+function formatReadable(dateString) {
+    const date = parseDate(dateString);
+    if (!date) return dateString;
+    return date.toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: '2-digit' });
 }
 
 function render() {
@@ -80,6 +139,15 @@ function render() {
     const shift = (firstDay === 0) ? 6 : firstDay - 1;
     const days = new Date(y, m + 1, 0).getDate();
 
+    const monthKey = `${y}-${String(m + 1).padStart(2, '0')}`;
+    const eventsByDate = eventOccurrences.reduce((acc, event) => {
+        if (event.datum && event.datum.startsWith(monthKey)) {
+            acc[event.datum] = acc[event.datum] || [];
+            acc[event.datum].push(event);
+        }
+        return acc;
+    }, {});
+
     for (let i = 0; i < shift; i++) {
         grid.appendChild(document.createElement('div'));
     }
@@ -89,30 +157,110 @@ function render() {
         cell.className = 'day-cell';
         cell.innerText = d;
         const dateKey = `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
-        const match = allEvents.find(e => e.datum === dateKey);
-        if (match) {
+        const matches = eventsByDate[dateKey];
+
+        if (matches && matches.length > 0) {
             cell.classList.add('has-event');
-            cell.onclick = (e) => { e.stopPropagation(); showDetails(match); };
+            cell.onclick = (e) => { e.stopPropagation(); showDetails(matches); };
         }
         grid.appendChild(cell);
     }
 }
 
-function showDetails(ev) {
+function showDetails(matches) {
+    const event = Array.isArray(matches) ? matches[0] : matches;
     const title = document.getElementById('eventTitle');
-    if(title) title.innerText = ev.titel;
-    const date = document.getElementById('eventDate');
-    if(date) date.innerText = ev.datum;
+    if (title) title.innerText = event.titel;
     const desc = document.getElementById('eventDesc');
-    if(desc) desc.innerText = ev.info;
-    
+    if (desc) {
+        const extra = Array.isArray(matches) && matches.length > 1 ? `\n\n+${matches.length - 1} weiterer Termin` : '';
+        desc.innerText = `${event.description || event.info || ''}${extra}`;
+    }
+    const eventFooter = document.getElementById('eventFooter');
+    if (eventFooter) {
+        eventFooter.innerHTML = `
+            <div class="footer-left">
+                <div class="fact-item">
+                    <img src="img/icons/calendar.svg" alt="Datum" />
+                    <span>${formatReadable(event.datum)}</span>
+                </div>
+                <div class="fact-item">
+                    <img src="img/icons/clock.svg" alt="Uhrzeit" />
+                    <span>${event.time || '—'}</span>
+                </div>
+                <div class="fact-item">
+                    <img src="img/icons/location.svg" alt="Ort" />
+                    <span>${event.location || 'Ort offen'}</span>
+                </div>
+            </div>
+            <div class="footer-right">
+                ${event.kilometer ? `<div class="fact-item"><span>${event.kilometer} km</span></div>` : ''}
+                ${event.tempo ? `<div class="fact-item"><span>${event.tempo} km/h</span></div>` : ''}
+            </div>
+        `;
+    }
     const card = document.getElementById('calendarCard');
-    if(card) card.classList.add('is-flipped');
+    if (card) card.classList.add('show-details');
+}
+
+function renderUpcomingEvents() {
+    const container = document.getElementById('upcomingList');
+    if (!container) return;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const upcoming = eventOccurrences.filter(ev => {
+        const evDate = parseDate(ev.datum);
+        return evDate && evDate >= today;
+    }).slice(0, 3);
+
+    if (upcoming.length === 0) {
+        container.innerHTML = '<div class="empty-state">Keine kommenden Termine vorhanden.</div>';
+        return;
+    }
+
+    container.innerHTML = upcoming.map(ev => {
+        return `
+            <article class="upcoming-item">
+                <div class="item-band"></div>
+                <div class="upcoming-card-head">
+                    <div>
+                        <h4>${ev.titel}</h4>
+                        <p class="item-subtitle">${ev.description || ev.info || ''}</p>
+                    </div>
+                </div>
+                <div class="event-footer">
+                    <div class="footer-left">
+                        <div class="fact-item">
+                            <img src="img/icons/calendar.svg" alt="Datum" />
+                            <span>${formatReadable(ev.datum)}</span>
+                        </div>
+                        <div class="fact-item">
+                            <img src="img/icons/clock.svg" alt="Uhrzeit" />
+                            <span>${ev.time || '—'}</span>
+                        </div>
+                        <div class="fact-item">
+                            <img src="img/icons/location.svg" alt="Ort" />
+                            <span>${ev.location || 'Ort offen'}</span>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <div class="fact-item">
+                            <span>${ev.kilometer || '—'} km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>${ev.tempo || '—'} km/h</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        `;
+    }).join('');
 }
 
 window.flipBack = function() {
     const card = document.getElementById('calendarCard');
-    if(card) card.classList.remove('is-flipped');
+    if (card) card.classList.remove('show-details');
 };
 
 // Event Listener für Kalender-Navigation
@@ -139,7 +287,7 @@ form.addEventListener('submit', function(e) {
   const json = JSON.stringify(object);
 
   result.innerHTML = "Bitte warten...";
-  result.style.color = "var(--text-color)"; // Nutzt deine CSS Variable
+  result.style.color = "var(--text-color)";
 
   fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -153,7 +301,7 @@ form.addEventListener('submit', function(e) {
           let json = await response.json();
           if (response.status == 200) {
               result.innerHTML = "Vielen Dank! Deine Nachricht wurde erfolgreich versendet.";
-              result.style.color = "#28a745"; // Ein schönes Grün
+              result.style.color = "#28a745";
               form.reset(); // Leert das Formular nach Erfolg
           } else {
               console.log(response);
