@@ -12,76 +12,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="manifest" href="img/favicon/site.webmanifest">
-
-    <style>
-        .elmlinge-gallery {
-            position: relative;
-            width: 100%;
-        }
-
-        .elmlinge-gallery-image {
-            display: none;
-            width: 100%;
-            height: auto;
-        }
-
-        .elmlinge-gallery-image.is-active {
-            display: block;
-        }
-
-        .elmlinge-gallery-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 42px;
-            height: 42px;
-            border: 0;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.58);
-            color: #fff;
-            font-size: 32px;
-            line-height: 1;
-            cursor: pointer;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-
-        .elmlinge-gallery-prev {
-            left: 12px;
-        }
-
-        .elmlinge-gallery-next {
-            right: 12px;
-        }
-
-        .elmlinge-gallery-dots {
-            position: absolute;
-            left: 50%;
-            bottom: 12px;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 7px;
-            z-index: 2;
-        }
-
-        .elmlinge-gallery-dot {
-            width: 9px;
-            height: 9px;
-            padding: 0;
-            border: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.55);
-            cursor: pointer;
-        }
-
-        .elmlinge-gallery-dot.is-active {
-            background: #fff;
-        }
-    </style>
-
 </head>
 <body>
     <div id="scroll-wheel" aria-hidden="true">
@@ -254,27 +184,14 @@
 
             <article class="current-feature">
                 <div class="current-feature-image">
-                    <div class="elmlinge-gallery" data-elmlinge-gallery>
-                        <img class="elmlinge-gallery-image is-active" src="img/elm1.jpg" alt="Die Elmlinge free4all – Radsport-Community in Magdeburg" loading="lazy" decoding="async">
-                        <img class="elmlinge-gallery-image" src="img/elm2.jpg" alt="Gemeinsame Ausfahrt beim Die Elmlinge free4all" loading="lazy" decoding="async">
-                        <img class="elmlinge-gallery-image" src="img/elm3.jpg" alt="Radsportler beim Die Elmlinge free4all" loading="lazy" decoding="async">
-
-                        <button class="elmlinge-gallery-btn elmlinge-gallery-prev" type="button" aria-label="Vorheriges Bild">‹</button>
-                        <button class="elmlinge-gallery-btn elmlinge-gallery-next" type="button" aria-label="Nächstes Bild">›</button>
-
-                        <div class="elmlinge-gallery-dots" aria-label="Bildauswahl">
-                            <button class="elmlinge-gallery-dot is-active" type="button" aria-label="Bild 1 anzeigen"></button>
-                            <button class="elmlinge-gallery-dot" type="button" aria-label="Bild 2 anzeigen"></button>
-                            <button class="elmlinge-gallery-dot" type="button" aria-label="Bild 3 anzeigen"></button>
-                        </div>
-                    </div>
+                    <img src="img/elm1.jpg" alt="Die Elmlinge free4all – Radsport-Community in Magdeburg" loading="lazy" decoding="async">
                 </div>
 
                 <div class="current-feature-content">
                     <span class="current-label">Die Elmlinge free4all</span>
                     <h3>Zwei Runden, ein gemeinsamer Radsporttag.</h3>
 
-                    <p>Gemeinsam mit FlaR und den Velozipeden bringen wir beim <strong>Die Elmlinge free4all</strong> die Radsport-Community in Magdeburg zusammen. Der RCM ist mit zwei Rennrad-Runden dabei – einer langen Runde über rund 230 Kilometer und einer schnelleren 130-Kilometer-Runde.</p>
+                    <p>Gemeinsam mit FlaR und den Velozipeden bringen wir beim <strong>Die Elmlinge free4all</strong> die Radsport-Community in Magdeburg zusammen. Der RCM ist mit zwei Rennrad-Runden dabei – einer 130-Kilometer-Runde und einer langen Runde über rund 230 Kilometer.</p>
 
                     <p>Beide Gruppen starten am <strong>Café KRÖM auf dem Alten Markt</strong>. Das KRÖM öffnet an diesem Morgen extra bereits ab <strong>08:30 Uhr</strong>. Kommt also gerne früher vorbei, trinkt noch einen Kaffee, tauscht euch mit den anderen aus und nutzt bei Bedarf noch einmal die Toilette, bevor es losgeht.</p>
 
@@ -510,46 +427,6 @@
             </div>
         </div>
     </footer>
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const gallery = document.querySelector("[data-elmlinge-gallery]");
-            if (!gallery) return;
-
-            const images = Array.from(gallery.querySelectorAll(".elmlinge-gallery-image"));
-            const dots = Array.from(gallery.querySelectorAll(".elmlinge-gallery-dot"));
-            const prev = gallery.querySelector(".elmlinge-gallery-prev");
-            const next = gallery.querySelector(".elmlinge-gallery-next");
-            let current = 0;
-
-            function showImage(index) {
-                current = (index + images.length) % images.length;
-
-                images.forEach((image, i) => {
-                    image.classList.toggle("is-active", i === current);
-                });
-
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle("is-active", i === current);
-                });
-            }
-
-            prev.addEventListener("click", function () {
-                showImage(current - 1);
-            });
-
-            next.addEventListener("click", function () {
-                showImage(current + 1);
-            });
-
-            dots.forEach((dot, index) => {
-                dot.addEventListener("click", function () {
-                    showImage(index);
-                });
-            });
-        });
-    </script>
 
     <script src="script.js"></script>
 </body>
