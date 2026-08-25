@@ -69,6 +69,45 @@
         });
     }
 
+    function formatDateRangeReadable(startString, endString) {
+        const start = parseDate(startString);
+        const end = parseDate(endString);
+
+        if (!start || !end) {
+            return formatReadable(startString);
+        }
+
+        if (formatDate(start) === formatDate(end)) {
+            return formatReadable(startString);
+        }
+
+        const startPart = start.toLocaleDateString("de-DE", {
+            day: "2-digit",
+            month: "2-digit"
+        });
+
+        const endPart = end.toLocaleDateString("de-DE", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+        });
+
+        return `${startPart}–${endPart}`;
+    }
+
+    function safeWebsiteUrl(value) {
+        if (!value) return null;
+
+        try {
+            const url = new URL(value);
+            return (url.protocol === "https:" || url.protocol === "http:")
+                ? url.href
+                : null;
+        } catch {
+            return null;
+        }
+    }
+
     function escapeHtml(value) {
         return String(value ?? "")
             .replaceAll("&", "&amp;")
@@ -241,6 +280,36 @@
                 : null;
 
             if (explicitEnd && explicitEnd < start) continue;
+
+            if (
+                frequency === "daily" ||
+                frequency === "täglich" ||
+                frequency === "range" ||
+                frequency === "mehrtägig"
+            ) {
+                const seriesEnd = explicitEnd || start;
+
+                if (seriesEnd < from || start > to) continue;
+
+                let occurrence = new Date(start < from ? from : start);
+                const occurrenceEnd = seriesEnd < to ? seriesEnd : to;
+                const rangeId = `${event.titel || "event"}-${formatDate(start)}-${formatDate(seriesEnd)}`;
+
+                while (occurrence <= occurrenceEnd) {
+                    occurrences.push({
+                        ...event,
+                        datum: formatDate(occurrence),
+                        _rangeStart: formatDate(start),
+                        _rangeEnd: formatDate(seriesEnd),
+                        _rangeId: rangeId
+                    });
+
+                    occurrence = new Date(occurrence);
+                    occurrence.setDate(occurrence.getDate() + 1);
+                }
+
+                continue;
+            }
 
             if (frequency === "weekly" || frequency === "wöchentlich") {
                 const seriesEnd = explicitEnd && explicitEnd < to
@@ -416,10 +485,14 @@
         const right = [];
 
         if (includeDate && event.datum) {
+            const readableDate = event._rangeStart && event._rangeEnd
+                ? formatDateRangeReadable(event._rangeStart, event._rangeEnd)
+                : formatReadable(event.datum);
+
             left.push(`
                 <div class="fact-item">
                     <img src="${assetUrl("img/icons/calendar.svg")}" alt="" />
-                    <span>${escapeHtml(formatReadable(event.datum))}</span>
+                    <span>${escapeHtml(readableDate)}</span>
                 </div>
             `);
         }
@@ -455,6 +528,20 @@
                 <div class="fact-item">
                     <span>${escapeHtml(event.tempo)} km/h</span>
                 </div>
+            `);
+        }
+
+        const website = safeWebsiteUrl(event.website);
+        if (website) {
+            right.push(`
+                <a
+                    class="event-website-link"
+                    href="${escapeHtml(website)}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Zur Website
+                </a>
             `);
         }
 
@@ -503,7 +590,11 @@
                     <div class="footer-left">
                         <div class="fact-item">
                             <img src="${assetUrl("img/icons/calendar.svg")}" alt="" />
-                            <span>${escapeHtml(formatReadable(first.datum))}</span>
+                            <span>${escapeHtml(
+                                first._rangeStart && first._rangeEnd
+                                    ? formatDateRangeReadable(first._rangeStart, first._rangeEnd)
+                                    : formatReadable(first.datum)
+                            )}</span>
                         </div>
                     </div>
                 `;
@@ -524,11 +615,22 @@
         const horizon = new Date(today);
         horizon.setFullYear(horizon.getFullYear() + 2);
 
-        const upcoming = getOccurrencesForRange(
+        const rawUpcoming = getOccurrencesForRange(
             allEvents,
             today,
             horizon
-        ).slice(0, 3);
+        );
+
+        const seenRanges = new Set();
+        const upcoming = rawUpcoming
+            .filter((event) => {
+                if (!event._rangeId) return true;
+                if (seenRanges.has(event._rangeId)) return false;
+
+                seenRanges.add(event._rangeId);
+                return true;
+            })
+            .slice(0, 3);
 
         if (upcoming.length === 0) {
             upcomingList.innerHTML =
