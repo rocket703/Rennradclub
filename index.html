@@ -12,6 +12,40 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="manifest" href="img/favicon/site.webmanifest">
+
+    <style>
+        .elmlinge-slider {
+            display: flex;
+            width: 100%;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            border-radius: inherit;
+        }
+
+        .elmlinge-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .elmlinge-slider img {
+            flex: 0 0 100%;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        .elmlinge-slider-hint {
+            margin-top: 8px;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.65;
+        }
+    </style>
+
 </head>
 <body>
     <div id="scroll-wheel" aria-hidden="true">
@@ -184,11 +218,12 @@
 
             <article class="current-feature">
                 <div class="current-feature-image">
-                    <div style="display:grid; gap:12px;">
+                    <div class="elmlinge-slider" aria-label="Bildergalerie Die Elmlinge free4all">
                         <img src="img/elm1.jpg" alt="Die Elmlinge free4all – Radsport-Community in Magdeburg" loading="lazy" decoding="async">
                         <img src="img/elm2.jpg" alt="Gemeinsame Ausfahrt beim Die Elmlinge free4all" loading="lazy" decoding="async">
                         <img src="img/elm3.jpg" alt="Radsportler beim Die Elmlinge free4all" loading="lazy" decoding="async">
                     </div>
+                    <div class="elmlinge-slider-hint">← Wischen →</div>
                 </div>
 
                 <div class="current-feature-content">
@@ -198,21 +233,6 @@
                     <p>Gemeinsam mit FlaR und den Velozipeden bringen wir beim <strong>Die Elmlinge free4all</strong> die Radsport-Community in Magdeburg zusammen. Der RCM ist mit zwei Rennrad-Runden dabei – einer langen Runde über rund 230 Kilometer und einer schnelleren 130-Kilometer-Runde.</p>
 
                     <p>Beide Gruppen starten am <strong>Café KRÖM auf dem Alten Markt</strong>. Das KRÖM öffnet an diesem Morgen extra bereits ab <strong>08:30 Uhr</strong>. Kommt also gerne früher vorbei, trinkt noch einen Kaffee, tauscht euch mit den anderen aus und nutzt bei Bedarf noch einmal die Toilette, bevor es losgeht.</p>
-
-                    <div class="current-date">
-                        <span aria-hidden="true">🚴</span>
-                        <div>
-                            <strong>Lange Runde · ca. 230 km</strong>
-                            <span>Start 09:00 Uhr · Pace ca. 27–29 km/h</span>
-                        </div>
-                    </div>
-
-                    <p>Für die lange Runde sind zwei größere Verpflegungsstopps geplant: etwa bei <strong>km 75 am Lidl in Helmstedt</strong> und bei <strong>km 140 am Marktkauf in Schöningen</strong>.</p>
-
-                    <p>
-                        <a href="https://www.komoot.com/tour/3228141523" target="_blank" rel="noopener noreferrer">🗺️ Route auf Komoot</a><br>
-                        <a href="https://www.strava.com/clubs/1491805/group_events/3527026616985875762" target="_blank" rel="noopener noreferrer">🟠 Event auf Strava</a>
-                    </p>
 
                     <div class="current-date">
                         <span aria-hidden="true">🚴</span>
@@ -227,6 +247,21 @@
                     <p>
                         <a href="https://www.komoot.com/de-de/tour/3228140075" target="_blank" rel="noopener noreferrer">🗺️ Route auf Komoot</a><br>
                         <a href="https://www.strava.com/clubs/1491805/group_events/3527028440319583754" target="_blank" rel="noopener noreferrer">🟠 Event auf Strava</a>
+                    </p>
+
+                    <div class="current-date">
+                        <span aria-hidden="true">🚴</span>
+                        <div>
+                            <strong>Lange Runde · ca. 230 km</strong>
+                            <span>Start 09:00 Uhr · Pace ca. 27–29 km/h</span>
+                        </div>
+                    </div>
+
+                    <p>Für die lange Runde sind zwei größere Verpflegungsstopps geplant: etwa bei <strong>km 75 am Lidl in Helmstedt</strong> und bei <strong>km 140 am Marktkauf in Schöningen</strong>.</p>
+
+                    <p>
+                        <a href="https://www.komoot.com/tour/3228141523" target="_blank" rel="noopener noreferrer">🗺️ Route auf Komoot</a><br>
+                        <a href="https://www.strava.com/clubs/1491805/group_events/3527026616985875762" target="_blank" rel="noopener noreferrer">🟠 Event auf Strava</a>
                     </p>
 
                     <p>Für beide Runden gilt: Wir fahren gemeinsam, achten darauf, dass die Gruppe zusammenbleibt und halten uns jederzeit an die StVO. Bitte kommt entsprechend vorbereitet zum Start – Rad checken, Flaschen füllen und ausreichend Verpflegung einpacken.</p>
