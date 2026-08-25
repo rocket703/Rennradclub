@@ -1,19 +1,10 @@
 [
   {
-    "datum": "2026-05-16",
-    "titel": "Long Ride",
-    "description": "Eine anspruchsvolle Frühjahrstour mit Ausklang in der Milchkuluturanstalt",
-    "time": "10:00 Uhr",
-    "location": "Sternbrücke",
-    "kilometer": "ca. 165",
-    "tempo": "27 - 29"
-  },
-  {
     "startDatum": "2026-05-10",
     "endDatum": "2026-08-30",
     "frequency": "weekly",
-    "titel": "Gravelride #2",
-    "description": "Gravel-Tour mit gemischtem Untergrund und Gruppendynamik.",
+    "titel": "Gravel Ride",
+    "description": "Unsere wöchentliche Gravelrunde über Schotter, Waldwege und Nebenwege rund um Magdeburg. Gemeinsam fahren, neue Wege entdecken und Spaß auf dem Gravelbike haben.",
     "time": "10:00 Uhr",
     "location": "Sternbrücke",
     "kilometer": "ca. 50",
@@ -23,11 +14,29 @@
     "startDatum": "2026-05-05",
     "endDatum": "2026-08-30",
     "frequency": "weekly",
-    "titel": "Wöchentlicher Socialride",
-    "description": "Gemütlicher Feierabendride für alle Levels.",
+    "titel": "Social Ride",
+    "description": "Unsere gemeinsame Feierabendrunde auf dem Rennrad. Zusammen fahren, neue Leute kennenlernen und den Abend auf dem Rad genießen.",
     "time": "18:00 Uhr",
     "location": "Sternbrücke",
     "kilometer": "ca. 55",
     "tempo": "27 - 29"
+  },
+  {
+    "datum": "2026-08-20",
+    "titel": "SunDowner Ride",
+    "description": "Gemeinsame Rennradausfahrt in den Sonnenuntergang. Eine kompakte Abendrunde rund um Magdeburg mit gemeinsamem Start und gemeinsamem Ankommen.",
+    "time": "20:00 Uhr",
+    "location": "Sternbrücke",
+    "kilometer": "ca. 50",
+    "tempo": "29 - 31"
+  },
+  {
+    "datum": "2027-01-23",
+    "titel": "Winter Alley Cat 2027",
+    "description": "Zeiten ändern sich, aber die Alley Cat bleibt. Auf Pokémon-Jagd durch Magdeburg tretet ihr im Team Pflanze, Wasser oder Feuer an. Findet die Pokémon, sammelt und tauscht clever und entscheidet selbst, welche Route euch zum Ziel führt. Dabei zählen Strategie, Teamwork, Geschwindigkeit und natürlich auch ein wenig Glück.",
+    "time": "wird noch bekannt gegeben",
+    "location": "Magdeburg",
+    "kilometer": "variabel",
+    "tempo": "frei"
   }
 ]
