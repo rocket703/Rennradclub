@@ -2176,3 +2176,25 @@ body {
         margin: 0 auto;
     }
 }
+
+/* --- KALENDER: ERGÄNZUNGEN V3 --- */
+.day-cell-empty {
+    pointer-events: none;
+}
+
+.day-cell.is-today:not(.has-event) {
+    outline: 2px solid rgba(10, 46, 100, 0.22);
+    outline-offset: -2px;
+}
+
+.day-cell.has-event:focus-visible {
+    outline: 3px solid rgba(10, 46, 100, 0.28);
+    outline-offset: 2px;
+}
+
+#submit-btn:disabled {
+    opacity: 0.65;
+    cursor: wait;
+    transform: none;
+}
+

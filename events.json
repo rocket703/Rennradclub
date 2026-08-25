@@ -3,7 +3,7 @@
     "startDatum": "2026-05-05",
     "frequency": "weekly",
     "titel": "Social Ride",
-    "description": "Unsere wöchentliche Rennradausfahrt am Dienstagabend. Gemeinsam fahren, neue Leute kennenlernen und eine gute Zeit auf dem Rad haben. Wir fahren in mehreren Gruppen, sodass unterschiedliche Geschwindigkeiten möglich sind.",
+    "description": "Unsere wöchentliche Rennradausfahrt am Dienstagabend. Gemeinsam fahren, neue Leute kennenlernen und eine gute Zeit auf dem Rad haben. Wir fahren in mehreren Gruppen mit unterschiedlichen Geschwindigkeiten.",
     "time": "18:00 Uhr",
     "location": "Sternbrücke",
     "kilometer": "ca. 55 - 60",
@@ -13,7 +13,7 @@
     "startDatum": "2026-05-10",
     "frequency": "weekly",
     "titel": "Gravel Ride",
-    "description": "Unsere wöchentliche Gravelrunde über Schotter, Waldwege und Nebenwege rund um Magdeburg. Gemeinsam neue Wege entdecken und Spaß auf dem Gravelbike haben.",
+    "description": "Unsere wöchentliche Gravelrunde rund um Magdeburg. Schotter, Waldwege und Nebenwege stehen genauso im Mittelpunkt wie gemeinsames Fahren, neue Strecken und Spaß auf dem Gravelbike.",
     "time": "10:00 Uhr",
     "location": "Sternbrücke",
     "kilometer": "ca. 50",
@@ -23,7 +23,7 @@
     "startDatum": "2026-08-20",
     "frequency": "weekly",
     "titel": "SunDowner Ride",
-    "description": "Unsere wöchentliche Rennradausfahrt am Donnerstagabend. Eine kompakte Runde rund um Magdeburg mit gemeinsamem Start und gemeinsamem Ankommen.",
+    "description": "Unsere wöchentliche Rennradausfahrt am Donnerstagabend. Eine kompakte Runde rund um Magdeburg mit gemeinsamem Start, guter Stimmung und gemeinsamem Ankommen.",
     "time": "20:00 Uhr",
     "location": "Sternbrücke",
     "kilometer": "ca. 50",
@@ -32,10 +32,8 @@
   {
     "datum": "2027-01-23",
     "titel": "Winter Alley Cat 2027",
-    "description": "Zeiten ändern sich, aber die Alley Cat bleibt. Auf Pokémon-Jagd durch Magdeburg tretet ihr im Team Pflanze, Wasser oder Feuer an. Findet die Pokémon, sammelt und tauscht clever und entscheidet selbst, welche Route euch zum Ziel führt. Strategie, Teamwork, Geschwindigkeit und ein wenig Glück entscheiden darüber, welches Team sie alle fängt.",
+    "description": "Zeiten ändern sich, aber die Alley Cat bleibt. Auf Pokémon-Jagd durch Magdeburg tretet ihr im Team Pflanze, Wasser oder Feuer an. Wählt eure Route klug, sammelt und tauscht und versucht gemeinsam, schneller als die anderen Teams zu sein.",
     "time": "wird noch bekannt gegeben",
-    "location": "Magdeburg",
-    "kilometer": "variabel",
-    "tempo": "frei"
+    "location": "Magdeburg"
   }
 ]
