@@ -14,35 +14,71 @@
     <link rel="manifest" href="img/favicon/site.webmanifest">
 
     <style>
-        .elmlinge-slider {
-            display: flex;
+        .elmlinge-gallery {
+            position: relative;
             width: 100%;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            border-radius: inherit;
         }
 
-        .elmlinge-slider::-webkit-scrollbar {
+        .elmlinge-gallery-image {
             display: none;
-        }
-
-        .elmlinge-slider img {
-            flex: 0 0 100%;
             width: 100%;
             height: auto;
-            object-fit: cover;
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
         }
 
-        .elmlinge-slider-hint {
-            margin-top: 8px;
-            text-align: center;
-            font-size: 0.8rem;
-            opacity: 0.65;
+        .elmlinge-gallery-image.is-active {
+            display: block;
+        }
+
+        .elmlinge-gallery-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.58);
+            color: #fff;
+            font-size: 32px;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .elmlinge-gallery-prev {
+            left: 12px;
+        }
+
+        .elmlinge-gallery-next {
+            right: 12px;
+        }
+
+        .elmlinge-gallery-dots {
+            position: absolute;
+            left: 50%;
+            bottom: 12px;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 7px;
+            z-index: 2;
+        }
+
+        .elmlinge-gallery-dot {
+            width: 9px;
+            height: 9px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.55);
+            cursor: pointer;
+        }
+
+        .elmlinge-gallery-dot.is-active {
+            background: #fff;
         }
     </style>
 
@@ -218,12 +254,20 @@
 
             <article class="current-feature">
                 <div class="current-feature-image">
-                    <div class="elmlinge-slider" aria-label="Bildergalerie Die Elmlinge free4all">
-                        <img src="img/elm1.jpg" alt="Die Elmlinge free4all – Radsport-Community in Magdeburg" loading="lazy" decoding="async">
-                        <img src="img/elm2.jpg" alt="Gemeinsame Ausfahrt beim Die Elmlinge free4all" loading="lazy" decoding="async">
-                        <img src="img/elm3.jpg" alt="Radsportler beim Die Elmlinge free4all" loading="lazy" decoding="async">
+                    <div class="elmlinge-gallery" data-elmlinge-gallery>
+                        <img class="elmlinge-gallery-image is-active" src="img/elm1.jpg" alt="Die Elmlinge free4all – Radsport-Community in Magdeburg" loading="lazy" decoding="async">
+                        <img class="elmlinge-gallery-image" src="img/elm2.jpg" alt="Gemeinsame Ausfahrt beim Die Elmlinge free4all" loading="lazy" decoding="async">
+                        <img class="elmlinge-gallery-image" src="img/elm3.jpg" alt="Radsportler beim Die Elmlinge free4all" loading="lazy" decoding="async">
+
+                        <button class="elmlinge-gallery-btn elmlinge-gallery-prev" type="button" aria-label="Vorheriges Bild">‹</button>
+                        <button class="elmlinge-gallery-btn elmlinge-gallery-next" type="button" aria-label="Nächstes Bild">›</button>
+
+                        <div class="elmlinge-gallery-dots" aria-label="Bildauswahl">
+                            <button class="elmlinge-gallery-dot is-active" type="button" aria-label="Bild 1 anzeigen"></button>
+                            <button class="elmlinge-gallery-dot" type="button" aria-label="Bild 2 anzeigen"></button>
+                            <button class="elmlinge-gallery-dot" type="button" aria-label="Bild 3 anzeigen"></button>
+                        </div>
                     </div>
-                    <div class="elmlinge-slider-hint">← Wischen →</div>
                 </div>
 
                 <div class="current-feature-content">
@@ -466,6 +510,46 @@
             </div>
         </div>
     </footer>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const gallery = document.querySelector("[data-elmlinge-gallery]");
+            if (!gallery) return;
+
+            const images = Array.from(gallery.querySelectorAll(".elmlinge-gallery-image"));
+            const dots = Array.from(gallery.querySelectorAll(".elmlinge-gallery-dot"));
+            const prev = gallery.querySelector(".elmlinge-gallery-prev");
+            const next = gallery.querySelector(".elmlinge-gallery-next");
+            let current = 0;
+
+            function showImage(index) {
+                current = (index + images.length) % images.length;
+
+                images.forEach((image, i) => {
+                    image.classList.toggle("is-active", i === current);
+                });
+
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle("is-active", i === current);
+                });
+            }
+
+            prev.addEventListener("click", function () {
+                showImage(current - 1);
+            });
+
+            next.addEventListener("click", function () {
+                showImage(current + 1);
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener("click", function () {
+                    showImage(index);
+                });
+            });
+        });
+    </script>
 
     <script src="script.js"></script>
 </body>
