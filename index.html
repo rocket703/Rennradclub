@@ -3,257 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Radsportclub Magdeburg e.V. – gemeinsame Ausfahrten, Termine, Community und Radsport in Magdeburg.">
     <title>Radsportclub Magdeburg e.V.</title>
     <link rel="stylesheet" href="style.css">
 
     <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-
-<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-
-<link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
 </head>
 <body>
-    <!-- SCROLL FELGE ANIMIERT -->
     <div id="scroll-wheel" aria-hidden="true">
-        <img src="img/felge.png" alt="Rad" id="rim-image">
+        <img src="img/felge.png" alt="" id="rim-image">
     </div>
-    <!-- HEADER MIT MENÜ/BURGER MENÜ MOBIL -->
+
     <header class="main-header">
         <div class="header-container">
             <div class="logo">
-    <a href="#">
-        <img src="img/logo.svg" alt="Radsportclub Magdeburg e.V." class="header-logo">
-       <span class="logo-text">
-    Radsportclub<br><span class="logo-kicker">Magdeburg e.V.</span>
-</span>
-        </a>
-    </div>
-            
-            <button class="menu-trigger" id="menu-trigger" aria-label="Menü">
-                <span></span><span></span>
+                <a href="#top" aria-label="Zur Startseite">
+                    <img src="img/logo.svg" alt="Radsportclub Magdeburg e.V." class="header-logo">
+                    <span class="logo-text">
+                        Radsportclub<br>
+                        <span class="logo-kicker">Magdeburg e.V.</span>
+                    </span>
+                </a>
+            </div>
+
+            <button class="menu-trigger" id="menu-trigger" type="button" aria-label="Menü öffnen" aria-controls="main-nav" aria-expanded="false">
+                <span></span>
+                <span></span>
             </button>
 
-            <nav class="main-nav" id="main-nav">
-    <ul>
-        <li><a href="#events">Events</a></li>
-        <li><a href="Sponsoren/index.html">Partner</a></li>
-        <li class="has-submenu">
-            <a href="#">Über uns</a>
-            <ul class="submenu">
-                <li><a href="ueber-uns/geschichte.html">Vereinsgeschichte</a></li>
-                <li><a href="ueber-uns/dokumente.html">Dokumente</a></li>
-            </ul>
-        </li> <!-- Das schließende Tag MUSS nach der Submenu-Liste kommen -->
-        <li><a href="#contact">Kontakt</a></li>
-    </ul>
-</nav>
+            <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="Sponsoren/index.html">Partner</a></li>
+                    <li class="has-submenu">
+                        <a href="#about" class="nav-parent" aria-haspopup="true">
+                            <span>Über uns</span>
+                            <span class="nav-chevron" aria-hidden="true"></span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="#about">Unsere Philosophie</a></li>
+                            <li><a href="ueber-uns/geschichte.html">Vereinsgeschichte</a></li>
+                            <li><a href="ueber-uns/dokumente.html">Dokumente</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main>
-      
-        <!-- HERO SEKTION -->
-<section class="hero reveal">
-    
-    <!-- Das ist der Container für Bild (links) und Text (rechts) -->
-    <div class="hero-layout">
-        <div class="hero-image">
-            <img src="img/gruppe.jpg" alt="Rennrad Magdeburg">
-        </div>
-        
-        <div class="hero-content">
-            <div class="reveal-container">
-                <h1 class="reveal-text"><span>Radsportclub</span><span class="logo-kicker">Magdeburg e.V.</span></h1>
-            </div>
-            <p class="hero-subline">Leidenschaft, Speed und die Elbe im Rücken. Die Community für alle Rennrad-Fans in Sachsen-Anhalt.</p>
-        </div>
-    </div>
+    <main id="top">
+        <section class="hero reveal" aria-labelledby="hero-title">
+            <div class="hero-layout">
+                <div class="hero-image">
+                    <img src="img/gruppe.jpg" alt="Gemeinsame Rennradausfahrt des Radsportclub Magdeburg">
+                </div>
 
-    <!-- Soziale Media Bar  -->
-    <div class="social-bar">
-    <div class="social-bar-inner">
-
-        <!-- Strava -->
-        <a href="https://www.strava.com/clubs/radsportclub-magdeburg" target="_blank" class="social-square pill-strava" aria-label="Strava">
-            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0 5 13.828h4.172"/></svg>
-        </a>
-
-        <!-- Komoot (Exakt nach deiner Vektor-Vorlage) -->
-        <a href="https://www.komoot.com/user/4833589839346" target="_blank" class="social-square pill-komoot" aria-label="Komoot">
-           <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-               <circle cx="12" cy="12" r="10"></circle>
-               <path d="M7 16l5-5 5 5"></path>
-               <path d="M9.5 10a2.5 2.5 0 0 1 5 0"></path>
-           </svg>
-        </a>
-
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/radsportclub_magdeburg/" target="_blank" class="social-square pill-instagram" aria-label="Instagram">
-            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        </a>
-
-        <!-- WhatsApp -->
-        <a href="https://chat.whatsapp.com/KKH4iqzzU3Z0vJHzJVNEF6" target="_blank" class="social-square pill-whatsapp" aria-label="WhatsApp">
-            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-
-    </div>
-</div>
-    <!-- CTA BUTTONS -->
-    <div class="hero-actions">
-        <a href="/downloads/Mitgliedsantrag.pdf" class="btn btn-primary">Mitglied werden</a>
-        <a href="#events" class="btn btn-secondary">Termine</a>
-    </div>
-</section>
-
-<!-- SPONSOREN BANNER ENDLOS
- <div class="sponsor-banner">
-    <div class="sponsor-track">
-        <div class="sponsor-logo"><span>SPONSOR 1</span></div>
-        <div class="sponsor-logo"><span>SPONSOR 2</span></div>
-        <div class="sponsor-logo"><span>SPONSOR 3</span></div>
-        <div class="sponsor-logo"><span>SPONSOR 4</span></div>
-        <div class="sponsor-logo"><span>SPONSOR 1</span></div>
-        <div class="sponsor-logo"><span>SPONSOR 2</span></div>
-        <div class="sponsor-logo"><span>SPONSOR 3</span></div>
-        <div class="sponsor-logo"><span>SPONSOR 4</span></div>
-        <div class="sponsor-logo"><span>SPONSOR 1</span></div>
-        <div class="sponsor-logo"><span>SPONSOR 2</span></div>
-        <div class="sponsor-logo"><span>SPONSOR 3</span></div>
-        <div class="sponsor-logo"><span>SPONSOR 4</span></div>
-    </div>
-</div> -->
-<!-- KALENDER MIT ANSTEHENDEN EVENTS-->
-<section id="events" class="section reveal">
-        <h2 class="section-title">Termine</h2>
-        <div class="calendar-section">
-            <aside class="upcoming-events">
-                <div id="upcomingList" class="upcoming-events-list"></div>
-            </aside>
-            <div class="calendar-container">
-                <div class="calendar-card" id="calendarCard">
-                    <div class="card-face front">
-                        <div class="cal-header">
-                            <button id="prevBtn">&lt;</button>
-                            <h2 id="monthDisplay"></h2>
-                            <button id="nextBtn">&gt;</button>
-                        </div>
-                        <div class="weekdays-row">
-                            <div>Mo</div><div>Di</div><div>Mi</div><div>Do</div><div>Fr</div><div>Sa</div><div>So</div>
-                        </div>
-                        <div id="calendarGrid" class="days-grid"></div>
+                <div class="hero-content">
+                    <div class="hero-kicker">Radsport in Magdeburg</div>
+                    <div class="reveal-container">
+                        <h1 class="reveal-text" id="hero-title">
+                            <span>Radsportclub</span>
+                            <span class="logo-kicker">Magdeburg e.V.</span>
+                        </h1>
                     </div>
-                    <div class="card-face back">
-                        <div class="detail-top">
-                            <h3 id="eventTitle"></h3>
-                            <p class="detail-description" id="eventDesc"></p>
+                    <p class="hero-subline">
+                        Leidenschaft, gemeinsame Kilometer und die Elbe im Rücken. Eine Community für alle, die Radsport gemeinsam erleben wollen.
+                    </p>
+
+                    <div class="hero-tags" aria-label="Schwerpunkte des Vereins">
+                        <span class="hero-tag">Gemeinsame Ausfahrten</span>
+                        <span class="hero-tag">Community</span>
+                        <span class="hero-tag">Magdeburg</span>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="/downloads/Mitgliedsantrag.pdf" class="btn btn-primary">Mitglied werden</a>
+                        <a href="#events" class="btn btn-secondary">Termine ansehen</a>
+                    </div>
+
+                    <div class="social-bar" aria-label="Social Media">
+                        <div class="social-bar-inner">
+                            <a href="https://www.strava.com/clubs/radsportclub-magdeburg" target="_blank" rel="noopener noreferrer" class="social-square pill-strava" aria-label="Strava">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0 5 13.828h4.172"/></svg>
+                            </a>
+
+                            <a href="https://www.komoot.com/user/4833589839346" target="_blank" rel="noopener noreferrer" class="social-square pill-komoot" aria-label="Komoot">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M7 16l5-5 5 5"></path>
+                                    <path d="M9.5 10a2.5 2.5 0 0 1 5 0"></path>
+                                </svg>
+                            </a>
+
+                            <a href="https://www.instagram.com/radsportclub_magdeburg/" target="_blank" rel="noopener noreferrer" class="social-square pill-instagram" aria-label="Instagram">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </a>
+
+                            <a href="https://chat.whatsapp.com/KKH4iqzzU3Z0vJHzJVNEF6" target="_blank" rel="noopener noreferrer" class="social-square pill-whatsapp" aria-label="WhatsApp">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            </a>
                         </div>
-                        <div class="event-footer" id="eventFooter"></div>
-                        <button class="modern-btn" onclick="flipBack()">Zurück</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- ÜBER UNS -->
+        </section>
+
+        <nav class="home-quicklinks" aria-label="Direkteinstiege">
+            <a class="home-quicklink" href="#events">
+                <span class="home-quicklink-label">Mitfahren</span>
+                <strong>Termine & Ausfahrten</strong>
+                <p>Die nächsten gemeinsamen Termine direkt im Überblick.</p>
+                <span class="home-quicklink-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="home-quicklink" href="#about">
+                <span class="home-quicklink-label">Verein</span>
+                <strong>Das ist der RCM</strong>
+                <p>Was uns verbindet und wie wir gemeinsam unterwegs sind.</p>
+                <span class="home-quicklink-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="home-quicklink" href="Sponsoren/index.html">
+                <span class="home-quicklink-label">Unterstützung</span>
+                <strong>Unsere Partner</strong>
+                <p>Unternehmen, die unseren Verein und den Radsport unterstützen.</p>
+                <span class="home-quicklink-arrow" aria-hidden="true">→</span>
+            </a>
+        </nav>
+
+        <section id="events" class="section reveal">
+            <div class="section-heading">
+                <h2 class="section-title">Termine</h2>
+                <p class="section-intro">Kommende Ausfahrten und Veranstaltungen auf einen Blick.</p>
+            </div>
+
+            <div class="calendar-section">
+                <aside class="upcoming-events" aria-label="Bevorstehende Termine">
+                    <div id="upcomingList" class="upcoming-events-list"></div>
+                </aside>
+
+                <div class="calendar-container">
+                    <div class="calendar-card" id="calendarCard">
+                        <div class="card-face front">
+                            <div class="cal-header">
+                                <button id="prevBtn" type="button" aria-label="Vorheriger Monat">&lt;</button>
+                                <h2 id="monthDisplay"></h2>
+                                <button id="nextBtn" type="button" aria-label="Nächster Monat">&gt;</button>
+                            </div>
+                            <div class="weekdays-row" aria-hidden="true">
+                                <div>Mo</div><div>Di</div><div>Mi</div><div>Do</div><div>Fr</div><div>Sa</div><div>So</div>
+                            </div>
+                            <div id="calendarGrid" class="days-grid"></div>
+                        </div>
+
+                        <div class="card-face back">
+                            <div class="detail-top">
+                                <h3 id="eventTitle"></h3>
+                                <p class="detail-description" id="eventDesc"></p>
+                            </div>
+                            <div class="event-footer" id="eventFooter"></div>
+                            <button class="modern-btn" type="button" onclick="flipBack()">Zurück</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="about" class="section reveal">
-            <h2 class="section-title">Unsere Philosophie</h2>
+            <div class="section-heading">
+                <h2 class="section-title">Unsere Philosophie</h2>
+                <p class="section-intro">Radsport ist für uns mehr als Geschwindigkeit – entscheidend ist das gemeinsame Erlebnis.</p>
+            </div>
+
             <div class="philosophy-content">
-                <h2 class="philosophy-lead">Wir teilen mehr als Kilometer – <br>wir teilen Leidenschaft.</h2>
+                <h3 class="philosophy-lead">Wir teilen mehr als Kilometer –<br>wir teilen Leidenschaft.</h3>
+
                 <div class="philosophy-grid">
                     <div class="phil-text-block">
                         <p class="accent-p">Magdeburg ist unser Ausgangspunkt. Der Asphalt unser Element.</p>
                         <p>Wir sind ein junger, dynamischer Verein, entstanden aus der Liebe zur Geschwindigkeit und zum <em>Surren der Kette</em>.</p>
                         <p>Es geht um Wattzahlen, aber vor allem um ehrliche Gespräche im Windschatten und das gemeinsame Ankommen.</p>
                     </div>
+
                     <div class="phil-text-block">
+                        <p class="accent-p">Gemeinsam unterwegs – unabhängig davon, wie lange du schon fährst.</p>
                         <p>Ob Einsteiger oder Racer: Wenn du die Leidenschaft teilst, bist du willkommen.</p>
-                        <p>Unser Club lebt von Zusammenhalt. Neue Gesichter sind sofort Teil der Gruppe.</p>
-                        
+                        <p>Unser Club lebt von Zusammenhalt. Neue Gesichter sind schnell Teil der Gruppe.</p>
+                    </div>
+                </div>
+
+                <div class="philosophy-values">
+                    <div class="philosophy-value">
+                        <strong>Gemeinsam</strong>
+                        <span>Der Zusammenhalt der Gruppe steht im Mittelpunkt.</span>
+                    </div>
+                    <div class="philosophy-value">
+                        <strong>Sportlich</strong>
+                        <span>Wir lieben Tempo, Training und die Freude am Radsport.</span>
+                    </div>
+                    <div class="philosophy-value">
+                        <strong>Offen</strong>
+                        <span>Neue Gesichter und unterschiedliche Erfahrungslevel sind willkommen.</span>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- KONTAKTFOMRULAR -->
-       <section id="contact" class="section reveal">
-    <div class="form-container">
-        <h2 class="section-title">Kontakt</h2>
-        <form action="https://api.web3forms.com/submit" method="POST" class="r3-form" id="registration-form">
-            
-            <input type="hidden" name="access_key" value="558e8166-379c-4908-86fd-69e876566cf2">
-            
-            <input type="hidden" name="from_name" value="Radsportclub Magdeburg Website">
-            <input type="hidden" name="subject" value="Neue Kontaktanfrage über radsportclub-magdeburg.de">
-            
-            <input type="checkbox" name="botcheck" class="hidden" style="display:none">
 
-            <div class="form-grid">
-                <div class="input-group">
-                    <input type="text" name="vorname" id="firstname" required placeholder=" ">
-                    <label for="firstname">Vorname</label>
-                </div>
-                <div class="input-group">
-                    <input type="text" name="nachname" id="lastname" required placeholder=" ">
-                    <label for="lastname">Nachname</label>
-                </div>
-                <div class="input-group">
-                    <input type="email" name="email" id="email" required placeholder=" ">
-                    <label for="email">E-Mail Adresse</label>
-                </div>
-                <div class="input-group">
-                    <select name="anliegen" id="reason" required>
-                        <option value="" disabled selected hidden></option>
-                        <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
-                        <option value="Fragen zur Mitgliedschaft">Fragen zur Mitgliedschaft</option>
-                        <option value="Daten ändern">Daten ändern</option>
-                        <option value="Sponsor werden">Sponsor werden</option>
-                    </select>
-                    <label for="reason">Anliegen</label>
-                </div>
-            </div>
-            
-            <div class="input-group full-width">
-                <textarea name="nachricht" id="msg" placeholder=" " rows="4"></textarea>
-                <label for="msg">Deine Nachricht</label>
+        <section class="section reveal" aria-labelledby="partner-title">
+            <div class="section-heading">
+                <h2 class="section-title" id="partner-title">Unsere Partner</h2>
+                <p class="section-intro">Starke Unterstützung für unseren Verein und den Radsport in Magdeburg.</p>
             </div>
 
-            <div class="form-footer">
-    <button type="submit" class="btn btn-primary" id="submit-btn">Absenden</button>
-</div>
-<div id="result" style="margin-top: 20px; font-weight: bold; text-align: center;"></div>
-        </form>
-    </div>
-</section>
+            <div class="home-partners-panel">
+                <div class="home-partner-logos">
+                    <div class="home-partner-logo"><img src="img/ww.jpeg" alt="wwdiagnostics"></div>
+                    <div class="home-partner-logo"><img src="img/SQ.svg" alt="Squeezy"></div>
+                    <div class="home-partner-logo"><img src="img/KROM_logo.png" alt="KRÖM"></div>
+                    <div class="home-partner-logo"><img src="img/vertura_finanzberatung.png" alt="vertura Finanzberatung"></div>
+                </div>
+                <div class="home-partners-actions">
+                    <a href="Sponsoren/index.html" class="btn btn-secondary">Alle Partner ansehen</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="latest-rides reveal" aria-labelledby="rides-title">
+            <div class="section-heading">
+                <h2 class="section-title" id="rides-title">Aktuelle Clubfahrten</h2>
+                <p class="section-intro">Ein Blick auf die letzten Aktivitäten unseres Clubs auf Strava.</p>
+            </div>
+
+            <div class="strava-grid">
+                <iframe
+                    class="strava-frame"
+                    title="Aktuelle Clubfahrten auf Strava"
+                    allowtransparency="true"
+                    height="454"
+                    scrolling="no"
+                    src="https://www.strava.com/clubs/1491805/latest-rides/2bfb94ff97478bb4bd1d8da5806af5f1dcc5de28?show_rides=true"
+                    width="300">
+                </iframe>
+
+                <iframe
+                    class="strava-frame"
+                    title="Strava Clubübersicht"
+                    allowtransparency="true"
+                    height="160"
+                    scrolling="no"
+                    src="https://www.strava.com/clubs/1491805/latest-rides/2bfb94ff97478bb4bd1d8da5806af5f1dcc5de28?show_rides=false"
+                    width="300">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="contact" class="section reveal contact-section">
+            <div class="section-heading">
+                <h2 class="section-title">Kontakt</h2>
+                <p class="section-intro">Fragen zum Verein, zur Mitgliedschaft oder zu einer Partnerschaft? Schreib uns gern.</p>
+            </div>
+
+            <div class="form-container">
+                <form action="https://api.web3forms.com/submit" method="POST" class="r3-form" id="registration-form">
+                    <input type="hidden" name="access_key" value="558e8166-379c-4908-86fd-69e876566cf2">
+                    <input type="hidden" name="from_name" value="Radsportclub Magdeburg Website">
+                    <input type="hidden" name="subject" value="Neue Kontaktanfrage über radsportclub-magdeburg.de">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <input type="text" name="vorname" id="firstname" required placeholder=" ">
+                            <label for="firstname">Vorname</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" name="nachname" id="lastname" required placeholder=" ">
+                            <label for="lastname">Nachname</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" name="email" id="email" required placeholder=" ">
+                            <label for="email">E-Mail-Adresse</label>
+                        </div>
+
+                        <div class="input-group">
+                            <select name="anliegen" id="reason" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                                <option value="Fragen zur Mitgliedschaft">Fragen zur Mitgliedschaft</option>
+                                <option value="Daten ändern">Daten ändern</option>
+                                <option value="Sponsor werden">Sponsor werden</option>
+                            </select>
+                            <label for="reason">Anliegen</label>
+                        </div>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <textarea name="nachricht" id="msg" placeholder=" " rows="4"></textarea>
+                        <label for="msg">Deine Nachricht</label>
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary" id="submit-btn">Absenden</button>
+                    </div>
+                    <div id="result" style="margin-top: 20px; font-weight: bold; text-align: center;"></div>
+                </form>
+            </div>
+        </section>
     </main>
-<!-- STRAVA STATISTIK -->
-<section class="latest-rides">
-  <h2 class="section-title">Aktuelle Clubfahrten</h2>
 
-  <div style="display: flex; justify-content: center; gap: 24px; align-items: flex-start; flex-wrap: wrap;">
-    
-    <iframe
-      allowtransparency="true"
-      frameborder="0"
-      height="454"
-      scrolling="no"
-      src="https://www.strava.com/clubs/1491805/latest-rides/2bfb94ff97478bb4bd1d8da5806af5f1dcc5de28?show_rides=true"
-      width="300">
-    </iframe>
-
-    <iframe
-      allowtransparency="true"
-      frameborder="0"
-      height="160"
-      scrolling="no"
-      src="https://www.strava.com/clubs/1491805/latest-rides/2bfb94ff97478bb4bd1d8da5806af5f1dcc5de28?show_rides=false"
-      width="300">
-    </iframe>
-
-  </div>
-</section>
-<!-- FOOTER MIT IMPRESSUM/DATENSCHUTZ & R3WEBDESIGN VERLINKUNG-->
     <footer class="main-footer">
         <div class="footer-wrap">
             <div class="footer-links">
@@ -262,12 +323,11 @@
                 <a href="Datenschutz/">Datenschutz</a>
             </div>
             <div class="footer-credit">
-                design by <a href="https://r3webdesign.de" target="_blank">r3webdesign.de</a>
+                design by <a href="https://r3webdesign.de" target="_blank" rel="noopener noreferrer">r3webdesign.de</a>
             </div>
         </div>
     </footer>
-<!-- JS SCRIPTS -->
+
     <script src="script.js"></script>
 </body>
 </html>
-
