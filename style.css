@@ -285,14 +285,61 @@ body {
 .input-group textarea { min-height: 120px; resize: vertical; padding-top: 30px; }
 
 /* --- SPONSOREN BANNER ENDLOS --- */
-.sponsor-banner { width: 100%; overflow: hidden; padding: 30px 0; background: transparent; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
-.sponsor-track { display: flex; width: max-content; gap: var(--sponsor-gap); will-change: transform; animation: scroll var(--sponsor-speed) linear infinite; }
-.sponsor-logo { flex: 0 0 var(--sponsor-width); height: 60px; display: flex; align-items: center; justify-content: center; filter: grayscale(1); opacity: 0.5; transition: 0.3s; }
-.sponsor-logo:hover { filter: grayscale(0); opacity: 1; }
-.sponsor-logo span { font-weight: 700; color: var(--black); font-size: 0.9rem; text-transform: uppercase; }
-@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-100% / 3)); } }
-.sponsor-banner:hover .sponsor-track { animation-play-state: paused; }
-@media (max-width: 768px) { :root { --sponsor-gap: 30px; --sponsor-width: 150px; --sponsor-speed: 15s; } }
+.sponsor-banner {
+    width: 100%;
+    overflow: hidden;
+    padding: 30px 0;
+    background: transparent;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.sponsor-track {
+    display: flex;
+    width: max-content;
+    gap: var(--sponsor-gap);
+    will-change: transform;
+    animation: scroll var(--sponsor-speed) linear infinite;
+}
+
+.sponsor-logo {
+    flex: 0 0 var(--sponsor-width);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: none;
+    opacity: 1;
+}
+
+.sponsor-logo span {
+    font-weight: 700;
+    color: var(--black);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-100% / 3));
+    }
+}
+
+.sponsor-banner:hover .sponsor-track {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --sponsor-gap: 30px;
+        --sponsor-width: 150px;
+        --sponsor-speed: 15s;
+    }
+}
 
 /* --- SPONSOREN SEITE STYLING --- */
 .sponsors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
