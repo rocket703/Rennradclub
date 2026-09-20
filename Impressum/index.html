@@ -2,92 +2,133 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Impressum des Radsportclub Magdeburg e.V.">
     <title>Impressum | Radsportclub Magdeburg e.V.</title>
     <link rel="stylesheet" href="../style.css">
-
     <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
-
     <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png">
-
     <link rel="manifest" href="../img/favicon/site.webmanifest">
 </head>
 <body>
-
     <div id="scroll-wheel" aria-hidden="true">
-        <img src="../img/felge.png" alt="Rad" id="rim-image">
+        <img src="../img/felge.png" alt="" id="rim-image">
     </div>
 
     <header class="main-header">
         <div class="header-container">
             <div class="logo">
-                <a href="../">
-        <img src="../img/logo.svg" alt="Radsportclub Magdeburg e.V." class="header-logo">
-        <span class="logo-text">Radsportclub<br><span class="logo-kicker">Magdeburg e.V.</span>
-</span>
-        </a>
+                <a href="../index.html" aria-label="Zur Startseite">
+                    <img src="../img/logo.svg" alt="Radsportclub Magdeburg e.V." class="header-logo">
+                    <span class="logo-text">
+                        Radsportclub<br>
+                        <span class="logo-kicker">Magdeburg e.V.</span>
+                    </span>
+                </a>
             </div>
-            
-            <button class="menu-trigger" id="menu-trigger" aria-label="Menü">
-                <span></span><span></span>
+
+            <button class="menu-trigger" id="menu-trigger" type="button" aria-label="Menü öffnen" aria-controls="main-nav" aria-expanded="false">
+                <span></span>
+                <span></span>
             </button>
 
-            <nav class="main-nav" id="main-nav">
-    <ul>
-        <li><a href="../index.html#events">Events</a></li>
-        
-        <li><a href="../Sponsoren/">Partner</a></li>
-        
-        <li class="has-submenu">
-            <a href="#">Über uns</a>
-            <ul class="submenu">
-                <li><a href="../ueber-uns/geschichte.html">Vereinsgeschichte</a></li>
-                <li><a href="../ueber-uns/dokumente.html">Dokumente</a></li>
-            </ul>
-        </li> <li><a href="../index.html#contact">Kontakt</a></li>
-    </ul>
-</nav>
+            <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="../index.html#aktuelles">Aktuelles</a></li>
+                    <li><a href="../index.html#events">Termine</a></li>
+                    <li><a href="../Sponsoren/">Partner</a></li>
+                    <li class="has-submenu">
+                        <a href="../index.html#about" class="nav-parent" aria-haspopup="true">
+                            <span>Über uns</span>
+                            <span class="nav-chevron" aria-hidden="true"></span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="../index.html#about">Unsere Philosophie</a></li>
+                            <li><a href="../ueber-uns/geschichte.html">Vereinsgeschichte</a></li>
+                            <li><a href="../ueber-uns/dokumente.html">Dokumente</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../index.html#contact">Kontakt</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main>
-        <section class="section reveal" style="margin-top: var(--header-h);">
-            <div class="reveal-container">
-                <h1 class="reveal-text"><span>Impressum</span></h1>
+    <main class="page-main">
+        <section class="section">
+            <div class="section-heading">
+                <h1 class="section-title">Impressum</h1>
+                <p class="section-intro">Angaben gemäß § 5 DDG und § 18 Abs. 2 MStV.</p>
             </div>
-            
-            <div class="philosophy-content" style="text-align: left; margin-top: 40px;">
-                <div class="philosophy-grid">
-                    <div class="phil-text-block">
-                        <h3 style="margin-bottom: 10px; font-weight: 900;">Angaben gemäß § 5 DDG</h3>
-                        <p>
-                            Radsportclub Magdeburg e.V.<br>
-                            Eisnerstr. 19<br>
-                            39110 Magdeburg
-                        </p>
-                        <p>
-                            <strong>Vertreten durch:</strong><br>
-                            Tom Schmidt (1. Vorsitzender)<br>
-                            Martin Jäger (2. Vorsitzender)<br>
-                            Matthias Böttger (Schatzmeister)
-                        </p>
-                        <p>
-                            <strong>Registereintrag:</strong><br>
-                            Eintragung im Vereinsregister.<br>
-                            Registergericht: Stendal<br>
-                            Registernummer: VR7430
-                        </p>
-                    </div>
-                    <div class="phil-text-block">
-                        <h3 style="margin-bottom: 10px; font-weight: 900;">Kontakt</h3>
-                        <p>
-                            Telefon: +49 176 34327781<br>
-                            E-Mail: <a href="mailto:info@radsportclub-magdeburg.de?subject=Anfrage">info@radsportclub-magdeburg.de</a>
-                        </p>
-                    </div>
-                </div>
+
+            <div class="legal-page">
+                <h2>Verein</h2>
+                <p>
+                    Radsportclub Magdeburg e.V.<br>
+                    Eisnerstraße 19<br>
+                    39110 Magdeburg
+                </p>
+
+                <h2>Vertreten durch</h2>
+                <p>
+                    Tom Schmidt, 1. Vorsitzender<br>
+                    Martin Jäger, 2. Vorsitzender<br>
+                    Matthias Böttger, Schatzmeister
+                </p>
+
+                <h2>Registereintrag</h2>
+                <p>
+                    Vereinsregister des Amtsgerichts Stendal<br>
+                    Registernummer: VR 7430
+                </p>
+
+                <h2>Kontakt</h2>
+                <p>
+                    Telefon: <a href="tel:+4917634327781">+49 176 34327781</a><br>
+                    E-Mail: <a href="mailto:info@radsportclub-magdeburg.de">info@radsportclub-magdeburg.de</a>
+                </p>
+
+                <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+                <p>
+                    Tom Schmidt<br>
+                    Eisnerstraße 19<br>
+                    39110 Magdeburg
+                </p>
+
+                <h2>Haftung für Inhalte</h2>
+                <p>
+                    Die Inhalte dieser Website werden mit Sorgfalt erstellt. Für die Richtigkeit,
+                    Vollständigkeit und Aktualität können wir jedoch keine Gewähr übernehmen.
+                    Als Diensteanbieter sind wir nach § 7 Abs. 1 DDG für eigene Inhalte nach den
+                    allgemeinen Gesetzen verantwortlich.
+                </p>
+                <p>
+                    Nach §§ 8 bis 10 DDG sind wir nicht verpflichtet, übermittelte oder gespeicherte
+                    fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine
+                    rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung
+                    der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben unberührt.
+                </p>
+
+                <h2>Haftung für Links</h2>
+                <p>
+                    Unsere Seiten enthalten Links zu externen Websites Dritter, auf deren Inhalte
+                    wir keinen Einfluss haben. Für diese fremden Inhalte übernehmen wir keine Gewähr.
+                    Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich.
+                    Bei Bekanntwerden von Rechtsverletzungen entfernen wir derartige Links umgehend.
+                </p>
+
+                <h2>Urheberrecht</h2>
+                <p>
+                    Die auf dieser Website veröffentlichten Inhalte und Werke unterliegen dem deutschen
+                    Urheberrecht. Vervielfältigung, Bearbeitung und Verbreitung außerhalb der Grenzen
+                    des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors
+                    bzw. des Vereins. Downloads und Kopien dieser Seite sind nur für den privaten,
+                    nicht kommerziellen Gebrauch gestattet.
+                </p>
+
+                <p class="legal-meta">Stand: September 2026</p>
             </div>
         </section>
     </main>
@@ -97,10 +138,10 @@
             <div class="footer-links">
                 <a href="./">Impressum</a>
                 <span class="pipe">|</span>
-                <a href="../Datenschutz/index.html">Datenschutz</a>
+                <a href="../Datenschutz/">Datenschutz</a>
             </div>
             <div class="footer-credit">
-                design by <a href="https://r3webdesign.de" target="_blank">r3webdesign.de</a>
+                design by <a href="https://r3webdesign.de" target="_blank" rel="noopener noreferrer">r3webdesign.de</a>
             </div>
         </div>
     </footer>

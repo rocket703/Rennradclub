@@ -6,6 +6,7 @@
     --white: #ffffff;
     --gray-bg: #f9f9fb;
     --header-h: 80px;
+    --header-offset: calc(var(--header-h) + env(safe-area-inset-top, 0px));
     /* SPONSOREN BANNER */
     --sponsor-gap: 80px;
     --sponsor-width: 200px;
@@ -20,7 +21,6 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 body {
@@ -29,7 +29,9 @@ body {
     background: var(--white);
     text-align: center;
     line-height: 1.6;
-    padding-top: var(--header-h);
+    padding-top: var(--header-offset);
+    overflow-x: clip;
+    overflow-wrap: break-word;
     /* Verhindert, dass Inhalt unter den Header rutscht */
 }
 
@@ -53,10 +55,11 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--header-h);
+    height: var(--header-offset);
     z-index: 5000;
     display: flex;
     align-items: center;
+    padding-top: env(safe-area-inset-top, 0px);
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -332,10 +335,10 @@ body {
 
     .main-nav {
         position: fixed;
-        top: var(--header-h);
+        top: var(--header-offset);
         left: 0;
         width: 100%;
-        height: calc(100vh - var(--header-h));
+        height: calc(100dvh - var(--header-offset));
         padding: 28px 20px 40px;
         background: rgba(255, 255, 255, 0.985);
         z-index: 4000;
@@ -408,7 +411,7 @@ body {
     padding: 88px 20px;
     max-width: 1300px;
     margin: 0 auto;
-    scroll-margin-top: var(--header-h);
+    scroll-margin-top: var(--header-offset);
 }
 
 .section-title {
@@ -427,15 +430,16 @@ body {
     max-width: 1300px;
     margin: 0 auto;
     padding: 44px 20px 52px;
+    overflow-x: clip;
 }
 
 .hero::before {
     content: "";
     position: absolute;
     top: 8%;
-    right: -12%;
-    width: 420px;
-    height: 420px;
+    right: 0;
+    width: min(420px, 70vw);
+    height: min(420px, 70vw);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(10, 46, 100, 0.08) 0%, rgba(10, 46, 100, 0) 70%);
     pointer-events: none;
@@ -457,7 +461,7 @@ body {
 .hero-image::after {
     content: "";
     position: absolute;
-    inset: 14px -10px -14px 10px;
+    inset: 14px 0 -14px 8px;
     z-index: -1;
     border-radius: 32px;
     background: var(--brand);
@@ -509,10 +513,11 @@ body {
 
 .reveal-text {
     max-width: 720px;
-    font-size: clamp(2.45rem, 7vw, 4.5rem);
+    font-size: clamp(2.1rem, 9vw, 4.5rem);
     font-weight: 900;
     line-height: 0.98;
     letter-spacing: -0.045em;
+    overflow-wrap: anywhere;
 }
 
 .reveal-text span {
@@ -544,21 +549,16 @@ body {
 .hero-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 9px;
+    align-items: center;
+    gap: 10px 22px;
     margin-top: 24px;
 }
 
 .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    min-height: 34px;
-    padding: 7px 12px;
-    border-radius: 999px;
-    background: var(--gray-bg);
-    border: 1px solid #eceef2;
-    color: #4d5056;
-    font-size: 0.82rem;
-    font-weight: 750;
+    color: var(--black);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
 }
 
 .hero-actions {
@@ -729,7 +729,12 @@ body {
 
 @media (max-width: 699px) {
     .hero {
-        padding-top: 28px;
+        padding-top: 20px;
+        padding-bottom: 28px;
+    }
+
+    .hero::before {
+        display: none;
     }
 
     .hero-content {
@@ -750,6 +755,16 @@ body {
     .hero .social-bar {
         justify-content: center;
     }
+
+    .hero-actions .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .hero .social-bar {
+        padding-right: 72px;
+        padding-bottom: 8px;
+    }
 }
 
 /* --- PHILOSOPHIE / ÜBER UNS --- */
@@ -766,6 +781,41 @@ body {
     font-weight: 900;
     line-height: 1.18;
     letter-spacing: -0.025em;
+}
+
+.philosophy-quote {
+    max-width: 620px;
+    margin: 0 auto 40px;
+    border: 0;
+    padding: 0;
+}
+
+.philosophy-quote p {
+    position: relative;
+    margin: 0;
+    color: #3d4046;
+    font-size: clamp(1.12rem, 2.2vw, 1.38rem);
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+}
+
+.philosophy-quote p::before,
+.philosophy-quote p::after {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--brand);
+}
+
+.philosophy-quote p::before {
+    content: "„";
+    margin-right: 0.12em;
+}
+
+.philosophy-quote p::after {
+    content: "“";
+    margin-left: 0.08em;
 }
 
 .philosophy-grid {
@@ -829,6 +879,41 @@ body {
     line-height: 1.5;
 }
 
+.philosophy-facts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 28px 0 0;
+    padding: 8px 0 0;
+    list-style: none;
+    border-top: 1px solid rgba(10, 46, 100, 0.14);
+    text-align: left;
+}
+
+.philosophy-facts li {
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(10, 46, 100, 0.1);
+}
+
+.philosophy-facts li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.philosophy-facts strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--black);
+    font-size: 0.98rem;
+    font-weight: 800;
+}
+
+.philosophy-facts span {
+    color: #5c5f65;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
 .highlight-box {
     margin-top: 20px;
     padding: 30px;
@@ -846,13 +931,35 @@ body {
     .philosophy-values {
         grid-template-columns: repeat(3, 1fr);
     }
+
+    .philosophy-facts {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        padding-top: 6px;
+        border-top: 1px solid rgba(10, 46, 100, 0.14);
+    }
+
+    .philosophy-facts li {
+        padding: 22px 32px 4px;
+        border-bottom: none;
+        border-right: 1px solid rgba(10, 46, 100, 0.12);
+    }
+
+    .philosophy-facts li:first-child {
+        padding-left: 0;
+    }
+
+    .philosophy-facts li:last-child {
+        padding-right: 0;
+        border-right: none;
+    }
 }
 
 /* --- EVENT CARDS --- */
 
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 30px;
 }
 
@@ -1325,7 +1432,7 @@ body {
 
 .form-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     gap: 30px;
 }
 
@@ -1565,7 +1672,7 @@ body {
 }
 
 .current-section {
-    scroll-margin-top: calc(var(--header-h) + 16px);
+    scroll-margin-top: calc(var(--header-offset) + 16px);
 }
 
 .current-feature {
@@ -1856,29 +1963,32 @@ body {
 /* --- PARTNER-SEITE --- */
 
 .page-main {
-    margin-top: var(--header-h);
+    margin-top: 0;
 }
 
 .sponsors-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 30px;
-    margin-top: 50px;
 }
 
 .sponsor-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     overflow: hidden;
     background: var(--white);
-    border: 1px solid #eee;
+    border: 1.5px solid rgba(10, 46, 100, 0.18);
     border-radius: 30px;
-    text-align: left;
+    box-shadow: 0 12px 32px rgba(18, 18, 18, 0.055);
+    text-align: center;
     transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .sponsor-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     border-color: var(--brand);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+    box-shadow: 0 20px 44px rgba(10, 46, 100, 0.12);
 }
 
 .sponsor-card-image {
@@ -1916,43 +2026,105 @@ body {
 }
 
 .sponsor-card-content {
-    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 12px;
+    padding: 24px 22px 26px;
+    text-align: center;
 }
 
 .sponsor-card-content h3 {
-    margin-bottom: 10px;
+    margin: 0;
     color: var(--black);
+    font-size: 1.18rem;
     font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
-.sponsor-card-content p {
-    color: #666;
-    font-size: 0.9rem;
+.sponsor-card-content h3::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 2px;
+    margin: 10px auto 0;
+    border-radius: 2px;
+    background: var(--brand);
+}
+
+.card-kicker {
+    color: var(--brand);
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.sponsor-card-content .card-kicker + h3 {
+    margin-top: -4px;
+}
+
+.partner-copy {
+    margin: 0;
+    width: 100%;
+    max-width: 34ch;
+    color: #5c5f65;
+    font-size: 0.92rem;
     line-height: 1.5;
 }
 
-.partner-benefit {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.55rem 0.85rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    font-weight: 700;
+.partner-perk {
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px 14px 14px;
+    border-radius: 16px;
+    background: rgba(10, 46, 100, 0.05);
 }
 
-.partner-link {
-    display: inline-block;
-    margin-top: 1rem;
-    font-weight: 700;
-    text-decoration: none;
+.partner-perk-label {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--brand);
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
-.partner-link:hover {
-    text-decoration: underline;
+.partner-perk strong {
+    display: block;
+    color: var(--black);
+    font-size: 1.02rem;
+    font-weight: 850;
+    line-height: 1.25;
+}
+
+.partner-perk span:not(.partner-perk-label) {
+    display: block;
+    margin-top: 3px;
+    color: #6a6d73;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.sponsor-card-content .btn {
+    margin-top: auto;
+    align-self: center;
+    flex-shrink: 0;
+    min-height: 44px;
+    padding: 11px 26px;
+    font-size: 0.78rem;
 }
 
 .sponsor-card-empty {
     justify-content: center;
+    background: var(--gray-bg);
+}
+
+.sponsor-card-empty .sponsor-card-content {
+    justify-content: flex-start;
 }
 
 /* --- TIMELINE STYLING --- */
@@ -2054,7 +2226,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: calc(var(--header-h) + 60px) 20px 60px;
+    padding: calc(var(--header-offset) + 60px) 20px 60px;
 }
 
 .error-content {
@@ -2110,16 +2282,135 @@ body {
 
 #scroll-wheel {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 45px;
-    z-index: 2000;
-    opacity: 0.8;
+    right: max(16px, env(safe-area-inset-right, 0px));
+    bottom: max(16px, env(safe-area-inset-bottom, 0px));
+    width: 72px;
+    height: 72px;
+    z-index: 2500;
+    opacity: 0.92;
+    pointer-events: none;
+    overflow: visible;
 }
 
 #rim-image {
-    width: 100%;
-    height: auto;
+    display: block;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    transform-origin: 50% 50%;
+    will-change: transform;
+}
+
+@media (max-width: 699px) {
+    .section {
+        padding: 56px 16px;
+    }
+
+    .section-title {
+        margin-bottom: 28px;
+    }
+
+    .form-container {
+        padding: 32px 18px;
+        border-radius: 24px;
+    }
+
+    .form-grid {
+        gap: 18px;
+    }
+
+    .calendar-card {
+        min-height: 420px;
+    }
+
+    .calendar-card .card-face {
+        padding: 18px;
+        border-radius: 22px;
+    }
+
+    .home-partners-panel {
+        padding: 18px;
+    }
+
+    .current-feature-content {
+        padding: 22px 18px 26px;
+    }
+
+    .current-feature,
+    .current-feature-image img {
+        border-radius: 22px;
+    }
+
+    .phil-text-block {
+        padding: 20px;
+    }
+
+    #scroll-wheel,
+    #rim-image {
+        width: 64px;
+        height: 64px;
+    }
+
+    #scroll-wheel {
+        right: max(12px, env(safe-area-inset-right, 0px));
+        bottom: max(12px, env(safe-area-inset-bottom, 0px));
+    }
+}
+
+/* --- RECHTSSEITEN --- */
+
+.legal-page {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.legal-page h2 {
+    margin: 2.1rem 0 0.7rem;
+    color: var(--black);
+    font-size: 1.12rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.legal-page h2:first-child {
+    margin-top: 0;
+}
+
+.legal-page p,
+.legal-page li {
+    color: #4a4d53;
+    font-size: 0.97rem;
+    line-height: 1.75;
+}
+
+.legal-page p + p {
+    margin-top: 0.85rem;
+}
+
+.legal-page ul {
+    margin: 0.6rem 0 1rem 1.15rem;
+}
+
+.legal-page li + li {
+    margin-top: 0.35rem;
+}
+
+.legal-page a {
+    color: var(--brand);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.legal-page a:hover,
+.legal-page a:focus-visible {
+    text-decoration: underline;
+}
+
+.legal-meta {
+    margin-top: 2.2rem;
+    color: #6a6d73;
+    font-size: 0.88rem;
 }
 
 /* --- FOOTER --- */

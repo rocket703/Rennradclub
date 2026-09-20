@@ -2,87 +2,191 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenschutz | Radsportclub Magdeburg</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Datenschutzerklärung des Radsportclub Magdeburg e.V.">
+    <title>Datenschutz | Radsportclub Magdeburg e.V.</title>
     <link rel="stylesheet" href="../style.css">
-
     <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
-
     <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png">
-
-<link rel="manifest" href="../img/favicon/site.webmanifest">
+    <link rel="manifest" href="../img/favicon/site.webmanifest">
 </head>
 <body>
-
     <div id="scroll-wheel" aria-hidden="true">
-        <img src="../img/felge.png" alt="Rad" id="rim-image">
+        <img src="../img/felge.png" alt="" id="rim-image">
     </div>
 
     <header class="main-header">
         <div class="header-container">
             <div class="logo">
-                <a href="../">
-        <img src="../img/logo.svg" alt="Radsportclub Magdeburg e.V." class="header-logo">
-        <span class="logo-text">Radsportclub<br><span class="logo-kicker">Magdeburg e.V.</span>
-        </a>
+                <a href="../index.html" aria-label="Zur Startseite">
+                    <img src="../img/logo.svg" alt="Radsportclub Magdeburg e.V." class="header-logo">
+                    <span class="logo-text">
+                        Radsportclub<br>
+                        <span class="logo-kicker">Magdeburg e.V.</span>
+                    </span>
+                </a>
             </div>
-            
-            <button class="menu-trigger" id="menu-trigger" aria-label="Menü">
-                <span></span><span></span>
+
+            <button class="menu-trigger" id="menu-trigger" type="button" aria-label="Menü öffnen" aria-controls="main-nav" aria-expanded="false">
+                <span></span>
+                <span></span>
             </button>
 
-            <nav class="main-nav" id="main-nav">
-    <ul>
-        <li><a href="../index.html#events">Events</a></li>
-        
-        <li><a href="../Sponsoren/">Partner</a></li>
-        
-        <li class="has-submenu">
-            <a href="#">Über uns</a>
-            <ul class="submenu">
-                <li><a href="../ueber-uns/geschichte.html">Vereinsgeschichte</a></li>
-                <li><a href="../ueber-uns/dokumente.html">Dokumente</a></li>
-            </ul>
-        </li> <li><a href="../index.html#contact">Kontakt</a></li>
-    </ul>
-</nav>
+            <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="../index.html#aktuelles">Aktuelles</a></li>
+                    <li><a href="../index.html#events">Termine</a></li>
+                    <li><a href="../Sponsoren/">Partner</a></li>
+                    <li class="has-submenu">
+                        <a href="../index.html#about" class="nav-parent" aria-haspopup="true">
+                            <span>Über uns</span>
+                            <span class="nav-chevron" aria-hidden="true"></span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="../index.html#about">Unsere Philosophie</a></li>
+                            <li><a href="../ueber-uns/geschichte.html">Vereinsgeschichte</a></li>
+                            <li><a href="../ueber-uns/dokumente.html">Dokumente</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../index.html#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section class="section reveal" style="margin-top: var(--header-h);">
-            <div class="reveal-container">
-                <h1 class="reveal-text"><span>Datenschutz</span></h1>
+    <main class="page-main">
+        <section class="section">
+            <div class="section-heading">
+                <h1 class="section-title">Datenschutz</h1>
+                <p class="section-intro">Wie wir mit personenbezogenen Daten umgehen – kurz, konkret und bezogen auf diese Website.</p>
             </div>
-            
-            <div class="philosophy-content" style="text-align: left; margin-top: 40px;">
-                <div class="philosophy-grid">
-                    
-                    <div class="phil-text-block">
-                        <h3 style="margin-bottom: 10px; font-weight: 900;">1. Datenschutz auf einen Blick</h3>
-                        <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften (DSGVO) sowie dieser Datenschutzerklärung.</p>
-                        
-                        <h3 style="margin-top: 25px; margin-bottom: 10px; font-weight: 900;">2. Verantwortliche Stelle</h3>
-                        <p>
-                            Radsportclub Magdeburg e.V.<br>
-                            E-Mail: <a href="mailto:info@radsportclub-magdeburg.de?subject=Datenschutzanfrage">info@radsportclub-magdeburg.de</a>
-                        </p>
-                    </div>
 
-                    <div class="phil-text-block">
-                        <h3 style="margin-bottom: 10px; font-weight: 900;">3. Datenerfassung auf dieser Website</h3>
-                        <p><strong>Kontaktformular:</strong> Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage bei uns gespeichert.</p>
-                        <p><strong>Server-Log-Dateien:</strong> Der Provider der Seiten erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt (z.B. Browsertyp, IP-Adresse, Uhrzeit).</p>
-                    </div>
-                </div>
+            <div class="legal-page">
+                <h2>1. Überblick</h2>
+                <p>
+                    Diese Website kommt ohne Analyse-Tools, Werbe-Cookies und Social-Media-Plugins aus.
+                    Es gibt kein Tracking. Verarbeitet werden nur Daten, die für den Betrieb der Seite,
+                    das Kontaktformular und – falls du die Fotomap öffnest – die Kartendarstellung nötig sind.
+                </p>
 
-                <div class="highlight-box" style="margin-top: 40px;">
-                    <h3 style="margin-bottom: 10px; font-weight: 900;">4. Ihre Rechte</h3>
-                    <p style="font-size: 0.95rem;">
-                        Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. 
-                    </p>
-                </div>
+                <h2>2. Verantwortliche Stelle</h2>
+                <p>
+                    Radsportclub Magdeburg e.V.<br>
+                    Eisnerstraße 19<br>
+                    39110 Magdeburg
+                </p>
+                <p>
+                    E-Mail: <a href="mailto:info@radsportclub-magdeburg.de?subject=Datenschutzanfrage">info@radsportclub-magdeburg.de</a>
+                </p>
+
+                <h2>3. Hosting</h2>
+                <p>
+                    Die Website wird über GitHub Pages bereitgestellt.
+                    Anbieter: GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
+                    Beim Aufruf einer Seite werden technisch notwendige Verbindungsdaten an GitHub übermittelt
+                    (insbesondere IP-Adresse, Datum und Uhrzeit, aufgerufene Datei, Browsertyp).
+                </p>
+                <p>
+                    Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+                    sicheren und erreichbaren Website). GitHub ist unter dem EU-US Data Privacy Framework zertifiziert.
+                    Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.
+                </p>
+
+                <h2>4. Server-Logfiles</h2>
+                <p>
+                    Der Hoster speichert automatisch Server-Logfiles. Dazu können IP-Adresse, Browsertyp,
+                    Referrer, Uhrzeit und die aufgerufene Ressource gehören. Die Daten dienen der Auslieferung,
+                    Stabilität und Sicherheit der Website. Eine Zusammenführung mit anderen Datenquellen
+                    findet durch uns nicht statt. Speicherdauer richtet sich nach den Vorgaben von GitHub Pages.
+                </p>
+                <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+                <h2>5. Kontaktformular</h2>
+                <p>
+                    Über das Formular auf der Startseite kannst du uns eine Nachricht senden.
+                    Verarbeitet werden die von dir eingegebenen Angaben (Vorname, Nachname, E-Mail-Adresse,
+                    Anliegen, Nachricht) sowie technische Daten, die zur Zustellung nötig sind.
+                </p>
+                <p>
+                    Die Übermittlung erfolgt über Web3Forms (Web3Creative). Die Daten werden per HTTPS
+                    an deren Schnittstelle gesendet und an uns weitergeleitet. Web3Forms nutzt Infrastruktur
+                    unter anderem von Amazon Web Services, Cloudflare und Hetzner. Dabei kann eine Übermittlung
+                    in Drittländer (insbesondere USA oder Indien) stattfinden.
+                </p>
+                <p>
+                    Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit die Anfrage der Anbahnung
+                    oder Durchführung einer Mitgliedschaft bzw. einer vergleichbaren Anfrage dient,
+                    sonst Art. 6 Abs. 1 lit. f DSGVO (bearbeitbare Kontaktaufnahme).
+                    Wir speichern Anfragen nur so lange, wie es zur Bearbeitung und etwaiger
+                    Nachweispflichten nötig ist.
+                </p>
+                <p>
+                    Hinweise des Anbieters: <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer">Web3Forms Privacy Policy</a>.
+                </p>
+
+                <h2>6. Fotomap</h2>
+                <p>
+                    Die Fotomap unter <a href="../fotomap/">/fotomap/</a> lädt Kartendaten von OpenStreetMap
+                    und die Kartenbibliothek Leaflet über unpkg. Dabei wird deine IP-Adresse an
+                    die OpenStreetMap Foundation bzw. den jeweiligen CDN-Anbieter übermittelt.
+                    Das geschieht erst, wenn du die Fotomap aufrufst – nicht schon auf der Startseite.
+                </p>
+                <p>
+                    Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (Anzeige der Karte, die du ausdrücklich aufrufst).
+                    Weitere Informationen: <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer">OSM Privacy Policy</a>.
+                </p>
+
+                <h2>7. Cookies</h2>
+                <p>
+                    Wir setzen selbst keine Analyse-, Marketing- oder Consent-Cookies.
+                    Es kann sein, dass der Hoster oder der Browser technisch notwendige Daten
+                    für den Seitenaufruf verarbeitet. Ein Cookie-Banner ist dafür nicht erforderlich.
+                </p>
+
+                <h2>8. Social-Media-Links</h2>
+                <p>
+                    Links zu Strava, Komoot, Instagram und WhatsApp sind normale Verweise.
+                    Es werden keine Plugins oder Iframes dieser Dienste eingebunden.
+                    Erst wenn du den Link anklickst, gelten die Datenschutzhinweise des jeweiligen Anbieters.
+                </p>
+
+                <h2>9. Deine Rechte</h2>
+                <p>Du hast gegenüber uns das Recht auf:</p>
+                <ul>
+                    <li>Auskunft (Art. 15 DSGVO)</li>
+                    <li>Berichtigung (Art. 16 DSGVO)</li>
+                    <li>Löschung (Art. 17 DSGVO)</li>
+                    <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+                    <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
+                    <li>Widerspruch gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (Art. 21 DSGVO)</li>
+                </ul>
+                <p>
+                    Zur Ausübung reicht eine E-Mail an
+                    <a href="mailto:info@radsportclub-magdeburg.de?subject=Datenschutzanfrage">info@radsportclub-magdeburg.de</a>.
+                </p>
+
+                <h2>10. Widerspruchsrecht</h2>
+                <p>
+                    Du kannst einer Verarbeitung, die auf berechtigtem Interesse beruht, jederzeit widersprechen,
+                    soweit dafür Gründe vorliegen, die sich aus deiner besonderen Situation ergeben.
+                    Wir prüfen dann, ob schutzwürdige Gründe unsererseits überwiegen.
+                </p>
+
+                <h2>11. Beschwerde bei der Aufsichtsbehörde</h2>
+                <p>
+                    Du kannst dich bei einer Datenschutz-Aufsichtsbehörde beschweren.
+                    Zuständig für uns ist in der Regel:
+                </p>
+                <p>
+                    Landesbeauftragte für den Datenschutz Sachsen-Anhalt<br>
+                    Leiterstraße 9<br>
+                    39104 Magdeburg<br>
+                    <a href="https://datenschutz.sachsen-anhalt.de/" target="_blank" rel="noopener noreferrer">datenschutz.sachsen-anhalt.de</a>
+                </p>
+
+                <p class="legal-meta">Stand: September 2026</p>
             </div>
         </section>
     </main>
@@ -90,12 +194,12 @@
     <footer class="main-footer">
         <div class="footer-wrap">
             <div class="footer-links">
-                <a href="../Impressum/index.html">Impressum</a>
+                <a href="../Impressum/">Impressum</a>
                 <span class="pipe">|</span>
                 <a href="./">Datenschutz</a>
             </div>
             <div class="footer-credit">
-                design by <a href="https://r3webdesign.de" target="_blank" style="text-decoration: none; color: var(--black);">r3webdesign.de</a>
+                design by <a href="https://r3webdesign.de" target="_blank" rel="noopener noreferrer">r3webdesign.de</a>
             </div>
         </div>
     </footer>
