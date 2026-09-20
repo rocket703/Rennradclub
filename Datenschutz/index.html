@@ -131,18 +131,31 @@
                     Die Fotomap unter <a href="../fotomap/">/fotomap/</a> lädt Kartendaten von OpenStreetMap
                     und die Kartenbibliothek Leaflet über unpkg. Dabei wird deine IP-Adresse an
                     die OpenStreetMap Foundation bzw. den jeweiligen CDN-Anbieter übermittelt.
-                    Das geschieht erst, wenn du die Fotomap aufrufst – nicht schon auf der Startseite.
                 </p>
                 <p>
-                    Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (Anzeige der Karte, die du ausdrücklich aufrufst).
+                    Ist der Cookie-Banner aktiv, geschieht das erst nach deiner Zustimmung.
+                    Ist der Banner ausgeschaltet, lädt die Karte beim Aufruf der Fotomap.
+                    Rechtsgrundlage bei Zustimmung: Art. 6 Abs. 1 lit. a DSGVO.
+                    Ohne Banner bzw. beim bewussten Aufruf der Fotomap: Art. 6 Abs. 1 lit. f DSGVO.
                     Weitere Informationen: <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer">OSM Privacy Policy</a>.
                 </p>
 
-                <h2>7. Cookies</h2>
+                <h2>7. Cookies und Einwilligungs-Banner</h2>
                 <p>
-                    Wir setzen selbst keine Analyse-, Marketing- oder Consent-Cookies.
+                    Wir setzen keine Analyse-, Marketing- oder Social-Media-Cookies.
                     Es kann sein, dass der Hoster oder der Browser technisch notwendige Daten
-                    für den Seitenaufruf verarbeitet. Ein Cookie-Banner ist dafür nicht erforderlich.
+                    für den Seitenaufruf verarbeitet.
+                </p>
+                <p>
+                    Für die Einwilligung nutzen wir den Consent-Manager Klaro (selbst gehostet,
+                    ohne Klaro-CDN). Wenn der Banner sichtbar ist, speichert Klaro deine Auswahl
+                    in einem Cookie namens <code>klaro</code> (Laufzeit 365 Tage, Pfad <code>/</code>).
+                    Du kannst die Auswahl über den Link „Cookies“ im Footer ändern.
+                    Ist der Banner ausgeschaltet, wird dieses Cookie nicht gesetzt.
+                </p>
+                <p>
+                    Rechtsgrundlage für den Einwilligungs-Cookie: § 25 Abs. 2 TDDDG
+                    (unbedingt erforderlich, um deine Auswahl zu speichern).
                 </p>
 
                 <h2>8. Social-Media-Links</h2>
@@ -204,6 +217,7 @@
         </div>
     </footer>
 
+    <script src="../consent.js"></script>
     <script src="../script.js"></script>
 </body>
 </html>

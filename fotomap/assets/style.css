@@ -145,6 +145,28 @@ body {
   height: 100%;
 }
 
+.map-consent {
+  position: absolute;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+  background: rgba(246, 247, 248, 0.94);
+  text-align: center;
+}
+
+.map-consent p {
+  max-width: 36ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .photo-popup {
   width: min(320px, 70vw);
 }

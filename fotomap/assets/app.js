@@ -7,18 +7,9 @@ const statusElement = document.getElementById('status');
 const gpxInput = document.getElementById('gpxInput');
 const clearGpxButton = document.getElementById('clearGpxButton');
 
-const map = L.map('map', {
-  zoomControl: true,
-  preferCanvas: true
-}).setView(DEFAULT_CENTER, DEFAULT_ZOOM);
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
-const photoLayer = L.layerGroup().addTo(map);
-const gpxLayer = L.layerGroup().addTo(map);
+let map;
+let photoLayer;
+let gpxLayer;
 
 function escapeHtml(value) {
   const div = document.createElement('div');
@@ -182,39 +173,85 @@ async function displayGpxFile(file) {
   return allPoints;
 }
 
-gpxInput.addEventListener('change', async () => {
-  if (gpxInput.files.length === 0) {
+function bindGpxControls() {
+  gpxInput.addEventListener('change', async () => {
+    if (gpxInput.files.length === 0) {
+      return;
+    }
+
+    statusElement.textContent = 'GPX wird geladen …';
+    const allGpxPoints = [];
+
+    try {
+      for (const file of gpxInput.files) {
+        const points = await displayGpxFile(file);
+        allGpxPoints.push(...points);
+      }
+
+      if (allGpxPoints.length > 0) {
+        map.fitBounds(allGpxPoints, {
+          padding: [40, 40]
+        });
+      }
+
+      statusElement.textContent = `${gpxInput.files.length} GPX-Datei(en) angezeigt`;
+    } catch (error) {
+      console.error(error);
+      statusElement.textContent = 'GPX konnte nicht geladen werden';
+      window.alert(error.message);
+    } finally {
+      gpxInput.value = '';
+    }
+  });
+
+  clearGpxButton.addEventListener('click', () => {
+    gpxLayer.clearLayers();
+    statusElement.textContent = 'GPX-Strecken entfernt';
+  });
+}
+
+function showOsmBlocked() {
+  statusElement.textContent = 'Karte wartet auf Zustimmung';
+
+  if (document.getElementById('map-consent')) {
     return;
   }
 
-  statusElement.textContent = 'GPX wird geladen …';
-  const allGpxPoints = [];
+  const box = document.createElement('div');
+  box.id = 'map-consent';
+  box.className = 'map-consent';
+  box.innerHTML = `
+    <p>Die Fotomap lädt OpenStreetMap erst, wenn du dem Kartendienst zustimmst.</p>
+    <button class="button button-primary" type="button">Cookie-Einstellungen</button>
+  `;
+  box.querySelector('button').addEventListener('click', () => {
+    window.RCM_CONSENT?.showSettings?.();
+  });
+  document.querySelector('.map-shell')?.append(box);
+}
 
-  try {
-    for (const file of gpxInput.files) {
-      const points = await displayGpxFile(file);
-      allGpxPoints.push(...points);
-    }
+function startMap() {
+  document.getElementById('map-consent')?.remove();
 
-    if (allGpxPoints.length > 0) {
-      map.fitBounds(allGpxPoints, {
-        padding: [40, 40]
-      });
-    }
+  map = L.map('map', {
+    zoomControl: true,
+    preferCanvas: true
+  }).setView(DEFAULT_CENTER, DEFAULT_ZOOM);
 
-    statusElement.textContent = `${gpxInput.files.length} GPX-Datei(en) angezeigt`;
-  } catch (error) {
-    console.error(error);
-    statusElement.textContent = 'GPX konnte nicht geladen werden';
-    window.alert(error.message);
-  } finally {
-    gpxInput.value = '';
-  }
-});
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
 
-clearGpxButton.addEventListener('click', () => {
-  gpxLayer.clearLayers();
-  statusElement.textContent = 'GPX-Strecken entfernt';
-});
+  photoLayer = L.layerGroup().addTo(map);
+  gpxLayer = L.layerGroup().addTo(map);
 
-loadSavedPhotos();
+  bindGpxControls();
+  loadSavedPhotos();
+}
+
+if (window.RCM_CONSENT?.whenOsmAllowed) {
+  window.RCM_CONSENT.whenOsmAllowed(startMap, showOsmBlocked);
+} else {
+  startMap();
+}
