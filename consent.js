@@ -9,7 +9,7 @@
 (() => {
     "use strict";
 
-    const CONSENT_BANNER_VISIBLE = false;
+    const CONSENT_BANNER_VISIBLE = true;
 
     const currentScript = document.currentScript;
     const siteRoot = currentScript?.src
