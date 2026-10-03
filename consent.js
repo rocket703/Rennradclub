@@ -2,7 +2,7 @@
    Cookie-Banner (Klaro, selbst gehostet)
    Schalter: true  = Banner sichtbar
              false = unsichtbar, kein Consent-Cookie,
-                     OpenStreetMap lädt auf der Fotomap wie bisher
+                     OpenStreetMap und Campai laden ohne Banner-Freigabe
    Trotzdem anzeigen: ?consent=1 an die URL hängen
    ========================================================= */
 
@@ -22,6 +22,7 @@
     const leafletVersion = "1.9.4";
 
     let leafletLoading = null;
+    let campaiConsent = false;
     const consentListeners = new Set();
 
     function dispatchConsentChange() {
@@ -70,6 +71,9 @@
             window.klaro?.show?.();
         },
         osmAllowed,
+        campaiAllowed() {
+            return !visible || campaiConsent;
+        },
         whenOsmAllowed(onAllow, onDeny) {
             let started = false;
             let denied = false;
@@ -131,12 +135,13 @@
                     description: "Lege fest, welche Dienste wir laden dürfen. Notwendig ist nur die Speicherung deiner Auswahl."
                 },
                 consentNotice: {
-                    description: "Wir setzen keine Analyse- oder Werbe-Cookies. OpenStreetMap auf der Fotomap laden wir erst, wenn du zustimmst. Details stehen in der {privacyPolicy}.",
+                    description: "Wir setzen keine Analyse- oder Werbe-Cookies. OpenStreetMap auf der Fotomap und Campai für die Trainingsbuchung laden wir erst, wenn du zustimmst. Details stehen in der {privacyPolicy}.",
                     learnMore: "Einstellungen"
                 },
                 purposes: {
                     essential: "Notwendig",
-                    functional: "Karte"
+                    functional: "Karte",
+                    booking: "Trainingsbuchung"
                 },
                 purposeItem: {
                     service: "Dienst",
@@ -176,6 +181,10 @@
                     title: "Einwilligungsspeicher",
                     description: "Speichert, welche Dienste du erlaubt oder abgelehnt hast."
                 },
+                campai: {
+                    title: "Campai Buchungssystem",
+                    description: "Externe Buchungsansicht für das funktionelle Training. Beim Laden werden deine IP-Adresse und technische Browserdaten an Campai übermittelt."
+                },
                 osm: {
                     title: "OpenStreetMap",
                     description: "Kartenkacheln und die Bibliothek Leaflet für die Fotomap. Dabei wird deine IP-Adresse an OpenStreetMap und unpkg übermittelt."
@@ -183,6 +192,19 @@
             }
         },
         services: [
+            {
+                name: "campai",
+                title: "Campai Buchungssystem",
+                purposes: ["booking"],
+                default: false,
+                required: false,
+                callback(consent) {
+                    campaiConsent = consent === true;
+                    // Erst nach Klaros Initialisierung benachrichtigen. So funktionieren
+                    // auch gespeicherte Freigaben und spätere Widerrufe zuverlässig.
+                    queueMicrotask(dispatchConsentChange);
+                }
+            },
             {
                 name: "consent",
                 title: "Einwilligungsspeicher",
