@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Funktionelles Training für Radfahrer mit Trainerin Mona von FormaStudio. Mobility, Core und Kraft – Termine ansehen und beim RCM buchen.">
+    <title>Funktionelles Training | Radsportclub Magdeburg e.V.</title>
+    <link rel="stylesheet" href="../style.css">
 
+    <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../img/favicon/site.webmanifest">
+    <style>
+
+        .rcm-training-card { padding: clamp(26px, 5vw, 56px); border: 1px solid rgba(10,46,100,.12); border-radius: 24px; background: linear-gradient(135deg, #f1f5fb, #fff); }
+        .rcm-training-card .section-heading { margin-bottom: 24px; }
+        .rcm-training-card p + p { margin-top: 16px; }
+        .rcm-training-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 26px; }
+        .rcm-training-actions .btn { font-family: inherit; }
+        @media (max-width: 600px) { .rcm-training-actions .btn { width: 100%; } }
+
+        .training-page [hidden] { display: none !important; }
+        .training-page .training-intro { padding-bottom: 34px; }
+        .training-page .training-intro h1 { color: var(--brand, #0a2e64); font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.12; letter-spacing: -.04em; margin: 16px auto 22px; max-width: 820px; }
+        .training-page .training-lead { max-width: 720px; margin: 0 auto; font-size: 1.1rem; color: #545d6b; }
+        .training-page .training-back { display: inline-block; color: var(--brand, #0a2e64); margin-bottom: 24px; }
+        .training-page .training-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; list-style: none; margin: 26px 0; padding: 0; }
+        .training-page .training-tags li { border: 1px solid #d5deec; border-radius: 99px; padding: 7px 16px; color: var(--brand, #0a2e64); background: #fff; font-weight: 700; }
+        .training-page .training-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 30px 0 0; }
+        .training-page .training-fact { padding: 24px 18px; background: #f5f7fb; border-radius: 18px; }
+        .training-page .training-fact strong { display: block; color: var(--brand, #0a2e64); margin-bottom: 6px; }
+        .training-page .training-booking { padding-top: 36px; }
+        .training-page .training-consent { max-width: 850px; margin: 0 auto; }
+        .training-page .training-consent h3 { font-size: 1.35rem; margin-bottom: 16px; }
+        .training-page .training-consent a:not(.btn), .training-page .booking-help a { color: var(--brand, #0a2e64); text-decoration: underline; }
+        .training-page .booking-help { margin: 22px auto 0; max-width: 780px; color: #545d6b; font-size: .95rem; }
+        .training-page .booking-status { margin: 16px 0; }
+        .training-page .booking-frame iframe { width: 100%; min-height: 720px; border: 0; background: #fff; }
+        .training-page .booking-reset { background: transparent; border: 0; color: var(--brand, #0a2e64); text-decoration: underline; font: inherit; cursor: pointer; margin-top: 18px; padding: 8px; }
+        .training-page :focus-visible { outline: 3px solid #5c8ecf; outline-offset: 5px; }
+        @media (max-width: 700px) {
+            .training-page .training-facts { grid-template-columns: 1fr; }
+            .training-page .training-intro { padding-top: 34px; }
+            .training-page .training-booking { padding-left: 12px; padding-right: 12px; }
+        }
+    </style>
+</head>
+<body class="training-page">
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../" aria-label="Zur Startseite">
+                    <img src="../img/logo.svg" alt="Radsportclub Magdeburg e.V." class="header-logo">
+                    <span class="logo-text">
+                        Radsportclub<br>
+                        <span class="logo-kicker">Magdeburg e.V.</span>
+                    </span>
+                </a>
+            </div>
+
+            <button class="menu-trigger" id="menu-trigger" type="button" aria-label="Menü öffnen" aria-controls="main-nav" aria-expanded="false">
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="../#aktuelles">Aktuelles</a></li>
+                    <li><a href="../#events">Termine</a></li>
+                    <li><a href="./" aria-current="page">Training</a></li>
+                    <li><a href="../Sponsoren/index.html">Partner</a></li>
+                    <li class="has-submenu">
+                        <a href="../#about" class="nav-parent" aria-haspopup="true">
+                            <span>Über uns</span>
+                            <span class="nav-chevron" aria-hidden="true"></span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="../#about">Unsere Philosophie</a></li>
+                            <li><a href="../ueber-uns/geschichte.html">Vereinsgeschichte</a></li>
+                            <li><a href="../ueber-uns/dokumente.html">Dokumente</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="section training-intro" aria-labelledby="training-heading">
+            <a class="training-back" href="../">← Zur Startseite</a>
+            <div class="rcm-training-card">
+                <span class="section-eyebrow">Radsportclub Magdeburg × FormaStudio</span>
+                <h1 id="training-heading">Stark auf dem Rad.<br>Stark abseits des Sattels.</h1>
+                <p class="training-lead">Funktionelles Training speziell für Radfahrer – professionell geleitet von
+                    Trainerin Mona von FormaStudio. Arbeite mit uns an Beweglichkeit, Stabilität und Kraft.</p>
+                <ul class="training-tags" aria-label="Trainingsschwerpunkte">
+                    <li>Mobility</li><li>Core</li><li>Kraft</li><li>Stabilität</li><li>Körperkontrolle</li>
+                </ul>
+                <div class="rcm-training-actions">
+                    <a href="#buchung" class="btn btn-primary">Termine &amp; Training buchen</a>
+                </div>
+            </div>
+            <div class="training-facts">
+                <div class="training-fact"><strong>Professionell angeleitet</strong><p>Trainerin Mona von FormaStudio begleitet euch durch die Einheit.</p></div>
+                <div class="training-fact"><strong>Kleine Trainingsgruppen</strong><p>10–12 Teilnehmende für eine persönliche Betreuung.</p></div>
+                <div class="training-fact"><strong>Vorteil für Mitglieder</strong><p>RCM-Mitglieder erhalten einen vergünstigten Preis.</p></div>
+            </div>
+        </section>
+        <section id="buchung" class="section training-booking" aria-labelledby="booking-heading">
+            <div class="section-heading">
+                <span class="section-eyebrow">Dein Training abseits des Rads</span>
+                <h2 class="section-title" id="booking-heading">Termine &amp; Buchung</h2>
+                <p class="section-intro">Die verfügbaren Termine, Preise und weitere Angaben zum Training findest du direkt in der Buchungsansicht.</p>
+            </div>
+            <!-- Campai wird ausschließlich nach dem Klick geladen. Keine dauerhafte Speicherung der Zustimmung. -->
+            <div id="campai-consent" class="rcm-training-card training-consent">
+                <h3>Buchung über Campai</h3>
+                <p>Mit einem Klick auf „Buchungssystem laden“ stimmst du zu, dass externe Inhalte von Campai
+                    geladen werden. Dabei werden deine IP-Adresse und technische Browserdaten an Campai übermittelt.
+                    Die Freigabe gilt nur für diesen Seitenaufruf.</p>
+                <p>Weitere Informationen findest du in unserer <a href="../Datenschutz/">Datenschutzerklärung</a>.</p>
+                <div class="rcm-training-actions">
+                    <button type="button" class="btn btn-primary" id="campai-load" aria-controls="campai-content" hidden>Buchungssystem laden</button>
+                </div>
+                <noscript><p>Zum Einbetten der Buchung wird JavaScript benötigt. Über den folgenden Link kannst du Campai direkt öffnen.</p></noscript>
+            </div>
+            <div id="campai-content" hidden>
+                <p id="campai-status" class="booking-status" role="status" aria-live="polite"></p>
+                <div id="campai-frame" class="booking-frame"></div>
+                <button id="campai-reset" type="button" class="booking-reset">Campai deaktivieren und Seite neu laden</button>
+            </div>
+            <p class="booking-help">Du möchtest die Buchung separat öffnen oder die Ansicht lädt nicht?
+                <a href="https://app.campai.com/em/n3zbu/events/6abfea14ad2a9300d7dfb2cb" target="_blank" rel="noopener noreferrer">Buchung direkt bei Campai öffnen ↗</a></p>
+            <p class="booking-help">Fragen zum Training? <a href="mailto:vorstand@radsportclub-magdeburg.de">Schreib uns eine E-Mail.</a></p>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-wrap">
+            <div class="footer-links">
+                <a href="../Impressum/">Impressum</a>
+                <span class="pipe">|</span>
+                <a href="../Datenschutz/">Datenschutz</a>
+            </div>
+            <div class="footer-credit">
+                design by <a href="https://r3webdesign.de" target="_blank" rel="noopener noreferrer">r3webdesign.de</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../consent.js"></script>
+    <script src="../script.js"></script>
+    <script>
+    (() => {
+        "use strict";
+        const loadButton = document.getElementById("campai-load");
+        const consent = document.getElementById("campai-consent");
+        const content = document.getElementById("campai-content");
+        const container = document.getElementById("campai-frame");
+        const status = document.getElementById("campai-status");
+        let started = false;
+        loadButton.hidden = false;
+
+        loadButton.addEventListener("click", () => {
+            if (started) return;
+            started = true;
+            consent.hidden = true;
+            content.hidden = false;
+            status.textContent = "Die Buchungsansicht wird geladen. Falls sie nicht erscheint, nutze den Direktlink darunter.";
+
+            const frame = document.createElement("iframe");
+            frame.src = "https://app.campai.com/em/n3zbu/events/6abfea14ad2a9300d7dfb2cb";
+            frame.title = "Funktionelles Training beim RCM – Termine und Buchung über Campai";
+            frame.setAttribute("data-campai-id", "");
+            // Kein festes height-Attribut: Campai passt die Höhe automatisch an.
+            container.appendChild(frame);
+
+            const script = document.createElement("script");
+            script.src = "https://app.campai.com/scripts/embeddable.js";
+            script.async = true;
+            script.onerror = () => {
+                status.textContent = "Die Campai-Anpassung konnte nicht geladen werden. Falls die Buchung nicht vollständig erscheint, öffne sie über den Direktlink darunter.";
+            };
+            frame.addEventListener("load", () => {
+                status.textContent = "Falls die Buchungsansicht leer bleibt, nutze den Direktlink darunter.";
+            });
+            document.body.appendChild(script);
+            frame.focus();
+        });
+        document.getElementById("campai-reset").addEventListener("click", () => {
+            // Ein neuer Seitenaufruf entfernt auch die externen Skripte und startet ohne Campai.
+            window.location.reload();
+        });
+    })();
+    </script>
+</body>
+</html>
