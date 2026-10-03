@@ -12,6 +12,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
     <link rel="manifest" href="img/favicon/site.webmanifest">
+    <style>
+
+        .rcm-training-card { padding: clamp(26px, 5vw, 56px); border: 1px solid rgba(10,46,100,.12); border-radius: 24px; background: linear-gradient(135deg, #f1f5fb, #fff); }
+        .rcm-training-card .section-heading { margin-bottom: 24px; }
+        .rcm-training-card p + p { margin-top: 16px; }
+        .rcm-training-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 26px; }
+        .rcm-training-actions .btn { font-family: inherit; }
+        @media (max-width: 600px) { .rcm-training-actions .btn { width: 100%; } }
+    </style>
 </head>
 <body>
     <div id="scroll-wheel" aria-hidden="true">
@@ -39,6 +48,7 @@
                 <ul>
                     <li><a href="#aktuelles">Aktuelles</a></li>
                     <li><a href="#events">Termine</a></li>
+                    <li><a href="training/">Training</a></li>
                     <li><a href="Sponsoren/index.html">Partner</a></li>
                     <li class="has-submenu">
                         <a href="#about" class="nav-parent" aria-haspopup="true">
@@ -181,6 +191,23 @@
                 </div>
             </article>
 
+        </section>
+
+        <section id="training" class="section" aria-labelledby="training-title">
+            <div class="rcm-training-card">
+                <div class="section-heading">
+                    <span class="section-eyebrow">RCM × FormaStudio</span>
+                    <h2 class="section-title" id="training-title">Funktionelles Training für Radfahrer</h2>
+                    <p class="section-intro">Mehr Stabilität. Mehr Beweglichkeit. Mehr Kraft fürs Rad.</p>
+                    <p>Gemeinsam mit FormaStudio bringen wir euch auch abseits des Sattels in Bewegung.
+                        Trainerin Mona leitet das Training professionell und arbeitet mit euch gezielt an
+                        Mobility, Core, Kraft und Körperkontrolle – die ideale Ergänzung zu euren Ausfahrten.</p>
+                    <p>Kleine Gruppen mit 10–12 Teilnehmenden. RCM-Mitglieder trainieren zum vergünstigten Preis.</p>
+                </div>
+                <div class="rcm-training-actions">
+                    <a href="training/" class="btn btn-primary">Termine &amp; Training buchen</a>
+                </div>
+            </div>
         </section>
 
         <section id="events" class="section reveal">
