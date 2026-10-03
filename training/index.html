@@ -115,22 +115,21 @@
                 <h2 class="section-title" id="booking-heading">Termine &amp; Buchung</h2>
                 <p class="section-intro">Die verfügbaren Termine, Preise und weitere Angaben zum Training findest du direkt in der Buchungsansicht.</p>
             </div>
-            <!-- Campai wird ausschließlich nach dem Klick geladen. Keine dauerhafte Speicherung der Zustimmung. -->
+            <!-- Campai lädt automatisch, sobald der zentrale Cookie-Banner den Dienst freigibt. -->
             <div id="campai-consent" class="rcm-training-card training-consent">
                 <h3>Buchung über Campai</h3>
-                <p>Mit einem Klick auf „Buchungssystem laden“ stimmst du zu, dass externe Inhalte von Campai
-                    geladen werden. Dabei werden deine IP-Adresse und technische Browserdaten an Campai übermittelt.
-                    Die Freigabe gilt nur für diesen Seitenaufruf.</p>
+                <p>Die Buchungsansicht wird automatisch geladen, sobald du „Campai Buchungssystem“
+                    im Cookie-Banner erlaubst. Eine bereits gespeicherte Zustimmung wird direkt übernommen.</p>
                 <p>Weitere Informationen findest du in unserer <a href="../Datenschutz/">Datenschutzerklärung</a>.</p>
                 <div class="rcm-training-actions">
-                    <button type="button" class="btn btn-primary" id="campai-load" aria-controls="campai-content" hidden>Buchungssystem laden</button>
+                    <button type="button" class="btn btn-primary" id="campai-settings" hidden>Cookie-Einstellungen öffnen</button>
                 </div>
                 <noscript><p>Zum Einbetten der Buchung wird JavaScript benötigt. Über den folgenden Link kannst du Campai direkt öffnen.</p></noscript>
             </div>
             <div id="campai-content" hidden>
                 <p id="campai-status" class="booking-status" role="status" aria-live="polite"></p>
                 <div id="campai-frame" class="booking-frame"></div>
-                <button id="campai-reset" type="button" class="booking-reset">Campai deaktivieren und Seite neu laden</button>
+                <button id="campai-manage" type="button" class="booking-reset" hidden>Cookie-Einstellungen ändern</button>
             </div>
             <p class="booking-help">Du möchtest die Buchung separat öffnen oder die Ansicht lädt nicht?
                 <a href="https://app.campai.com/em/n3zbu/events/6abfea14ad2a9300d7dfb2cb" target="_blank" rel="noopener noreferrer">Buchung direkt bei Campai öffnen ↗</a></p>
@@ -151,20 +150,43 @@
         </div>
     </footer>
 
-    <script src="../consent.js"></script>
+    <script src="../consent.js?v=campai-1"></script>
     <script src="../script.js"></script>
     <script>
     (() => {
         "use strict";
-        const loadButton = document.getElementById("campai-load");
         const consent = document.getElementById("campai-consent");
         const content = document.getElementById("campai-content");
         const container = document.getElementById("campai-frame");
         const status = document.getElementById("campai-status");
+        const settings = document.getElementById("campai-settings");
+        const manage = document.getElementById("campai-manage");
         let started = false;
-        loadButton.hidden = false;
 
-        loadButton.addEventListener("click", () => {
+        function showSettings() {
+            window.RCM_CONSENT?.showSettings?.();
+        }
+        settings.addEventListener("click", showSettings);
+        manage.addEventListener("click", showSettings);
+
+        function updateBooking() {
+            const api = window.RCM_CONSENT;
+            const settingsAvailable = Boolean(window.klaro?.show && api?.visible);
+            settings.hidden = !settingsAvailable;
+            manage.hidden = !settingsAvailable;
+            const allowed = api?.campaiAllowed?.() === true;
+
+            if (!allowed) {
+                consent.hidden = false;
+                content.hidden = true;
+                if (started) {
+                    // Entfernt den externen Frame sofort. Der anschließende Neustart
+                    // entfernt auch Campais bereits ausgeführten Script-Code.
+                    container.replaceChildren();
+                    window.location.reload();
+                }
+                return;
+            }
             if (started) return;
             started = true;
             consent.hidden = true;
@@ -175,25 +197,23 @@
             frame.src = "https://app.campai.com/em/n3zbu/events/6abfea14ad2a9300d7dfb2cb";
             frame.title = "Funktionelles Training beim RCM – Termine und Buchung über Campai";
             frame.setAttribute("data-campai-id", "");
-            // Kein festes height-Attribut: Campai passt die Höhe automatisch an.
+            // Keine feste Höhe: Campai passt sie automatisch an die Buchungsansicht an.
+            frame.addEventListener("load", () => {
+                status.textContent = "Falls die Buchungsansicht leer bleibt, nutze den Direktlink darunter.";
+            });
             container.appendChild(frame);
 
             const script = document.createElement("script");
             script.src = "https://app.campai.com/scripts/embeddable.js";
             script.async = true;
             script.onerror = () => {
-                status.textContent = "Die Campai-Anpassung konnte nicht geladen werden. Falls die Buchung nicht vollständig erscheint, öffne sie über den Direktlink darunter.";
+                status.textContent = "Die Campai-Anpassung konnte nicht geladen werden. Bitte nutze bei Problemen den Direktlink darunter.";
             };
-            frame.addEventListener("load", () => {
-                status.textContent = "Falls die Buchungsansicht leer bleibt, nutze den Direktlink darunter.";
-            });
             document.body.appendChild(script);
-            frame.focus();
-        });
-        document.getElementById("campai-reset").addEventListener("click", () => {
-            // Ein neuer Seitenaufruf entfernt auch die externen Skripte und startet ohne Campai.
-            window.location.reload();
-        });
+        }
+
+        document.addEventListener("rcm-consent-change", updateBooking);
+        updateBooking();
     })();
     </script>
 </body>
