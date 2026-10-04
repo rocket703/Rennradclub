@@ -21,6 +21,32 @@
         .rcm-training-actions .btn { font-family: inherit; }
         @media (max-width: 600px) { .rcm-training-actions .btn { width: 100%; } }
 
+
+        .training-page .paypal-notice {
+            max-width: 980px;
+            margin: 0 auto 34px;
+            padding: clamp(22px, 4vw, 38px);
+            border: 4px solid #b42318;
+            border-radius: 22px;
+            background: #fff3cd;
+            color: #7a1a12;
+            text-align: center;
+            box-shadow: 0 14px 34px rgba(180, 35, 24, .18);
+        }
+        .training-page .paypal-notice strong {
+            display: block;
+            font-size: clamp(1.55rem, 4.5vw, 2.8rem);
+            line-height: 1.12;
+            letter-spacing: -.02em;
+            text-transform: uppercase;
+        }
+        .training-page .paypal-notice span {
+            display: block;
+            margin-top: 10px;
+            font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+            font-weight: 800;
+        }
+
         .training-page [hidden] { display: none !important; }
         .training-page .training-intro { padding-bottom: 34px; }
         .training-page .training-intro h1 { color: var(--brand, #0a2e64); font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.12; letter-spacing: -.04em; margin: 16px auto 22px; max-width: 820px; }
@@ -110,6 +136,11 @@
             </div>
         </section>
         <section id="buchung" class="section training-booking" aria-labelledby="booking-heading">
+
+            <div class="paypal-notice" role="alert" aria-label="Wichtiger Hinweis zur Bezahlung">
+                <strong>⚠️ Bezahlung per PayPal ab Dienstag verfügbar!</strong>
+                <span>Ab Dienstag, 06.10.2026, könnt ihr eure Buchung direkt per PayPal bezahlen.</span>
+            </div>
             <div class="section-heading">
                 <span class="section-eyebrow">Dein Training abseits des Rads</span>
                 <h2 class="section-title" id="booking-heading">Termine &amp; Buchung</h2>
