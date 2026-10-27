@@ -36,7 +36,8 @@
         .training-page .training-consent a:not(.btn), .training-page .booking-help a { color: var(--brand, #0a2e64); text-decoration: underline; }
         .training-page .booking-help { margin: 22px auto 0; max-width: 780px; color: #545d6b; font-size: .95rem; }
         .training-page .booking-status { margin: 16px 0; }
-        .training-page .booking-frame iframe { width: 100%; min-height: 720px; border: 0; background: #fff; }
+        .training-page .booking-frame { display: flex; justify-content: center; width: 100%; margin-inline: auto; }
+        .training-page .booking-frame iframe { display: block; width: 100%; max-width: 900px; min-height: 720px; margin-inline: auto; border: 0; background: #fff; }
         .training-page .booking-reset { background: transparent; border: 0; color: var(--brand, #0a2e64); text-decoration: underline; font: inherit; cursor: pointer; margin-top: 18px; padding: 8px; }
         .training-page :focus-visible { outline: 3px solid #5c8ecf; outline-offset: 5px; }
         @media (max-width: 700px) {
