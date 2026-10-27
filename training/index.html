@@ -35,9 +35,23 @@
         .training-page .training-consent h3 { font-size: 1.35rem; margin-bottom: 16px; }
         .training-page .training-consent a:not(.btn), .training-page .booking-help a { color: var(--brand, #0a2e64); text-decoration: underline; }
         .training-page .booking-help { margin: 22px auto 0; max-width: 780px; color: #545d6b; font-size: .95rem; }
-        .training-page .booking-status { margin: 16px 0; }
-        .training-page .booking-frame { display: flex; justify-content: center; width: 100%; margin-inline: auto; }
-        .training-page .booking-frame iframe { display: block; width: 100%; max-width: 900px; min-height: 720px; margin-inline: auto; border: 0; background: #fff; }
+        .training-page .booking-status { max-width: 960px; margin: 16px auto; text-align: center; }
+        /* Breite Buchungsansicht: genug Platz für Campais mehrspaltige Termin-Karten. */
+        .training-page .booking-frame {
+            width: 100%;
+            max-width: 1240px;
+            margin-inline: auto;
+        }
+        .training-page .booking-frame iframe[data-campai-id] {
+            display: block;
+            box-sizing: border-box;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-height: 720px;
+            margin: 0 auto !important;
+            border: 0;
+            background: #fff;
+        }
         .training-page .booking-reset { background: transparent; border: 0; color: var(--brand, #0a2e64); text-decoration: underline; font: inherit; cursor: pointer; margin-top: 18px; padding: 8px; }
         .training-page :focus-visible { outline: 3px solid #5c8ecf; outline-offset: 5px; }
         @media (max-width: 700px) {
@@ -127,7 +141,7 @@
                 <noscript><p>Zum Einbetten der Buchung wird JavaScript benötigt. Über den folgenden Link kannst du Campai direkt öffnen.</p></noscript>
             </div>
             <div id="campai-content" hidden>
-                <p id="campai-status" class="booking-status" role="status" aria-live="polite"></p>
+                <p id="campai-status" class="booking-status" role="status" aria-live="polite" hidden></p>
                 <div id="campai-frame" class="booking-frame"></div>
                 <button id="campai-manage" type="button" class="booking-reset" hidden>Cookie-Einstellungen ändern</button>
             </div>
@@ -191,7 +205,9 @@
             started = true;
             consent.hidden = true;
             content.hidden = false;
-            status.textContent = "Die Buchungsansicht wird geladen. Falls sie nicht erscheint, nutze den Direktlink darunter.";
+            // Nur bei einem Ladefehler einen Hinweis anzeigen, nicht dauerhaft über den Terminen.
+            status.hidden = true;
+            status.textContent = "";
 
             const frame = document.createElement("iframe");
             frame.src = "https://app.campai.com/em/n3zbu/events/view/qUTq9k";
@@ -199,7 +215,8 @@
             frame.setAttribute("data-campai-id", "");
             // Keine feste Höhe: Campai passt sie automatisch an die Buchungsansicht an.
             frame.addEventListener("load", () => {
-                status.textContent = "Falls die Buchungsansicht leer bleibt, nutze den Direktlink darunter.";
+                status.hidden = true;
+                status.textContent = "";
             });
             container.appendChild(frame);
 
@@ -207,6 +224,7 @@
             script.src = "https://app.campai.com/scripts/embeddable.js";
             script.async = true;
             script.onerror = () => {
+                status.hidden = false;
                 status.textContent = "Die Campai-Anpassung konnte nicht geladen werden. Bitte nutze bei Problemen den Direktlink darunter.";
             };
             document.body.appendChild(script);
