@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Winter Alley Cat 2027 in Magdeburg: Am 23. Januar 2027 geht es auf Pokémon-Jagd durch die Stadt. Erfahre mehr und melde dich direkt beim Radsportclub Magdeburg e.V. an.">
+    <meta name="description" content="Winter Alley Cat 2027 in Magdeburg: Pokémon-Jagd am 23. Januar, Treffen 15 Uhr, Start 16 Uhr am Ernas Lebensmittelpunkt. Teilnahme 15 € pro Person – hier anmelden.">
     <meta name="theme-color" content="#0a2e64">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Winter Alley Cat 2027 | Radsportclub Magdeburg e.V.">
-    <meta property="og:description" content="23. Januar 2027 · Magdeburg · Pokémon-Jagd auf zwei Rädern. Jetzt anmelden!">
+    <meta property="og:description" content="23.01.2027 · Treffen 15 Uhr · Start 16 Uhr · Ernas Lebensmittelpunkt · 15 € pro Person. Jetzt zur Winter Alley Cat anmelden!">
     <meta property="og:image" content="https://radsportclub-magdeburg.de/img/alleycat-2027.jpg">
     <title>Winter Alley Cat 2027 | Radsportclub Magdeburg e.V.</title>
 
@@ -172,6 +172,89 @@
             .alleycat-page .cat-booking-panel { padding: 15px 9px; border-radius: 18px; }
             .alleycat-page .cat-frame iframe[data-campai-id] { min-height: 850px; }
         }
+
+        /* Zusätzliche Veranstaltungsdetails und Spielregeln */
+        .alleycat-page .cat-heading .cat-heading-top {
+            display: block; margin-bottom: 10px; color: #4474b5;
+            font-size: clamp(1.08rem, 2.2vw, 1.65rem);
+            line-height: 1.2; font-weight: 850; letter-spacing: -.015em;
+        }
+        .alleycat-page .cat-heading .cat-heading-name { display: block; color: var(--cat-ink); }
+        .alleycat-page .cat-heading .cat-heading-year { display: block; color: #386aa7; }
+        .alleycat-page .cat-hero-note {
+            margin-top: 17px; font-size: .93rem; color: #5f6d80;
+        }
+        .alleycat-page .cat-hero-note strong { color: var(--cat-ink); }
+        .alleycat-page .cat-mission-banner {
+            margin: 26px auto 0; max-width: 830px; text-align: center;
+            font-weight: 750; font-size: 1.02rem; color: var(--cat-ink);
+        }
+        .alleycat-page .cat-game-note {
+            max-width: 840px; margin: 34px auto 0; text-align: center;
+            color: var(--cat-muted); line-height: 1.75; font-size: 1.03rem;
+        }
+        .alleycat-page .cat-details {
+            display: grid; grid-template-columns: 1.15fr .85fr;
+            align-items: stretch; gap: 24px;
+        }
+        .alleycat-page .cat-factbox {
+            background: #f5f7fb; border: 1px solid var(--cat-line);
+            border-radius: 24px; padding: clamp(24px, 3.5vw, 42px);
+            text-align: left;
+        }
+        .alleycat-page .cat-factbox--dark {
+            background: linear-gradient(138deg, #0a2e64 0%, #154986 100%);
+            border-color: transparent; color: #fff;
+        }
+        .alleycat-page .cat-factbox h3 {
+            color: var(--cat-ink); font-size: clamp(1.32rem, 2.2vw, 1.7rem);
+            letter-spacing: -.025em; margin: 0 0 23px;
+        }
+        .alleycat-page .cat-factbox--dark h3 { color: #fff; }
+        .alleycat-page .cat-detail-list { display: grid; gap: 0; margin: 0; }
+        .alleycat-page .cat-detail-row {
+            display: grid; grid-template-columns: minmax(105px, .65fr) 1.35fr;
+            gap: 12px; padding: 15px 0;
+            border-bottom: 1px solid rgba(10,46,100,.12);
+        }
+        .alleycat-page .cat-detail-row:last-child { border-bottom: 0; }
+        .alleycat-page .cat-detail-row dt { color: #657184; font-weight: 750; }
+        .alleycat-page .cat-detail-row dd { margin: 0; color: var(--cat-ink); font-weight: 750; }
+        .alleycat-page .cat-highlights { display: grid; gap: 16px; }
+        .alleycat-page .cat-highlight {
+            display: flex; align-items: flex-start; gap: 15px;
+            padding: 12px 0; text-align: left;
+        }
+        .alleycat-page .cat-highlight-icon {
+            display: grid; place-items: center; flex: 0 0 40px;
+            width: 40px; height: 40px; border-radius: 12px;
+            background: rgba(255,255,255,.13); color: #fff; font-size: 1.15rem;
+        }
+        .alleycat-page .cat-highlight strong {
+            display: block; margin-bottom: 3px; color: #fff; font-size: 1.05rem;
+        }
+        .alleycat-page .cat-highlight p { color: #e2edff; line-height: 1.58; margin: 0; }
+        .alleycat-page .cat-safety {
+            display: flex; gap: 13px; align-items: flex-start;
+            border: 1px solid #d7e5f5; background: #eff5fc;
+            border-radius: 18px; padding: 21px 24px; margin-top: 23px;
+            text-align: left;
+        }
+        .alleycat-page .cat-safety-symbol { flex: 0 0 auto; font-size: 1.4rem; }
+        .alleycat-page .cat-safety strong { color: var(--cat-ink); }
+        .alleycat-page .cat-safety p { margin: 3px 0 0; color: #4d5d70; line-height: 1.65; }
+        .alleycat-page .cat-booking-note {
+            margin-top: 13px; font-weight: 800; font-size: .96rem;
+            color: var(--cat-ink); text-align: center;
+        }
+        @media (max-width: 850px) {
+            .alleycat-page .cat-details { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 530px) {
+            .alleycat-page .cat-detail-row { grid-template-columns: 1fr; gap: 2px; }
+            .alleycat-page .cat-factbox { padding: 25px 20px; }
+            .alleycat-page .cat-safety { padding: 17px; }
+        }
         @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
         #anmeldung { scroll-margin-top: 105px; }
     </style>
@@ -226,18 +309,24 @@
                 <a class="cat-back" href="../">← Zur Startseite</a>
                 <div class="cat-grid">
                     <div class="cat-copy">
-                        <div class="cat-kicker">Radsportclub Magdeburg e.V. präsentiert</div>
-                        <h1 class="cat-heading" id="alleycat-title">Winter<span>Alley Cat 2027</span></h1>
-                        <p class="cat-lead">Zeiten ändern sich, aber die Alley Cat bleibt. Nach einem Jahr Pause geht es endlich wieder los – und diesmal auf Pokémon-Jagd durch Magdeburg!</p>
-                        <ul class="cat-facts" aria-label="Veranstaltungsinformationen">
-                            <li><span aria-hidden="true">📅</span> Samstag, 23.01.2027</li>
-                            <li><span aria-hidden="true">📍</span> Magdeburg</li>
-                            <li><span aria-hidden="true">🚲</span> Alley Cat</li>
+                        <div class="cat-kicker">Achtung, Pokémon-Trainer!</div>
+                        <h1 class="cat-heading" id="alleycat-title">
+                            <span class="cat-heading-top">Gotta catch ’em all!</span>
+                            <span class="cat-heading-name">Winter Alley Cat</span>
+                            <span class="cat-heading-year">2027</span>
+                        </h1>
+                        <p class="cat-lead">Am <strong>23. Januar 2027</strong> wird Magdeburg zur Pokémon-Arena! Schnapp dir dein Fahrrad und mach dich bereit für eine wilde Jagd quer durch die Stadt. Hier entscheiden Köpfchen, Strategie und ein bisschen Glück.</p>
+                        <ul class="cat-facts" aria-label="Die wichtigsten Veranstaltungsdaten">
+                            <li><span aria-hidden="true">📅</span> 23.01.2027</li>
+                            <li><span aria-hidden="true">🕓</span> Start 16:00 Uhr</li>
+                            <li><span aria-hidden="true">📍</span> Ernas Lebensmittelpunkt</li>
+                            <li><span aria-hidden="true">🎟️</span> 15 € pro Person</li>
                         </ul>
                         <div class="cat-cta">
                             <a class="btn btn-primary" href="#anmeldung">Jetzt anmelden</a>
-                            <a class="btn btn-secondary" href="#ablauf">Mehr erfahren</a>
+                            <a class="btn btn-secondary" href="#mission">So funktioniert’s</a>
                         </div>
+                        <p class="cat-hero-note"><strong>Treffen ab 15:00 Uhr</strong> · Anmeldung ab 01.11.2026</p>
                     </div>
                     <figure class="cat-poster">
                         <a href="../img/alleycat-2027.jpg" target="_blank" rel="noopener" aria-label="Alley-Cat-Plakat in voller Größe öffnen">
@@ -249,44 +338,93 @@
             </div>
         </section>
 
-        <section class="cat-section cat-section--light" id="ablauf" aria-labelledby="ablauf-title">
+        <section class="cat-section cat-section--light" id="mission" aria-labelledby="mission-title">
             <div class="cat-wrap">
                 <div class="cat-intro">
-                    <div class="cat-kicker">Das erwartet euch</div>
-                    <h2 class="cat-section-title" id="ablauf-title">Welches Team fängt sie alle?</h2>
-                    <p class="cat-section-sub">Werdet zu Pokémonjägern und holt die kleinen Monster nach Hause. Nicht nur die Geschwindigkeit zählt: Mit einer guten Strategie, cleveren Entscheidungen und etwas Glück kommt ihr ans Ziel.</p>
-                    <div class="cat-team-row" aria-label="Die drei Teams">
-                        <span class="cat-team cat-team--plant">Team Pflanze</span>
-                        <span class="cat-team cat-team--water">Team Wasser</span>
-                        <span class="cat-team cat-team--fire">Team Feuer</span>
-                    </div>
+                    <div class="cat-kicker">Deine Mission</div>
+                    <h2 class="cat-section-title" id="mission-title">Drei Herausforderungen.<br>Ein Pokémon-Champion.</h2>
+                    <p class="cat-section-sub">Magdeburg ist euer Spielfeld. Schnelligkeit allein reicht nicht: Plant eure Route, jagt Pokémon und stellt euch dem Wettbewerb.</p>
                 </div>
                 <div class="cat-cards">
                     <article class="cat-card">
-                        <span class="cat-card-number">01 / AUF ZWEI RÄDERN</span>
-                        <h3>Magdeburg entdecken</h3>
-                        <p>Die Stadt wird zum Spielfeld: Auf dem Fahrrad geht ihr auf die Suche nach den kleinen Monstern.</p>
+                        <span class="cat-card-number">01 / ENTDECKEN</span>
+                        <h3>Checkpoints finden</h3>
+                        <p>Spürt die Checkpoints in der Stadt auf und entscheidet clever, welchen ihr als Nächstes ansteuert.</p>
                     </article>
                     <article class="cat-card">
-                        <span class="cat-card-number">02 / CLEVER UNTERWEGS</span>
-                        <h3>Die Route zählt</h3>
-                        <p>Überlegt gut, wo ihr zuerst sucht. Die richtige Reihenfolge kann entscheidend sein.</p>
+                        <span class="cat-card-number">02 / SAMMELN</span>
+                        <h3>Pokémon fangen</h3>
+                        <p>Geht auf Pokémon-Jagd und sammelt die kleinen Monster. Die passende Strategie kann den Unterschied machen.</p>
                     </article>
                     <article class="cat-card">
-                        <span class="cat-card-number">03 / POKÉMON-JAGD</span>
-                        <h3>Sammeln &amp; tauschen</h3>
-                        <p>Seid schneller als die anderen, sammelt und tauscht – und hofft auf das nötige Quäntchen Glück.</p>
+                        <span class="cat-card-number">03 / WETTKAMPF</span>
+                        <h3>Im Knockout behaupten</h3>
+                        <p>Zeigt im Knockout-System, was in euch steckt – und kämpft um den Titel des Pokémon-Champions.</p>
                     </article>
+                </div>
+                <p class="cat-mission-banner">Team Pflanze, Wasser oder Feuer – welches Team fängt sie alle?</p>
+                <div class="cat-team-row" aria-label="Pokémon-Teams">
+                    <span class="cat-team cat-team--plant">🌱 Team Pflanze</span>
+                    <span class="cat-team cat-team--water">💧 Team Wasser</span>
+                    <span class="cat-team cat-team--fire">🔥 Team Feuer</span>
+                </div>
+                <p class="cat-game-note"><strong>Solo, zu zweit oder zu dritt:</strong> Jede und jeder kann mitmachen. Ob Karpador mit Stadtplan oder Glurak mit Heimvorteil – du brauchst weder perfekte Ortskenntnisse noch Profi-Beine. Trainerausrüstung und Pokémon-Outfits sind ausdrücklich willkommen!</p>
+            </div>
+        </section>
+
+        <section class="cat-section" id="infos" aria-labelledby="infos-title">
+            <div class="cat-wrap">
+                <div class="cat-intro">
+                    <div class="cat-kicker">Gut zu wissen</div>
+                    <h2 class="cat-section-title" id="infos-title">Alles auf einen Blick</h2>
+                    <p class="cat-section-sub">Das Wichtigste für deinen Start in die Pokémon-Arena.</p>
+                </div>
+                <div class="cat-details">
+                    <div class="cat-factbox">
+                        <h3>Termin &amp; Teilnahme</h3>
+                        <dl class="cat-detail-list">
+                            <div class="cat-detail-row"><dt>Datum</dt><dd>Samstag, 23. Januar 2027</dd></div>
+                            <div class="cat-detail-row"><dt>Treffen</dt><dd>15:00 Uhr</dd></div>
+                            <div class="cat-detail-row"><dt>Start</dt><dd>16:00 Uhr</dd></div>
+                            <div class="cat-detail-row"><dt>Start &amp; Ziel</dt><dd>Ernas Lebensmittelpunkt, Magdeburg</dd></div>
+                            <div class="cat-detail-row"><dt>Teilnahme</dt><dd>15 € pro Person</dd></div>
+                            <div class="cat-detail-row"><dt>Mitfahren</dt><dd>Allein, zu zweit oder zu dritt</dd></div>
+                            <div class="cat-detail-row"><dt>Anmeldung</dt><dd>Ab 01.11.2026</dd></div>
+                        </dl>
+                    </div>
+                    <div class="cat-factbox cat-factbox--dark">
+                        <h3>Im Ziel wartet mehr</h3>
+                        <div class="cat-highlights">
+                            <div class="cat-highlight">
+                                <span class="cat-highlight-icon" aria-hidden="true">🥗</span>
+                                <div><strong>Veganes Pokémon-Buffet inklusive</strong><p>Nach der Jagd erwartet euch im Ziel ein veganes Buffet.</p></div>
+                            </div>
+                            <div class="cat-highlight">
+                                <span class="cat-highlight-icon" aria-hidden="true">☕</span>
+                                <div><strong>KRÖM-Kaffee inklusive</strong><p>Weitere Getränke sind nicht im Teilnahmebeitrag enthalten.</p></div>
+                            </div>
+                            <div class="cat-highlight">
+                                <span class="cat-highlight-icon" aria-hidden="true">🏆</span>
+                                <div><strong>Preise für die Champions</strong><p>Auf euch warten besondere Preise – dank unserer Unterstützer.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cat-safety" role="note">
+                    <span class="cat-safety-symbol" aria-hidden="true">🚲</span>
+                    <div><strong>Wichtig für alle Teilnehmenden: Helm und Licht sind Pflicht.</strong><p>Bitte kommt mit einem verkehrssicheren Fahrrad. Verkleidungen sind gern gesehen – die Sicherheit geht dabei immer vor.</p></div>
                 </div>
             </div>
         </section>
 
-        <section class="cat-section" id="anmeldung" aria-labelledby="anmeldung-title">
+
+        <section class="cat-section cat-section--light" id="anmeldung" aria-labelledby="anmeldung-title">
             <div class="cat-wrap">
                 <div class="cat-intro">
                     <div class="cat-kicker">Sei dabei</div>
-                    <h2 class="cat-section-title" id="anmeldung-title">Anmeldung zur Alley Cat 2027</h2>
-                    <p class="cat-section-sub">Sichere dir deinen Platz für den 23. Januar 2027. Die Anmeldung sowie gegebenenfalls weitere Angaben zur Buchung findest du direkt hier über Campai.</p>
+                    <h2 class="cat-section-title" id="anmeldung-title">Bist du bereit, sie alle zu fangen?</h2>
+                    <p class="cat-section-sub">Melde dich für die Winter Alley Cat am 23. Januar 2027 an. Die Anmeldung läuft direkt über unser Buchungssystem Campai.</p>
+                    <p class="cat-booking-note">Anmeldung ab 01.11.2026 · 15 € pro Person</p>
                 </div>
                 <div class="cat-booking-panel">
                     <!-- Campai wird erst nach Zustimmung über das bestehende Consent-System geladen. -->
