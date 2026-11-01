@@ -1,1 +1,393 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Winter Alley Cat 2027 in Magdeburg: Am 23. Januar 2027 geht es auf Pokémon-Jagd durch die Stadt. Erfahre mehr und melde dich direkt beim Radsportclub Magdeburg e.V. an.">
+    <meta name="theme-color" content="#0a2e64">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Winter Alley Cat 2027 | Radsportclub Magdeburg e.V.">
+    <meta property="og:description" content="23. Januar 2027 · Magdeburg · Pokémon-Jagd auf zwei Rädern. Jetzt anmelden!">
+    <meta property="og:image" content="https://radsportclub-magdeburg.de/img/alleycat-2027.jpg">
+    <title>Winter Alley Cat 2027 | Radsportclub Magdeburg e.V.</title>
 
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../img/favicon/site.webmanifest">
+
+    <style>
+        /* Alley-Cat-spezifische Gestaltung – übrige Seiten bleiben unverändert. */
+        .alleycat-page {
+            --cat-ink: #0a2e64;
+            --cat-muted: #576375;
+            --cat-line: rgba(10, 46, 100, .12);
+            --cat-light: #f4f7fc;
+            color: #182239;
+        }
+        .alleycat-page [hidden] { display: none !important; }
+        .alleycat-page .cat-wrap { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+        .alleycat-page .cat-hero .cat-wrap, .alleycat-page .cat-card { text-align: left; }
+        .alleycat-page .cat-hero {
+            padding: clamp(38px, 6vw, 88px) 0 clamp(60px, 8vw, 110px);
+            background:
+                radial-gradient(circle at 10% 12%, rgba(40, 106, 182, .09), transparent 35%),
+                linear-gradient(155deg, #f4f7fc 0%, #fff 68%);
+            border-bottom: 1px solid var(--cat-line);
+        }
+        .alleycat-page .cat-back {
+            display: inline-flex; align-items: center; gap: 7px;
+            color: var(--cat-ink); text-decoration: none;
+            font-weight: 750; font-size: .92rem; margin-bottom: 38px;
+        }
+        .alleycat-page .cat-back:hover { text-decoration: underline; }
+        .alleycat-page .cat-grid {
+            display: grid; grid-template-columns: minmax(0, 1fr) minmax(330px, .80fr);
+            gap: clamp(34px, 5.5vw, 85px); align-items: center;
+        }
+        .alleycat-page .cat-kicker {
+            display: inline-flex; align-items: center; gap: 9px;
+            font-size: .83rem; font-weight: 850; letter-spacing: .10em;
+            text-transform: uppercase; color: var(--cat-ink);
+            margin-bottom: 22px;
+        }
+        .alleycat-page .cat-kicker::before {
+            content: ""; width: 27px; height: 3px; background: var(--cat-ink); border-radius: 5px;
+        }
+        .alleycat-page .cat-heading {
+            font-size: clamp(3rem, 6.4vw, 5.5rem);
+            line-height: 1.04; font-weight: 900; letter-spacing: -.065em;
+            color: var(--cat-ink); margin: 0 0 25px; overflow-wrap: break-word;
+        }
+        .alleycat-page .cat-heading span { display: block; color: #386aa7; }
+        .alleycat-page .cat-lead {
+            font-size: clamp(1.08rem, 1.8vw, 1.22rem); line-height: 1.7;
+            color: var(--cat-muted); max-width: 570px; margin: 0 0 27px;
+        }
+        .alleycat-page .cat-facts {
+            list-style: none; display: flex; flex-wrap: wrap; gap: 11px;
+            margin: 0 0 35px; padding: 0;
+        }
+        .alleycat-page .cat-facts li {
+            display: inline-flex; align-items: center; gap: 9px;
+            padding: 10px 16px; border: 1px solid #dce5f0;
+            border-radius: 100px; background: #fff; color: var(--cat-ink);
+            font-size: .94rem; font-weight: 750;
+        }
+        .alleycat-page .cat-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+        .alleycat-page .cat-cta .btn { text-align: center; }
+        .alleycat-page .cat-poster {
+            margin: 0; padding: clamp(11px, 1.6vw, 17px);
+            background: #fff; border: 1px solid var(--cat-line);
+            border-radius: 26px; box-shadow: 0 22px 55px rgba(7, 38, 79, .14);
+            transform: rotate(1.2deg);
+        }
+        .alleycat-page .cat-poster a { display: block; overflow: hidden; border-radius: 15px; }
+        .alleycat-page .cat-poster img {
+            display: block; width: 100%; height: auto; max-height: 680px;
+            object-fit: contain; background: #eef2f7;
+        }
+        .alleycat-page .cat-poster figcaption {
+            padding: 12px 3px 2px; text-align: center; font-size: .84rem; color: #616d80;
+        }
+        .alleycat-page .cat-section { padding: clamp(70px, 8vw, 105px) 0; }
+        .alleycat-page .cat-section--light { background: var(--cat-light); }
+        .alleycat-page .cat-intro {
+            max-width: 770px; margin: 0 auto 42px; text-align: center;
+        }
+        .alleycat-page .cat-section-title {
+            margin: 0 0 18px; color: var(--cat-ink); font-weight: 900;
+            letter-spacing: -.04em; font-size: clamp(2rem, 4.3vw, 3.15rem);
+            line-height: 1.13;
+        }
+        .alleycat-page .cat-section-sub {
+            margin: 0; color: var(--cat-muted); font-size: 1.08rem; line-height: 1.7;
+        }
+        .alleycat-page .cat-cards {
+            display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 19px;
+        }
+        .alleycat-page .cat-card {
+            border: 1px solid var(--cat-line); border-radius: 20px; padding: 28px;
+            background: white; box-shadow: 0 8px 22px rgba(10, 46, 100, .035);
+        }
+        .alleycat-page .cat-card-number {
+            display: inline-block; font-size: .86rem; font-weight: 900;
+            color: #3569a8; letter-spacing: .05em; margin-bottom: 22px;
+        }
+        .alleycat-page .cat-card h3 { color: var(--cat-ink); font-size: 1.28rem; margin: 0 0 12px; }
+        .alleycat-page .cat-card p { color: var(--cat-muted); line-height: 1.65; margin: 0; }
+        .alleycat-page .cat-team-row {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
+            margin-top: 28px;
+        }
+        .alleycat-page .cat-team {
+            padding: 9px 17px; font-weight: 800; font-size: .93rem;
+            border-radius: 100px; border: 1px solid transparent;
+        }
+        .alleycat-page .cat-team--plant { color: #18643e; background: #e7f5ec; border-color: #cde9d6; }
+        .alleycat-page .cat-team--water { color: #1959a0; background: #e8f2fe; border-color: #cfe2fc; }
+        .alleycat-page .cat-team--fire { color: #aa3e1b; background: #fff0e8; border-color: #f7d8c8; }
+        .alleycat-page .cat-booking-panel {
+            width: 100%; margin: 0 auto; padding: clamp(20px, 4vw, 38px);
+            border: 1px solid var(--cat-line); border-radius: 24px;
+            background: #fff; box-shadow: 0 13px 42px rgba(10,46,100,.06);
+        }
+        .alleycat-page .cat-consent { max-width: 800px; margin: 0 auto; text-align: center; }
+        .alleycat-page .cat-consent h3 { font-size: 1.35rem; color: var(--cat-ink); margin: 0 0 14px; }
+        .alleycat-page .cat-consent p { color: var(--cat-muted); line-height: 1.65; margin: 0 0 18px; }
+        .alleycat-page .cat-booking-panel a:not(.btn) { color: var(--cat-ink); text-decoration: underline; }
+        .alleycat-page .cat-booking-actions { display: flex; justify-content: center; margin-top: 22px; }
+        .alleycat-page .cat-frame { width: 100%; max-width: 1140px; margin-inline: auto; }
+        .alleycat-page .cat-frame iframe[data-campai-id] {
+            display: block; box-sizing: border-box; width: 100% !important;
+            max-width: 100% !important; min-height: 760px;
+            margin: 0 auto !important; padding: 0; border: 0;
+            border-radius: 12px; background: white;
+        }
+        .alleycat-page .cat-status { color: var(--cat-muted); text-align: center; padding: 10px; }
+        .alleycat-page .cat-manage {
+            display: block; margin: 22px auto 0; padding: 8px;
+            font: inherit; color: var(--cat-ink); text-decoration: underline;
+            background: transparent; border: 0; cursor: pointer;
+        }
+        .alleycat-page .cat-booking-help {
+            margin: 23px auto 0; text-align: center; color: var(--cat-muted);
+            font-size: .95rem; line-height: 1.65;
+        }
+        .alleycat-page :focus-visible { outline: 3px solid #5c8ecf; outline-offset: 4px; }
+        @media (max-width: 900px) {
+            .alleycat-page .cat-grid { grid-template-columns: 1fr; }
+            .alleycat-page .cat-copy { max-width: 740px; }
+            .alleycat-page .cat-poster { width: min(550px, 100%); margin-inline: auto; transform: none; }
+        }
+        @media (max-width: 720px) {
+            .alleycat-page .cat-wrap { width: min(100% - 28px, 1180px); }
+            .alleycat-page .cat-hero { padding-top: 28px; }
+            .alleycat-page .cat-back { margin-bottom: 27px; }
+            .alleycat-page .cat-cards { grid-template-columns: 1fr; }
+            .alleycat-page .cat-card { padding: 25px; }
+            .alleycat-page .cat-cta .btn { width: 100%; }
+            .alleycat-page .cat-booking-panel { padding: 15px 9px; border-radius: 18px; }
+            .alleycat-page .cat-frame iframe[data-campai-id] { min-height: 850px; }
+        }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+        #anmeldung { scroll-margin-top: 105px; }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../" aria-label="Zur Startseite des Radsportclub Magdeburg">
+                    <img src="../img/logo.svg" alt="Radsportclub Magdeburg e.V." class="header-logo">
+                    <span class="logo-text">Radsportclub<br><span class="logo-kicker">Magdeburg e.V.</span></span>
+                </a>
+            </div>
+            <button class="menu-trigger" id="menu-trigger" type="button" aria-label="Menü öffnen" aria-controls="main-nav" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+            <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="../#aktuelles">Aktuelles</a></li>
+                    <li><a href="../#events">Termine</a></li>
+                    <li class="has-submenu">
+                        <a href="#anmeldung" class="nav-parent" aria-haspopup="true">
+                            <span>Veranstaltungen</span>
+                            <span class="nav-chevron" aria-hidden="true"></span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="../training/">Funktionelles Training</a></li>
+                            <li><a href="./" aria-current="page">Alley Cat 2027</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../Sponsoren/index.html">Partner</a></li>
+                    <li class="has-submenu">
+                        <a href="../#about" class="nav-parent" aria-haspopup="true">
+                            <span>Über uns</span>
+                            <span class="nav-chevron" aria-hidden="true"></span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="../#about">Unsere Philosophie</a></li>
+                            <li><a href="../ueber-uns/geschichte.html">Vereinsgeschichte</a></li>
+                            <li><a href="../ueber-uns/dokumente.html">Dokumente</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="alleycat-page" id="top">
+        <section class="cat-hero" aria-labelledby="alleycat-title">
+            <div class="cat-wrap">
+                <a class="cat-back" href="../">← Zur Startseite</a>
+                <div class="cat-grid">
+                    <div class="cat-copy">
+                        <div class="cat-kicker">Radsportclub Magdeburg e.V. präsentiert</div>
+                        <h1 class="cat-heading" id="alleycat-title">Winter<span>Alley Cat 2027</span></h1>
+                        <p class="cat-lead">Zeiten ändern sich, aber die Alley Cat bleibt. Nach einem Jahr Pause geht es endlich wieder los – und diesmal auf Pokémon-Jagd durch Magdeburg!</p>
+                        <ul class="cat-facts" aria-label="Veranstaltungsinformationen">
+                            <li><span aria-hidden="true">📅</span> Samstag, 23.01.2027</li>
+                            <li><span aria-hidden="true">📍</span> Magdeburg</li>
+                            <li><span aria-hidden="true">🚲</span> Alley Cat</li>
+                        </ul>
+                        <div class="cat-cta">
+                            <a class="btn btn-primary" href="#anmeldung">Jetzt anmelden</a>
+                            <a class="btn btn-secondary" href="#ablauf">Mehr erfahren</a>
+                        </div>
+                    </div>
+                    <figure class="cat-poster">
+                        <a href="../img/alleycat-2027.jpg" target="_blank" rel="noopener" aria-label="Alley-Cat-Plakat in voller Größe öffnen">
+                            <img src="../img/alleycat-2027.jpg" alt="Offizielles Veranstaltungsplakat zur Winter Alley Cat 2027" fetchpriority="high">
+                        </a>
+                        <figcaption>Veranstaltungsplakat – zum Vergrößern anklicken</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="cat-section cat-section--light" id="ablauf" aria-labelledby="ablauf-title">
+            <div class="cat-wrap">
+                <div class="cat-intro">
+                    <div class="cat-kicker">Das erwartet euch</div>
+                    <h2 class="cat-section-title" id="ablauf-title">Welches Team fängt sie alle?</h2>
+                    <p class="cat-section-sub">Werdet zu Pokémonjägern und holt die kleinen Monster nach Hause. Nicht nur die Geschwindigkeit zählt: Mit einer guten Strategie, cleveren Entscheidungen und etwas Glück kommt ihr ans Ziel.</p>
+                    <div class="cat-team-row" aria-label="Die drei Teams">
+                        <span class="cat-team cat-team--plant">Team Pflanze</span>
+                        <span class="cat-team cat-team--water">Team Wasser</span>
+                        <span class="cat-team cat-team--fire">Team Feuer</span>
+                    </div>
+                </div>
+                <div class="cat-cards">
+                    <article class="cat-card">
+                        <span class="cat-card-number">01 / AUF ZWEI RÄDERN</span>
+                        <h3>Magdeburg entdecken</h3>
+                        <p>Die Stadt wird zum Spielfeld: Auf dem Fahrrad geht ihr auf die Suche nach den kleinen Monstern.</p>
+                    </article>
+                    <article class="cat-card">
+                        <span class="cat-card-number">02 / CLEVER UNTERWEGS</span>
+                        <h3>Die Route zählt</h3>
+                        <p>Überlegt gut, wo ihr zuerst sucht. Die richtige Reihenfolge kann entscheidend sein.</p>
+                    </article>
+                    <article class="cat-card">
+                        <span class="cat-card-number">03 / POKÉMON-JAGD</span>
+                        <h3>Sammeln &amp; tauschen</h3>
+                        <p>Seid schneller als die anderen, sammelt und tauscht – und hofft auf das nötige Quäntchen Glück.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cat-section" id="anmeldung" aria-labelledby="anmeldung-title">
+            <div class="cat-wrap">
+                <div class="cat-intro">
+                    <div class="cat-kicker">Sei dabei</div>
+                    <h2 class="cat-section-title" id="anmeldung-title">Anmeldung zur Alley Cat 2027</h2>
+                    <p class="cat-section-sub">Sichere dir deinen Platz für den 23. Januar 2027. Die Anmeldung sowie gegebenenfalls weitere Angaben zur Buchung findest du direkt hier über Campai.</p>
+                </div>
+                <div class="cat-booking-panel">
+                    <!-- Campai wird erst nach Zustimmung über das bestehende Consent-System geladen. -->
+                    <div id="campai-consent" class="cat-consent">
+                        <h3>Buchung über Campai</h3>
+                        <p>Damit die Anmeldung angezeigt werden kann, erlaube bitte „Campai Buchungssystem“ in den Cookie-Einstellungen. Eine bereits gespeicherte Einwilligung wird automatisch übernommen.</p>
+                        <p>Informationen zum Datenschutz findest du in unserer <a href="../Datenschutz/">Datenschutzerklärung</a>.</p>
+                        <div class="cat-booking-actions">
+                            <button type="button" class="btn btn-primary" id="campai-settings" hidden>Cookie-Einstellungen öffnen</button>
+                        </div>
+                    </div>
+                    <div id="campai-content" hidden>
+                        <p id="campai-status" class="cat-status" role="status" aria-live="polite" hidden></p>
+                        <div id="campai-frame" class="cat-frame"></div>
+                        <button id="campai-manage" type="button" class="cat-manage" hidden>Cookie-Einstellungen ändern</button>
+                    </div>
+                    <p class="cat-booking-help">Du möchtest die Anmeldung lieber in einem eigenen Fenster öffnen oder die Einbettung funktioniert nicht? <a href="https://app.campai.com/em/n3zbu/events/6acfa175d56329ee514b509a" target="_blank" rel="noopener noreferrer">Anmeldung direkt bei Campai öffnen ↗</a></p>
+                    <noscript><p class="cat-booking-help">Für die eingebettete Anmeldung wird JavaScript benötigt. Du kannst stattdessen den Campai-Direktlink oben verwenden.</p></noscript>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-wrap">
+            <div class="footer-links">
+                <a href="../Impressum/">Impressum</a>
+                <span class="pipe">|</span>
+                <a href="../Datenschutz/">Datenschutz</a>
+            </div>
+            <div class="footer-credit">design by <a href="https://r3webdesign.de/projekte/radsportclub-magdeburg/" target="_blank" rel="noopener">r³webdesign</a></div>
+        </div>
+    </footer>
+
+    <script src="../consent.js?v=campai-1"></script>
+    <script src="../script.js"></script>
+    <script>
+        (() => {
+            "use strict";
+            const consent = document.getElementById("campai-consent");
+            const content = document.getElementById("campai-content");
+            const container = document.getElementById("campai-frame");
+            const status = document.getElementById("campai-status");
+            const settings = document.getElementById("campai-settings");
+            const manage = document.getElementById("campai-manage");
+            let started = false;
+
+            function showSettings() {
+                window.RCM_CONSENT?.showSettings?.();
+            }
+            settings.addEventListener("click", showSettings);
+            manage.addEventListener("click", showSettings);
+
+            function updateBooking() {
+                const api = window.RCM_CONSENT;
+                const settingsAvailable = Boolean(window.klaro?.show && api?.visible);
+                settings.hidden = !settingsAvailable;
+                manage.hidden = !settingsAvailable;
+
+                if (api?.campaiAllowed?.() !== true) {
+                    consent.hidden = false;
+                    content.hidden = true;
+                    if (started) {
+                        // Bei einem Widerruf wird das externe Buchungssystem entfernt.
+                        container.replaceChildren();
+                        window.location.reload();
+                    }
+                    return;
+                }
+                if (started) return;
+                started = true;
+                consent.hidden = true;
+                content.hidden = false;
+                status.hidden = true;
+                status.textContent = "";
+
+                // Entspricht der gewünschten Einbettung:
+                // <iframe src="https://app.campai.com/em/n3zbu/events/6acfa175d56329ee514b509a" data-campai-id></iframe>
+                const frame = document.createElement("iframe");
+                frame.src = "https://app.campai.com/em/n3zbu/events/6acfa175d56329ee514b509a";
+                frame.title = "Winter Alley Cat 2027 – Anmeldung über Campai";
+                frame.setAttribute("data-campai-id", "");
+                frame.addEventListener("load", () => {
+                    status.hidden = true;
+                    status.textContent = "";
+                });
+                container.appendChild(frame);
+
+                const script = document.createElement("script");
+                script.src = "https://app.campai.com/scripts/embeddable.js";
+                script.async = true;
+                script.onerror = () => {
+                    status.hidden = false;
+                    status.textContent = "Die eingebettete Anmeldung konnte nicht vollständig geladen werden. Nutze bitte den Campai-Direktlink darunter.";
+                };
+                document.body.appendChild(script);
+            }
+
+            document.addEventListener("rcm-consent-change", updateBooking);
+            updateBooking();
+        })();
+    </script>
+</body>
+</html>
