@@ -2,13 +2,13 @@
   {
     "startDatum": "2026-05-05",
     "frequency": "weekly",
-    "titel": "Social Ride",
+    "titel": "Digital Social Ride",
     "description": "Unsere wöchentliche Rennradausfahrt am Dienstagabend. Gemeinsam fahren, neue Leute kennenlernen und eine gute Zeit auf dem Rad haben. Wir fahren in mehreren Gruppen mit unterschiedlichen Geschwindigkeiten.",
     "time": "18:00 Uhr",
-    "location": "Sternbrücke",
+    "location": "Zwift",
     "kilometer": "ca. 55 - 60",
     "tempo": "29 - 31 / 31 - 34"
-  },
+  }, 
   {
     "startDatum": "2026-05-10",
     "frequency": "weekly",
